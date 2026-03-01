@@ -4,57 +4,74 @@
   <meta charset="UTF-8">
   <title>Portfolio Danielle</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; }
-    h1, h2 { color: #2c3e50; }
-    a { color: #2980b9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    ul { list-style: none; padding-left: 0; }
-    li { margin-bottom: 8px; }
+    body { font-family: 'Arial', sans-serif; background: #f0f2f5; margin: 0; padding: 0; }
+    header { background: #2c3e50; color: #fff; padding: 40px 20px; text-align: center; }
+    h1 { margin: 0; }
+    section { padding: 40px 20px; max-width: 900px; margin: auto; }
+    h2 { color: #2c3e50; border-bottom: 2px solid #2980b9; padding-bottom: 5px; margin-bottom: 20px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card a { text-decoration: none; color: #2980b9; font-weight: bold; }
+    .card a:hover { text-decoration: underline; }
+    p { margin: 10px 0 0 0; font-size: 14px; color: #555; }
   </style>
 </head>
 <body>
+
+<header>
   <h1>Portfolio Danielle</h1>
+  <p>Mes documents et projets interactifs</p>
+</header>
 
+<section>
   <h2>Documents</h2>
-  <ul>
-    <li><a href="Documentation Outil viz.docx" target="_blank">Documentation Outil viz.docx</a></li>
-    <li><a href="My First Board miro.pdf" target="_blank">My First Board miro.pdf</a></li>
-    <li><a href="PHASES DU PROJET AEROWORLD .xlsx" target="_blank">Phases du projet Aeroworld.xlsx</a></li>
-    <li><a href="PRODUCTION_PORTFOLIO.pbix" target="_blank">Production Portfolio.pbix</a></li>
-    <li><a href="analyse_projets_PBI_OPC_13.xlsx" target="_blank">Analyse Projets PBI OPC</a></li>
-  </ul>
+  <div class="cards">
+    <div class="card">
+      <a href="Documentation Outil viz.docx" target="_blank">Documentation Outil viz.docx</a>
+      <p>Document explicatif principal</p>
+    </div>
+    <div class="card">
+      <a href="My First Board miro.pdf" target="_blank">My First Board miro.pdf</a>
+      <p>Planification et board Miro</p>
+    </div>
+    <div class="card">
+      <a href="PHASES DU PROJET AEROWORLD .xlsx" target="_blank">Phases du projet Aeroworld.xlsx</a>
+      <p>Planification du projet</p>
+    </div>
+    <div class="card">
+      <a href="PRODUCTION_PORTFOLIO.pbix" target="_blank">Production Portfolio.pbix</a>
+      <p>Dashboard Power BI</p>
+    </div>
+  </div>
+</section>
 
+<section>
   <h2>Projets</h2>
-  <ul>
-    <li>
-      <strong>Projet 10 – Eau potable</strong>
-      <ul>
-        <li><a href="../projets/projets/projet-10-dwfa-eau-potable/P10_1302OK.twbx" target="_blank">P10_1302OK.twbx</a></li>
-        <li><a href="../projets/projets/projet-10-dwfa-eau-potable/P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" target="_blank">Présentation Eau potable</a></li>
-      </ul>
-    </li>
+  <div class="cards">
+    <div class="card">
+      <a href="../projets/projets/projet-10-dwfa-eau-potable/P10_1302OK.twbx" target="_blank">Projet 10 – Eau potable</a>
+      <p>Fichier Tableau Workbook (téléchargement)</p>
+    </div>
+    <div class="card">
+      <a href="../projets/projets/projet-11-etude-marche/Produisez_une_étude_de_marché_avec_R_ou_P.pptx" target="_blank">Projet 11 – Étude marché</a>
+      <p>Présentation PowerPoint</p>
+    </div>
+    <div class="card">
+      <a href="../projets/projets/projet-12-detection-faux-billets/faux_billets (1).ipynb" target="_blank">Projet 12 – Détection faux billets</a>
+      <p>Notebook Python/R</p>
+    </div>
+  </div>
+</section>
 
-    <li>
-      <strong>Projet 11 – Étude marché</strong>
-      <ul>
-        <li><a href="../projets/projets/projet-11-etude-marche/ETUDE DE MARCHE.ipynb" target="_blank">Notebook R/Python</a></li>
-        <li><a href="../projets/projets/projet-11-etude-marche/Produisez_une_étude_de_marché_avec_R_ou_P.pptx" target="_blank">Présentation Étude marché</a></li>
-      </ul>
-    </li>
-
-    <li>
-      <strong>Projet 12 – Détection faux billets</strong>
-      <ul>
-        <li><a href="../projets/projets/projet-12-detection-faux-billets/Détectez_des_faux_billets_avec_R_ou_Python.pptm" target="_blank">Présentation faux billets</a></li>
-        <li><a href="../projets/projets/projet-12-detection-faux-billets/faux_billets (1).ipynb" target="_blank">Notebook R/Python</a></li>
-      </ul>
-    </li>
-  </ul>
-
+<section>
   <h2>Liens</h2>
-  <ul>
-    <li><a href="../liens/links.md" target="_blank">Links.md</a></li>
-  </ul>
+  <div class="cards">
+    <div class="card">
+      <a href="../liens/links.md" target="_blank">Links.md</a>
+      <p>Liens interactifs et ressources</p>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
