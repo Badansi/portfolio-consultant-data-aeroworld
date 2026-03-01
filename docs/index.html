@@ -9,16 +9,25 @@
     header h1 { margin: 0; font-size: 2.5em; }
     header p { font-size: 1.2em; color: #ddd; margin-top: 10px; }
 
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    h2 { color: #2c3e50; border-bottom: 3px solid #2980b9; padding-bottom: 5px; margin-bottom: 20px; }
+    section { padding: 40px 20px; max-width: 1000px; margin: auto; border-radius: 10px; margin-bottom: 40px; }
+    h2 { padding-bottom: 5px; margin-bottom: 20px; color: #fff; padding-left: 10px; border-radius: 5px; }
 
     .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
     .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
 
-    .card a { text-decoration: none; color: #2980b9; font-weight: bold; }
+    .card a { text-decoration: none; color: #2980b9; font-weight: bold; display: block; margin-bottom: 5px; }
     .card a:hover { text-decoration: underline; }
-    .card p { margin: 10px 0 0 0; font-size: 14px; color: #555; }
+    .card p { margin: 0; font-size: 14px; color: #555; }
+
+    /* Couleurs des sections projets */
+    #p10 h2 { background-color: #3498db; }
+    #p11 h2 { background-color: #e67e22; }
+    #p12 h2 { background-color: #9b59b6; }
+
+    /* Couleur pour documents et liens */
+    #documents h2 { background-color: #16a085; }
+    #liens h2 { background-color: #c0392b; }
   </style>
 </head>
 <body>
@@ -29,7 +38,7 @@
 </header>
 
 <!-- DOCUMENTS -->
-<section>
+<section id="documents">
   <h2>Documents</h2>
   <div class="cards">
     <div class="card"><a href="Documentation Outil viz.docx" target="_blank">Documentation Outil viz.docx</a></div>
@@ -40,38 +49,50 @@
   </div>
 </section>
 
-<!-- PROJETS -->
-<section>
-  <h2>Projets</h2>
+<!-- PROJET 10 -->
+<section id="p10">
+  <h2>Projet 10 – Eau potable</h2>
   <div class="cards">
     <div class="card">
-      <a href="projets/projets/projet-10-dwfa-eau-potable/P10_1302OK.twbx" target="_blank">Projet 10 – Eau potable</a>
-      <p>Tableau Workbook</p>
-      <a href="projets/projets/projet-10-dwfa-eau-potable/P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" target="_blank">Présentation</a>
+      <a href="P10_1302OK.twbx" target="_blank">Fichier Tableau (.twbx)</a>
+      <a href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" target="_blank">Présentation (.pptx)</a>
     </div>
+  </div>
+</section>
+
+<!-- PROJET 11 -->
+<section id="p11">
+  <h2>Projet 11 – Étude marché</h2>
+  <div class="cards">
     <div class="card">
-      <a href="projets/projets/projet-11-etude-marche/ETUDE DE MARCHE.ipynb" target="_blank">Projet 11 – Étude marché</a>
-      <p>Notebook R/Python</p>
-      <a href="projets/projets/projet-11-etude-marche/Produisez_une_étude_de_marché_avec_R_ou_P.pptx" target="_blank">Présentation</a>
+      <a href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" target="_blank">Notebook (.ipynb)</a>
+      <a href="OPC11_Notebook _2 _PCA _+_clustering_03_01_2026.ipynb" target="_blank">Notebook PCA/Clustering (.ipynb)</a>
+      <a href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" target="_blank">Présentation (.pptx)</a>
     </div>
+  </div>
+</section>
+
+<!-- PROJET 12 -->
+<section id="p12">
+  <h2>Projet 12 – Détection faux billets</h2>
+  <div class="cards">
     <div class="card">
-      <a href="projets/projets/projet-12-detection-faux-billets/faux_billets (1).ipynb" target="_blank">Projet 12 – Détection faux billets</a>
-      <p>Notebook Python/R</p>
-      <a href="projets/projets/projet-12-detection-faux-billets/Détectez_des_faux_billets_avec_R_ou_Python.pptm" target="_blank">Présentation</a>
+      <a href="faux_billets (1).ipynb" target="_blank">Notebook Python/R (.ipynb)</a>
+      <a href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" target="_blank">Présentation (.pptm)</a>
     </div>
   </div>
 </section>
 
 <!-- LIENS INTERACTIFS -->
-<section>
+<section id="liens">
   <h2>Liens interactifs</h2>
   <div class="cards">
     <div class="card">
-      <a href="https://www.figma.com/board/WBx5qxpm6WGJX3XIBXAz12/AEROWORLD?node-id=0-1&p=f&t=DgYLoHg88LSqa5PP-0" target="_blank">Voir le design Figma</a>
+      <a href="https://www.figma.com/board/WBx5qxpm6WGJX3XIBXAz12/AEROWORLD?node-id=0-1&p=f&t=oNC0E5hpAVCothiY-0" target="_blank">Voir le design Figma</a>
       <p>Mock-up Figma</p>
     </div>
     <div class="card">
-      <a href="https://www.loom.com/share/3bd7fa81bce84ea0b694c1757bf474d6">Regarder la vidéo Loom</a>
+      <a href="https://www.loom.com/share/3bd7fa81bce84ea0b694c1757bf474d6" target="_blank">Regarder la vidéo Loom</a>
       <p>Vidéo explicative</p>
     </div>
   </div>
