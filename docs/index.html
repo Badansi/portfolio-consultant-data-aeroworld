@@ -5,46 +5,186 @@
 <title>Portfolio Danielle | Data Analyst</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-body{margin:0;font-family:Arial;background:#0f172a;color:white;overflow-x:hidden;}
-canvas#network{position:fixed;top:0;left:0;z-index:-1;}
-nav{position:fixed;top:0;width:100%;background:#1e293b;padding:15px;text-align:center;z-index:1000;}
-nav a{color:white;margin:0 12px;text-decoration:none;font-weight:bold;}
-nav a:hover{color:#38bdf8;}
-header{text-align:center;padding:120px 20px 60px;}
-header h1{font-size:42px;margin:0;}
-header p{font-size:18px;color:#cbd5e1;}
-section{max-width:1100px;margin:auto;padding:60px 20px;}
-h2{border-left:6px solid #38bdf8;padding-left:10px;margin-bottom:30px;}
-.profil{display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
-.profil img{width:180px;border-radius:50%;border:4px solid #38bdf8;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;}
-.card,.project{background:#b9b3f0;padding:15px;border-radius:12px;transition:0.3s; font-size:14px;color:#1e293b;}
-.card:hover,.project:hover{transform:translateY(-6px);background:#c6c0f5;}
-.project{position:relative;overflow:hidden;cursor:pointer;}
-.project img{width:100%;height:120px;object-fit:cover;}
-.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:0.3s;text-align:center;padding:10px;color:white;}
-.project:hover .overlay{opacity:1;}
-.btn{background:#38bdf8;padding:6px 12px;border-radius:5px;color:white;text-decoration:none;margin-top:8px;font-weight:bold;font-size:13px;}
-.timeline{position:relative;max-width:900px;margin:auto;}
-.timeline::after{content:'';position:absolute;width:4px;background:#38bdf8;top:0;bottom:0;left:50%;}
-.timeline-item{padding:15px 20px;position:relative;width:50%;}
-.timeline-item:nth-child(odd){left:0;}
-.timeline-item:nth-child(even){left:50%;}
-.timeline-content{background:#b9b3f0;padding:15px;border-radius:10px;color:#1e293b;}
-.contact{text-align:center;padding:40px;}
-.contact a{color:#38bdf8;}
-.modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:2000;}
-.modal-content{background:#b9b3f0;padding:20px;border-radius:12px;max-width:700px;width:90%;max-height:90%;overflow:auto;position:relative;color:#1e293b;}
-.modal-close{position:absolute;top:10px;right:15px;color:#38bdf8;font-size:24px;cursor:pointer;}
-canvas.projectChart{margin-top:15px;}
-.file-list a{display:block;color:#38bdf8;margin:3px 0;text-decoration:none;font-size:13px;}
-.file-list a:hover{text-decoration:underline;}
-.project-tech{position:absolute;font-size:12px;color:#38bdf8;font-weight:bold;opacity:0.6;pointer-events:none;}
+/* --- BODY ET FOND INTERACTIF --- */
+body {
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f172a;
+  color:white;
+  overflow-x:hidden;
+}
+canvas#network {
+  position:fixed;
+  top:0; left:0;
+  z-index:-1;
+}
+.screen-reader-only {
+  position:absolute;
+  left:-9999px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+/* --- NAVIGATION --- */
+nav {
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#1e293b;
+  padding:15px;
+  text-align:center;
+  z-index:1000;
+}
+nav a {
+  color:white;
+  margin:0 15px;
+  text-decoration:none;
+  font-weight:bold;
+}
+nav a:hover { color:#38bdf8; }
+
+/* --- HEADER --- */
+header {
+  text-align:center;
+  padding:120px 20px 60px;
+}
+header h1 { font-size:42px; margin:0; }
+header p { font-size:18px; color:#cbd5e1; }
+
+/* --- SECTIONS --- */
+section {
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+}
+h2 {
+  border-left:6px solid #38bdf8;
+  padding-left:10px;
+}
+
+/* --- PROFIL --- */
+.profil {
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.profil img {
+  width:180px;
+  border-radius:50%;
+  border:4px solid #38bdf8;
+}
+
+/* --- CARDS --- */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.card, .project {
+  background:#b9a9f2; /* bleu lavande */
+  padding:20px;
+  border-radius:12px;
+  transition:0.3s;
+}
+.card:hover, .project:hover { transform:translateY(-5px); background:#a591e0; }
+.project { position:relative; overflow:hidden; cursor:pointer; }
+.project img {
+  width:100%; height:150px; object-fit:cover;
+}
+.overlay {
+  position:absolute; top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.85);
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  opacity:0; transition:0.3s;
+  text-align:center; padding:10px;
+}
+.project:hover .overlay { opacity:1; }
+.btn {
+  background:#38bdf8;
+  padding:8px 14px;
+  border-radius:5px;
+  color:white;
+  text-decoration:none;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+/* --- TIMELINE PARCOURS --- */
+.timeline {
+  position:relative;
+  max-width:900px;
+  margin:auto;
+}
+.timeline::after {
+  content:'';
+  position:absolute;
+  width:4px;
+  background:#38bdf8;
+  top:0;
+  bottom:0;
+  left:50%;
+}
+.timeline-item {
+  padding:20px 40px;
+  position:relative;
+  width:50%;
+}
+.timeline-item:nth-child(odd) { left:0; }
+.timeline-item:nth-child(even) { left:50%; }
+.timeline-content {
+  background:#1e293b;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* --- CONTACT --- */
+.contact { text-align:center; padding:40px; }
+.contact a { color:#38bdf8; }
+
+/* --- MODAL PROJETS --- */
+.modal-bg {
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:2000;
+}
+.modal-content {
+  background:#1e293b;
+  padding:30px;
+  border-radius:12px;
+  max-width:700px; width:90%;
+  max-height:90%; overflow:auto;
+  position:relative;
+}
+.modal-close {
+  position:absolute; top:10px; right:15px;
+  color:#38bdf8;
+  font-size:24px;
+  cursor:pointer;
+}
+canvas.projectChart { margin-top:20px; }
+.file-list a {
+  display:block; color:#38bdf8; margin:5px 0; text-decoration:none;
+}
+.file-list a:hover { text-decoration:underline; }
+
 </style>
 </head>
 <body>
 
 <canvas id="network"></canvas>
+<div class="screen-reader-only">
+Technologies affichées en arrière-plan : SQL, Python, Power BI, Tableau, R, Excel, Dash, ML, Cloud, Big Data, PyTorch, Machine Learning, Prediction
+</div>
 
 <nav>
 <a href="#profil">Profil</a>
@@ -67,10 +207,10 @@ canvas.projectChart{margin-top:15px;}
 <section id="profil">
 <h2>Profil</h2>
 <div class="profil">
-<img src="photo_profil.jpg">
+<img src="photo_profil.jpg" alt="Photo de Danielle Chancerelle, Data Analyst">
 <div>
 <p>Data Analyst spécialisée dans l'analyse de données chiffrées, statistiques et actuarielles pour soutenir la prise de décision.</p>
-<p>Actuellement chez CAVOM, j’analyse les données métiers, réalise des études statistiques et actuarielles et collabore avec les équipes métiers.</p>
+<p>Au sein de la CAVOM, j’analyse des données métiers, réalise des études statistiques et actuarielles et collabore avec les équipes métiers.</p>
 <p><a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">Voir mon LinkedIn</a></p>
 </div>
 </div>
@@ -85,8 +225,8 @@ canvas.projectChart{margin-top:15px;}
 <!-- EXPERIENCE -->
 <section id="experience">
 <h2>Expérience</h2>
-<div class="card">
-<h3>CAVOM – Caisse d’Assurance Vieillesse des Officiers Ministériels</h3>
+<div class="card" role="region" aria-labelledby="expTitle">
+<h3 id="expTitle">CAVOM – Chargé d’études actuarielles</h3>
 <ul>
 <li>Analyse de données chiffrées et statistiques</li>
 <li>Études statistiques et actuarielles</li>
@@ -94,7 +234,7 @@ canvas.projectChart{margin-top:15px;}
 <li>Production de dashboards et reportings Power BI</li>
 <li>Échanges avec les équipes métiers</li>
 <li>Participation aux projets de migration RGCU</li>
-<li>Alternance et poste actuel : Chargé de mission MOA, analyse approfondie des outils internes et suivi opérationnel.</li>
+<li>Alternance et poste actuel : analyse approfondie des outils internes et suivi opérationnel</li>
 </ul>
 </div>
 </section>
@@ -106,17 +246,17 @@ canvas.projectChart{margin-top:15px;}
 <div class="card">
 <h4>OpenClassrooms | Data Processing</h4>
 <p>Nov. 2023 – Nov. 2025</p>
-<p>SQL, nettoyage de données, visualisation Tableau / Google Data Studio, modélisation Python, analyse des ventes, interrogation statistique.</p>
+<p>SQL, nettoyage, visualisation Tableau / Google Data Studio, modélisation Python, analyse des ventes, interrogation statistique</p>
 </div>
 <div class="card">
 <h4>DataBird | Data Analyst</h4>
 <p>Mai 2023 – Oct. 2023</p>
-<p>Python, SQL, data cleaning, dashboards Tableau / Google Data Studio, Google Analytics, data storytelling.</p>
+<p>Python, SQL, data cleaning, dashboards Tableau / Google Data Studio, Google Analytics, data storytelling</p>
 </div>
 <div class="card">
 <h4>École O'clock | Développeur Web Back-end</h4>
 <p>Oct. 2022 – Fév. 2023</p>
-<p>HTML, CSS, JS, NodeJS, PostgreSQL, certification CCP2 Web & développeur web mobile.</p>
+<p>HTML, CSS, JS, NodeJS, PostgreSQL, certification CCP2 Web & développeur web mobile</p>
 </div>
 </div>
 </section>
@@ -135,27 +275,27 @@ canvas.projectChart{margin-top:15px;}
 <section id="projets">
 <h2>Projets</h2>
 <div class="cards">
-<div class="project" onclick="openModal('Dashboard Eau Potable','Dashboard interactif pour priorisation des actions eau potable.','photo_p10.jpg',['P10_1302OK.twbx','P10_OPC_Faites_une_étude_sur_l\'eau_potable_pres.pptx'],[92,75,80,85])">
-<img src="photo_p10.jpg">
+<div class="project" role="button" tabindex="0" aria-label="Projet Dashboard Eau Potable" onclick="openModal('Dashboard Eau Potable','Dashboard interactif pour priorisation des actions eau potable.','photo_p10.jpg',['P10_1302OK.twbx','P10_OPC_Faites_une_étude_sur_l\'eau_potable_pres.pptx'],[92,75,80,85])" onkeypress="if(event.key==='Enter'){openModal('Dashboard Eau Potable','Dashboard interactif pour priorisation des actions eau potable.','photo_p10.jpg',['P10_1302OK.twbx','P10_OPC_Faites_une_étude_sur_l\'eau_potable_pres.pptx'],[92,75,80,85]);}">
+<img src="photo_p10.jpg" alt="Dashboard Eau Potable projet 10">
 <div class="overlay"><h3>Dashboard Eau Potable</h3><p>Cliquez pour détails</p></div>
 </div>
 
-<div class="project" onclick="openModal('Étude de Marché','Analyse stratégique d’un marché cible avec recommandations.','photo_p11.jpg',['CLEAN_ETUDE_DE_MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb','OPC11_Notebook _2 _PCA _+_clustering_03_01_2026.ipynb','Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx'],[88,85,90,80])">
-<img src="photo_p11.jpg">
+<div class="project" role="button" tabindex="0" aria-label="Étude de Marché" onclick="openModal('Étude de Marché','Analyse stratégique d’un marché cible avec recommandations.','photo_p11.jpg',['CLEAN_ETUDE_DE_MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb','OPC11_Notebook _2 _PCA _+_clustering_03_01_2026.ipynb','Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx'],[88,85,90,80])">
+<img src="photo_p11.jpg" alt="Projet Étude de marché">
 <div class="overlay"><h3>Étude de Marché</h3><p>Cliquez pour détails</p></div>
 </div>
 
-<div class="project" onclick="openModal('Faux Billets ML','Machine Learning pour détecter faux billets.','photo_p12.jpg',['faux_billets (1).ipynb','Détectez_des_faux_billets_avec_R_ou_Python.pptm'],[90,80,85,88])">
-<img src="photo_p12.jpg">
+<div class="project" role="button" tabindex="0" aria-label="Faux Billets ML" onclick="openModal('Faux Billets ML','Machine Learning pour détecter faux billets.','photo_p12.jpg',['faux_billets (1).ipynb','Détectez_des_faux_billets_avec_R_ou_Python.pptm'],[90,80,85,88])">
+<img src="photo_p12.jpg" alt="Projet Détection Faux Billets ML">
 <div class="overlay"><h3>Faux Billets ML</h3><p>Cliquez pour détails</p></div>
 </div>
 </div>
 </section>
 
 <!-- MODAL PROJETS -->
-<div id="modal" class="modal-bg">
+<div id="modal" class="modal-bg" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
 <div class="modal-content">
-<span class="modal-close" onclick="closeModal()">&times;</span>
+<span class="modal-close" role="button" aria-label="Fermer la fenêtre modale" onclick="closeModal()">&times;</span>
 <h3 id="modalTitle"></h3>
 <img id="modalImg" src="" style="width:100%; border-radius:8px; margin:15px 0;">
 <p id="modalDesc"></p>
@@ -194,7 +334,7 @@ canvas.projectChart{margin-top:15px;}
 </section>
 
 <script>
-/* RADAR COMPETENCES */
+/* --- RADAR COMPETENCES --- */
 new Chart(document.getElementById("skillsChart"),{
 type:"radar",
 data:{labels:["SQL","Python","Statistiques","Machine Learning","Power BI","Visualisation"],
@@ -202,7 +342,7 @@ datasets:[{label:"Compétences",data:[85,80,75,70,85,90],backgroundColor:"rgba(5
 options:{scales:{r:{beginAtZero:true}}}
 });
 
-/* MODAL PROJETS */
+/* --- MODAL PROJETS --- */
 let projectChart=null;
 function openModal(title,desc,img,files,data){
   document.getElementById('modalTitle').innerText=title;
@@ -210,7 +350,11 @@ function openModal(title,desc,img,files,data){
   document.getElementById('modalImg').src=img;
   const list=document.getElementById('fileList');
   list.innerHTML='';
-  files.forEach(f=>{let a=document.createElement('a');a.href=f;a.target='_blank';a.download=f;a.textContent=f;list.appendChild(a);});
+  files.forEach(f=>{
+    let a=document.createElement('a');
+    a.href=f; a.target='_blank'; a.download=f; a.textContent=f;
+    list.appendChild(a);
+  });
   document.getElementById('modal').style.display='flex';
   document.getElementById('modalBtn').href='https://github.com/Badansi/portfolio-consultant-data-aeroworld';
   if(projectChart) projectChart.destroy();
@@ -222,28 +366,31 @@ function openModal(title,desc,img,files,data){
 }
 function closeModal(){document.getElementById('modal').style.display='none';}
 
-/* FOND RESEAU DATA AVEC TECHNOS ET MOTS */
+/* --- FOND RESEAU DATA --- */
 const canvas=document.getElementById("network");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let particles=[];
-const techs=['SQL','Python','PowerBI','Tableau','R','Excel','Dash','ML','Cloud','Big Data','PyTorch','Machine Learning','Prediction'];
+const techWords=["SQL","Python","Power BI","Tableau","R","Excel","Dash","ML","Cloud","Big Data","PyTorch","Machine Learning","Prediction"];
 for(let i=0;i<120;i++){
-  particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5),label:techs[Math.floor(Math.random()*techs.length)]});
+  particles.push({
+    x:Math.random()*canvas.width,
+    y:Math.random()*canvas.height,
+    vx:(Math.random()-0.5),
+    vy:(Math.random()-0.5),
+    text:techWords[Math.floor(Math.random()*techWords.length)]
+  });
 }
 function animate(){
   ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.font="14px Arial";
+  ctx.fillStyle="#38bdf8";
   particles.forEach(p=>{
-    p.x+=p.vx;p.y+=p.vy;
+    p.x+=p.vx; p.y+=p.vy;
     if(p.x<0||p.x>canvas.width)p.vx*=-1;
     if(p.y<0||p.y>canvas.height)p.vy*=-1;
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,3,0,Math.PI*2);
-    ctx.fillStyle="#38bdf8";ctx.fill();
-    ctx.fillStyle="rgba(56,189,248,0.7)";
-    ctx.font="12px Arial";
-    ctx.fillText(p.label,p.x+5,p.y+5);
+    ctx.fillText(p.text,p.x,p.y);
   });
   requestAnimationFrame(animate);
 }
