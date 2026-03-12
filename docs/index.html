@@ -5,18 +5,18 @@
 <title>Portfolio Danielle | Data Analyst</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* --- FOND ANIME --- */
-body, html{margin:0;padding:0;font-family:Arial;overflow-x:hidden;height:100%;}
+/* --- FOND BLEU FONCE ANIME --- */
+body, html{margin:0;padding:0;font-family:Arial;overflow-x:hidden;height:100%;background:#0d1b2a;}
 #bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
 
 /* --- CONTENU PRINCIPAL --- */
-.content{position:relative;z-index:1;}
-header{background:transparent;color:white;text-align:center;padding:80px 20px;}
+.content{position:relative;z-index:1;padding-top:20px;}
+header{color:white;text-align:center;padding:60px 20px;}
 header h1{font-size:42px;margin:0;}
 header p{font-size:18px;margin-top:10px;}
 
 /* --- SECTIONS --- */
-section{max-width:1100px;margin:auto;padding:60px 20px;background:rgba(255,255,255,0.9);border-radius:12px;margin-bottom:40px;opacity:0;transform:translateY(30px);transition:all 0.8s ease-in-out;}
+section{max-width:1100px;margin:auto;padding:60px 20px;background:rgba(255,255,255,0.95);border-radius:12px;margin-bottom:40px;opacity:0;transform:translateY(30px);transition:all 0.8s ease-in-out;}
 section.visible{opacity:1;transform:translateY(0);}
 h2{border-left:6px solid #3b82f6;padding-left:10px;margin-bottom:25px;}
 
@@ -46,10 +46,10 @@ h2{border-left:6px solid #3b82f6;padding-left:10px;margin-bottom:25px;}
 canvas.projectChart{margin-top:20px;}
 .file-list a{display:block;color:#3b82f6;margin:5px 0;text-decoration:none;}
 .file-list a:hover{text-decoration:underline;}
-.logo-formation{width:50px;height:50px;border-radius:8px;object-fit:contain;margin-right:15px;}
-.formation-item{display:flex;align-items:center;margin-bottom:20px;transition:0.5s;opacity:0;transform:translateX(-30px);}
+.iframe-preview{width:100%;height:400px;border:1px solid #3b82f6;border-radius:8px;margin-top:15px;}
+.formation-item{background:white;padding:15px;border-radius:8px;box-shadow:0 3px 8px rgba(0,0,0,0.1);transition:0.5s;opacity:0;transform:translateX(-30px);}
 .formation-item.visible{opacity:1;transform:translateX(0);}
-iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radius:8px;margin-top:15px;}
+.section-header{margin-bottom:25px;}
 </style>
 </head>
 <body>
@@ -76,49 +76,36 @@ iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radi
 </div>
 </section>
 
-<!-- COMPETENCES -->
-<section id="competences">
-<h2>Compétences</h2>
-<canvas id="skillsChart"></canvas>
-</section>
-
-<!-- EXPERIENCES & FORMATIONS -->
-<section id="experiences-formations">
-<h2>Expériences & Formations</h2>
-<div class="cards">
+<!-- POSTE ACTUEL -->
+<section id="poste-actuel">
+<h2>Poste actuel</h2>
 <div class="card formation-item">
-<h3>Poste actuel: Data Analyst – CAVOM</h3>
+<h3>Chargé d’études actuarielles – CAVOM</h3>
 <ul>
-<li>Analyses chiffrées et actuarielles</li>
+<li>Analyses statistiques et actuarielles</li>
 <li>SQL, Excel, Python</li>
 <li>Production dashboards Power BI</li>
-<li>Échanges avec les métiers, reporting et études statistiques</li>
-<li>Participation projets de migration RGCU</li>
+<li>Échanges avec les métiers, reporting et études</li>
+<li>Participation à des projets de migration RGCU</li>
 </ul>
 </div>
-<div class="card formation-item">
-<img src="logo_openclassrooms.png" class="logo-formation">
-<div>
-<h4>OpenClassrooms | Data Analyst</h4>
-<p>Nov. 2023 – Nov. 2025</p>
-<p>SQL, nettoyage et traitement de données, visualisation Tableau / Google Data Studio, modélisation Python, analyse statistique et commerciale.</p>
+</section>
+
+<!-- FORMATIONS -->
+<section id="formations">
+<h2>Formations</h2>
+<div class="cards">
+<div class="formation-item">
+<h4>OpenClassrooms – Data Analyst</h4>
+<p>Nov. 2023 – Nov. 2025 | SQL, nettoyage de données, Tableau / Google Data Studio, Python, analyse statistique</p>
 </div>
+<div class="formation-item">
+<h4>DataBird – Data Analyst</h4>
+<p>Mai 2023 – Oct. 2023 | Python, SQL, dashboards, Google Analytics, data storytelling</p>
 </div>
-<div class="card formation-item">
-<img src="logo_databird.png" class="logo-formation">
-<div>
-<h4>DataBird | Data Analyst</h4>
-<p>Mai 2023 – Oct. 2023</p>
-<p>Python, SQL, dashboards Tableau/Google Data Studio, Google Analytics, data storytelling, data cleaning.</p>
-</div>
-</div>
-<div class="card formation-item">
-<img src="logo_oclock.png" class="logo-formation">
-<div>
-<h4>École O'clock | Développeur Web Back-end</h4>
-<p>Oct. 2022 – Fév. 2023</p>
-<p>HTML, CSS, JS, NodeJS, PostgreSQL, certification CCP2 Web & développeur web mobile.</p>
-</div>
+<div class="formation-item">
+<h4>École O'clock – Développeur Web Back-end</h4>
+<p>Oct. 2022 – Fév. 2023 | HTML, CSS, JS, NodeJS, PostgreSQL, certification CCP2 Web & Développeur Web Mobile</p>
 </div>
 </div>
 </section>
@@ -127,7 +114,7 @@ iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radi
 <section id="parcours">
 <h2>Parcours</h2>
 <div class="timeline">
-<div class="timeline-item"><div class="timeline-content"><h3>Data Analyst – CAVOM</h3><p>Analyse chiffrée et actuarielle</p></div></div>
+<div class="timeline-item"><div class="timeline-content"><h3>Chargé d’études actuarielles – CAVOM</h3><p>Analyse chiffrée et actuarielle</p></div></div>
 <div class="timeline-item"><div class="timeline-content"><h3>Formation Data Analyst – OpenClassrooms</h3><p>SQL, Python, Tableau, analyse de données</p></div></div>
 <div class="timeline-item"><div class="timeline-content"><h3>Formation Développeur Web – École O'clock</h3><p>Back-end & développement web</p></div></div>
 </div>
@@ -152,7 +139,7 @@ iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radi
 </div>
 </section>
 
-<!-- MODAL PROJETS -->
+<!-- MODAL -->
 <div id="modal" class="modal-bg">
 <div class="modal-content">
 <span class="modal-close" onclick="closeModal()">&times;</span>
@@ -160,7 +147,7 @@ iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radi
 <img id="modalImg" src="" style="width:100%;border-radius:8px;margin:15px 0;">
 <p id="modalDesc"></p>
 <div class="file-list" id="fileList"></div>
-<iframe id="filePreview" class="preview-file" src="" style="display:none;"></iframe>
+<iframe id="filePreview" class="iframe-preview" src="" style="display:none;"></iframe>
 <canvas id="projectChart" class="projectChart"></canvas>
 <a id="modalBtn" href="#" class="btn" target="_blank">Voir le projet GitHub</a>
 </div>
@@ -174,63 +161,39 @@ iframe.preview-file{width:100%;height:400px;border:1px solid #3b82f6;border-radi
 </section>
 
 <script>
-/* --- FOND ANIME BUBBLES --- */
-const canvas=document.getElementById('bgCanvas');
-const ctx=canvas.getContext('2d');
-let w=canvas.width=window.innerWidth;
-let h=canvas.height=window.innerHeight;
+/* FOND ANIME BLEU FONCE */
+const canvas=document.getElementById('bgCanvas');const ctx=canvas.getContext('2d');
+let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;
 const techs=['SQL','Python','Tableau','Power BI','Excel','R'];
-class Bubble{
-  constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=30+Math.random()*40;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;this.text=techs[Math.floor(Math.random()*techs.length)];}
-  draw(){ctx.fillStyle='rgba(59,130,246,0.2)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.font='bold 16px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(this.text,this.x,this.y);}
-  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w)this.speedX*=-1;if(this.y<0||this.y>h)this.speedY*=-1;this.draw();}
-}
+class Bubble{constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=30+Math.random()*40;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;this.text=techs[Math.floor(Math.random()*techs.length)];}draw(){ctx.fillStyle='rgba(59,130,246,0.2)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.font='bold 16px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(this.text,this.x,this.y);}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w)this.speedX*=-1;if(this.y<0||this.y>h)this.speedY*=-1;this.draw();}}
 let bubbles=[];for(let i=0;i<25;i++)bubbles.push(new Bubble());
 function animate(){ctx.clearRect(0,0,w,h);bubbles.forEach(b=>b.update());requestAnimationFrame(animate);}
 animate();
 window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight});
 
 /* RADAR COMPETENCES */
-new Chart(document.getElementById("skillsChart"),{
-type:"radar",
-data:{labels:["SQL","Python","Statistiques","Actuariat","Power BI","Visualisation"],datasets:[{label:"Compétences",data:[85,80,75,70,85,90],backgroundColor:"rgba(59,130,246,0.2)",borderColor:"#3b82f6"}]},
-options:{scales:{r:{beginAtZero:true}}}
-});
+new Chart(document.getElementById("skillsChart"),{type:"radar",data:{labels:["SQL","Python","Statistiques","Actuariat","Power BI","Visualisation"],datasets:[{label:"Compétences",data:[85,80,75,70,85,90],backgroundColor:"rgba(59,130,246,0.2)",borderColor:"#3b82f6"}]},options:{scales:{r:{beginAtZero:true}}}});
 
-/* MODAL PROJETS avec preview */
+/* MODAL PROJETS */
 let projectChart=null;
 function openModal(title,desc,img,files,data,preview){
-  document.getElementById('modalTitle').innerText=title;
-  document.getElementById('modalDesc').innerText=desc;
-  document.getElementById('modalImg').src=img;
-  const list=document.getElementById('fileList');
-  list.innerHTML='';
-  files.forEach(f=>{
-    let a=document.createElement('a');a.href=f;a.target='_blank';a.download=f;a.textContent=f;list.appendChild(a);
-  });
-  const iframe=document.getElementById('filePreview');
-  if(preview.endsWith('.ipynb')){
-    iframe.src="https://nbviewer.org/github/Badansi/portfolio-consultant-data-aeroworld/blob/main/"+encodeURIComponent(preview);
-    iframe.style.display="block";
-  }else if(preview.endsWith('.pdf')||preview.endsWith('.pptx')||preview.endsWith('.pptm')){
-    iframe.src=preview;
-    iframe.style.display="block";
-  } else iframe.style.display="none";
-  document.getElementById('modal').style.display='flex';
-  document.getElementById('modalBtn').href='https://github.com/Badansi/portfolio-consultant-data-aeroworld';
-  if(projectChart) projectChart.destroy();
-  projectChart=new Chart(document.getElementById('projectChart'),{
-    type:'bar',
-    data:{labels:['KPI1','KPI2','KPI3','KPI4'],datasets:[{label:'Performance',data:data,backgroundColor:'#3b82f6'}]},
-    options:{responsive:true,plugins:{legend:{display:false}}}
-  });
+document.getElementById('modalTitle').innerText=title;
+document.getElementById('modalDesc').innerText=desc;
+document.getElementById('modalImg').src=img;
+const list=document.getElementById('fileList');list.innerHTML='';
+files.forEach(f=>{let a=document.createElement('a');a.href=f;a.target='_blank';a.download=f;a.textContent=f;list.appendChild(a);});
+const iframe=document.getElementById('filePreview');
+if(preview.endsWith('.ipynb')){iframe.src="https://nbviewer.org/github/Badansi/portfolio-consultant-data-aeroworld/blob/main/"+encodeURIComponent(preview);iframe.style.display="block";}
+else if(preview.endsWith('.pdf')||preview.endsWith('.pptx')||preview.endsWith('.pptm')){iframe.src=preview;iframe.style.display="block";} else iframe.style.display="none";
+document.getElementById('modal').style.display='flex';
+document.getElementById('modalBtn').href='https://github.com/Badansi/portfolio-consultant-data-aeroworld';
+if(projectChart) projectChart.destroy();
+projectChart=new Chart(document.getElementById('projectChart'),{type:'bar',data:{labels:['KPI1','KPI2','KPI3','KPI4'],datasets:[{label:'Performance',data:data,backgroundColor:'#3b82f6'}]},options:{responsive:true,plugins:{legend:{display:false}}}});
 }
 function closeModal(){document.getElementById('modal').style.display='none';}
 
-/* ANIMATIONS AU SCROLL */
-const observer=new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});
-},{threshold:0.2});
+/* ANIMATION AU SCROLL */
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.2});
 document.querySelectorAll('section').forEach(s=>observer.observe(s));
 document.querySelectorAll('.formation-item').forEach(f=>observer.observe(f));
 </script>
