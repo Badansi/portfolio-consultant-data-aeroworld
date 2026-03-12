@@ -2,453 +2,230 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Portfolio Danielle - Data Analyst</title>
-
+<title>Portfolio Danielle | Data Analyst</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
+/* -------- FOND ANIME -------- */
+body{margin:0;font-family:Arial;background:#0f172a;color:white;overflow-x:hidden;}
+canvas#network{position:fixed;top:0;left:0;z-index:-1;}
 
-body{
-font-family:Arial;
-margin:0;
-background:#f4f6f9;
-color:#333;
-}
+/* -------- MENU -------- */
+nav{position:fixed;top:0;width:100%;background:#1e293b;padding:15px;text-align:center;z-index:1000;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#38bdf8;}
 
-/* MENU */
+/* -------- HEADER -------- */
+header{text-align:center;padding:120px 20px 60px;}
+header h1{font-size:42px;margin:0;}
+header p{font-size:18px;color:#cbd5e1;}
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:#2c3e50;
-padding:15px;
-text-align:center;
-z-index:1000;
-}
+/* -------- SECTIONS -------- */
+section{max-width:1100px;margin:auto;padding:60px 20px;}
+h2{border-left:6px solid #38bdf8;padding-left:10px;}
 
-nav a{
-color:white;
-margin:0 20px;
-text-decoration:none;
-font-weight:bold;
-}
+/* -------- PROFIL -------- */
+.profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
+.profil img{width:180px;border-radius:50%;border:4px solid #38bdf8;}
 
-nav a:hover{
-color:#3498db;
-}
+/* -------- CARTES & PROJETS -------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.card,.project{background:#1e293b;padding:25px;border-radius:12px;transition:0.3s;}
+.card:hover,.project:hover{transform:translateY(-8px);background:#334155;}
+.project{position:relative;overflow:hidden;}
+.project img{width:100%;height:200px;object-fit:cover;}
+.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:0.3s;text-align:center;padding:10px;}
+.project:hover .overlay{opacity:1;}
+.btn{background:#38bdf8;padding:8px 14px;border-radius:5px;color:white;text-decoration:none;margin-top:10px;font-weight:bold;}
 
-/* HEADER */
+/* -------- TIMELINE -------- */
+.timeline{position:relative;max-width:900px;margin:auto;}
+.timeline::after{content:'';position:absolute;width:4px;background:#38bdf8;top:0;bottom:0;left:50%;}
+.timeline-item{padding:20px 40px;position:relative;width:50%;}
+.timeline-item:nth-child(odd){left:0;}
+.timeline-item:nth-child(even){left:50%;}
+.timeline-content{background:#1e293b;padding:20px;border-radius:10px;}
 
-header{
-background:#2c3e50;
-color:white;
-padding:120px 20px 60px;
-text-align:center;
-}
+/* -------- CONTACT -------- */
+.contact{text-align:center;padding:40px;}
+.contact a{color:#38bdf8;}
 
-header h1{
-margin:0;
-font-size:40px;
-}
-
-header p{
-color:#ddd;
-}
-
-/* SECTIONS */
-
-section{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-
-h2{
-border-left:6px solid #3498db;
-padding-left:10px;
-}
-
-/* PROFIL */
-
-.profil{
-display:flex;
-gap:40px;
-flex-wrap:wrap;
-align-items:center;
-}
-
-.profil img{
-width:180px;
-border-radius:50%;
-border:4px solid #3498db;
-}
-
-/* COMPETENCES */
-
-.skills{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.skill-card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-}
-
-/* PROJETS */
-
-.projects{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
-}
-
-.project{
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 6px 15px rgba(0,0,0,0.1);
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-6px);
-}
-
-.project img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.project-content{
-padding:20px;
-}
-
-.btn{
-display:inline-block;
-margin-top:10px;
-padding:8px 14px;
-background:#3498db;
-color:white;
-border-radius:5px;
-text-decoration:none;
-font-size:14px;
-}
-
-.btn:hover{
-background:#2980b9;
-}
-
-/* DOCUMENTS */
-
-.docs{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.doc{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 5px 10px rgba(0,0,0,0.1);
-}
-
-/* CONTACT */
-
-.contact{
-background:#2c3e50;
-color:white;
-text-align:center;
-padding:40px;
-}
-
-.contact a{
-color:#3498db;
-text-decoration:none;
-}
-
+/* -------- MODAL -------- */
+.modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:2000;}
+.modal-content{background:#1e293b;padding:30px;border-radius:12px;max-width:700px;width:90%;max-height:90%;overflow:auto;position:relative;}
+.modal-close{position:absolute;top:10px;right:15px;color:#38bdf8;font-size:24px;cursor:pointer;}
+canvas.projectChart{margin-top:20px;}
 </style>
-
 </head>
-
 <body>
 
-<!-- MENU -->
+<canvas id="network"></canvas>
 
+<!-- NAV -->
 <nav>
-
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
-<a href="#missions">Mission</a>
+<a href="#experience">Expérience</a>
+<a href="#parcours">Parcours</a>
 <a href="#projets">Projets</a>
 <a href="#documents">Documents</a>
+<a href="#github">GitHub</a>
 <a href="#contact">Contact</a>
-
 </nav>
 
+<!-- HEADER -->
 <header>
-
 <h1>Danielle</h1>
-<p>Data Analyst | Visualisation | Machine Learning</p>
-
+<p>Data Analyst | Analyse statistique | SQL • Python • Power BI • Visualisation</p>
 </header>
 
 <!-- PROFIL -->
-
 <section id="profil">
-
-<h2>À propos</h2>
-
+<h2>Profil</h2>
 <div class="profil">
-
 <img src="photo_profil.jpg">
-
 <div>
-
-<p>
-Data Analyst spécialisée dans l'analyse de données,
-la modélisation statistique et la visualisation
-pour aider à la prise de décision.
-</p>
-
-<p>
-Analyse de données SQL, Python, Excel et Power BI
-avec création de dashboards interactifs.
-</p>
-
-<p>
-<a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">
-Voir mon LinkedIn
-</a>
-</p>
-
+<p>Data Analyst spécialisée dans l'analyse de données chiffrées, statistiques et visualisation pour soutenir la prise de décision.</p>
+<p>Au sein de la CAVOM, j’analyse des données métiers, réalise des études statistiques et actuarielles et collabore avec les équipes métiers.</p>
+<p><a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">Voir mon LinkedIn</a></p>
 </div>
-
 </div>
-
 </section>
 
 <!-- COMPETENCES -->
-
 <section id="competences">
-
 <h2>Compétences</h2>
-
-<div class="skills">
-
-<div class="skill-card">
-
-<h3>Data Analyse</h3>
-
-<p>
-Analyse, nettoyage, pré-traitement,
-tests statistiques.
-</p>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Machine Learning</h3>
-
-<p>
-Modèles supervisés et non supervisés,
-sélection de variables.
-</p>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Data Visualisation</h3>
-
-<p>
-Dashboards interactifs,
-récit et interprétation des résultats.
-</p>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Data Engineering</h3>
-
-<p>
-SQL, bases de données,
-extraction et traitement des données.
-</p>
-
-</div>
-
-<div class="skill-card">
-
-<h3>Gestion de projet data</h3>
-
-<p>
-Cahier des charges,
-documentation,
-suivi de projet data.
-</p>
-
-</div>
-
-</div>
-
+<canvas id="skillsChart"></canvas>
 </section>
 
-<!-- MISSIONS -->
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Expérience</h2>
+<div class="card">
+<h3>CAVOM – Caisse d’Assurance Vieillesse des Officiers Ministériels</h3>
+<ul>
+<li>Analyse de données chiffrées et statistiques</li>
+<li>Études statistiques et actuarielles</li>
+<li>Extraction et traitement des données SQL / Excel / Python</li>
+<li>Production de dashboards et reportings Power BI</li>
+<li>Échanges avec les équipes métiers</li>
+<li>Participation aux projets de migration RGCU</li>
+</ul>
+</div>
+</section>
 
-<section id="missions">
-
-<h2>Mission</h2>
-
-<p>
-
-Analyse de données avec SQL, Excel, Python et Power BI.
-
-Production de reportings et support à la décision.
-
-Participation aux projets de migration RGCU.
-
-Extraction, identification et traitement des données.
-
-Modélisation et analyse statistique.
-
-</p>
-
+<!-- TIMELINE -->
+<section id="parcours">
+<h2>Parcours</h2>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-content"><h3>Data Analyst – CAVOM</h3><p>Analyse statistique et études actuarielles.</p></div></div>
+<div class="timeline-item"><div class="timeline-content"><h3>Formation Data Analyst</h3><p>Analyse de données, machine learning et visualisation.</p></div></div>
+</div>
 </section>
 
 <!-- PROJETS -->
-
 <section id="projets">
-
 <h2>Projets</h2>
-
-<div class="projects">
-
-<!-- PROJET 10 -->
-
-<div class="project">
-
+<div class="cards">
+<div class="project" onclick="openModal('Dashboard Eau Potable','Dashboard interactif pour priorisation des actions eau potable.','photo_p10.jpg','P10_1302OK.twbx',[92,75,80,85])">
 <img src="photo_p10.jpg">
-
-<div class="project-content">
-
-<h3>Projet Eau Potable</h3>
-
-<p>
-Dashboard stratégique pour prioriser
-les investissements en accès à l'eau potable.
-</p>
-
-<a class="btn" href="P10_1302OK.twbx">Dashboard</a>
-<a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx">Présentation</a>
-
+<div class="overlay"><h3>Dashboard Eau Potable</h3><p>Cliquez pour détails</p></div>
 </div>
-
-</div>
-
-<!-- PROJET 11 -->
-
-<div class="project">
-
+<div class="project" onclick="openModal('Étude de Marché','Analyse stratégique d’un marché cible avec recommandations.','photo_p11.jpg','CLEAN_ETUDE_DE_MARCHE.ipynb',[88,85,90,80])">
 <img src="photo_p11.jpg">
-
-<div class="project-content">
-
-<h3>Étude de marché</h3>
-
-<p>
-Analyse de données et segmentation
-avec PCA et clustering.
-</p>
-
-<a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb">Notebook</a>
-
-<a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx">Présentation</a>
-
+<div class="overlay"><h3>Étude de Marché</h3><p>Cliquez pour détails</p></div>
 </div>
-
-</div>
-
-<!-- PROJET 12 -->
-
-<div class="project">
-
+<div class="project" onclick="openModal('Faux Billets ML','Machine Learning pour détecter faux billets.','photo_p12.jpg','faux_billets (1).ipynb',[90,80,85,88])">
 <img src="photo_p12.jpg">
-
-<div class="project-content">
-
-<h3>Détection Faux Billets</h3>
-
-<p>
-Modèle de machine learning pour
-détecter les faux billets.
-</p>
-
-<a class="btn" href="faux_billets (1).ipynb">Notebook</a>
-
-<a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm">Présentation</a>
-
+<div class="overlay"><h3>Faux Billets ML</h3><p>Cliquez pour détails</p></div>
 </div>
-
 </div>
-
-</div>
-
 </section>
 
+<!-- MODAL PROJETS -->
+<div id="modal" class="modal-bg">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<h3 id="modalTitle"></h3>
+<img id="modalImg" src="" style="width:100%; border-radius:8px; margin:15px 0;">
+<p id="modalDesc"></p>
+<canvas id="projectChart" class="projectChart"></canvas>
+<a id="modalBtn" href="#" class="btn" target="_blank">Voir le projet</a>
+</div>
+</div>
+
 <!-- DOCUMENTS -->
-
 <section id="documents">
-
 <h2>Documents</h2>
-
-<div class="docs">
-
-<div class="doc">
-<a href="Documentation Outil viz.docx">Documentation Outil Viz</a>
+<div class="cards">
+<div class="card"><a href="Documentation Outil viz.docx">Documentation Viz</a></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix">Dashboard Power BI</a></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx">Analyse projets</a></div>
 </div>
+</section>
 
-<div class="doc">
-<a href="PHASES DU PROJET AEROWORLD .xlsx">Phases Projet Aeroworld</a>
+<!-- GITHUB -->
+<section id="github">
+<h2>GitHub</h2>
+<div class="card">
+<p>Voir mes projets et notebooks :</p>
+<a class="btn" href="https://github.com/" target="_blank">Voir GitHub</a>
 </div>
-
-<div class="doc">
-<a href="PRODUCTION_PORTFOLIO.pbix">Dashboard Power BI</a>
-</div>
-
-<div class="doc">
-<a href="analyse_projets_PBI_OPC_13.xlsx">Analyse projets</a>
-</div>
-
-</div>
-
 </section>
 
 <!-- CONTACT -->
-
 <section id="contact" class="contact">
-
 <h2>Contact</h2>
-
-<p>Email :  
-<a href="mailto:dchancerelle@gmail.com">
-dchancerelle@gmail.com
-</a>
-</p>
-
-<p>
-<a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">
-LinkedIn
-</a>
-</p>
-
+<p>Email : <a href="mailto:dchancerelle@gmail.com">dchancerelle@gmail.com</a></p>
+<p><a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">LinkedIn</a></p>
 </section>
+
+<script>
+/* -------- COMPETENCES RADAR -------- */
+new Chart(document.getElementById("skillsChart"),{
+type:"radar",
+data:{
+labels:["SQL","Python","Statistiques","Machine Learning","Power BI","Visualisation"],
+datasets:[{label:"Compétences",data:[85,80,75,70,85,90],backgroundColor:"rgba(56,189,248,0.2)",borderColor:"#38bdf8"}]
+},
+options:{scales:{r:{beginAtZero:true}}}
+});
+
+/* -------- MODAL PROJETS -------- */
+let projectChart=null;
+function openModal(title,desc,img,link,data){
+  document.getElementById('modalTitle').innerText=title;
+  document.getElementById('modalDesc').innerText=desc;
+  document.getElementById('modalImg').src=img;
+  document.getElementById('modalBtn').href=link;
+  document.getElementById('modal').style.display='flex';
+  if(projectChart) projectChart.destroy();
+  projectChart=new Chart(document.getElementById('projectChart'),{
+    type:'bar',
+    data:{labels:['KPI1','KPI2','KPI3','KPI4'],datasets:[{label:'Performance',data:data,backgroundColor:'#38bdf8'}]},
+    options:{responsive:true,plugins:{legend:{display:false}}}
+  });
+}
+function closeModal(){document.getElementById('modal').style.display='none';}
+
+/* -------- FOND RESEAU DATA -------- */
+const canvas=document.getElementById("network");
+const ctx=canvas.getContext("2d");
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<120;i++){particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5)});}
+function animate(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  particles.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>canvas.width)p.vx*=-1;
+    if(p.y<0||p.y>canvas.height)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fillStyle="#38bdf8";ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
 
 </body>
 </html>
