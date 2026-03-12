@@ -1,80 +1,248 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Cloud</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    /* Animation du gradient */
-    @keyframes gradient-x {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+<meta charset="UTF-8">
+<title>Portfolio Danielle | Data Analyst</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+/* --- FOND BLEU FONCE ANIME AVEC BULLES --- */
+body, html{margin:0;padding:0;font-family:Arial;overflow-x:hidden;background:#0f172a;color:white;}
+canvas#bgCanvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;}
 
-    .animate-gradient-x {
-      background-size: 200% 200%;
-      animation: gradient-x 8s ease infinite;
-    }
-  </style>
+/* --- NAV --- */
+nav{position:fixed;top:0;width:100%;background:#1e293b;padding:15px;text-align:center;z-index:1000;}
+nav a{color:white;margin:0 15px;text-decoration:none;font-weight:bold;}
+nav a:hover{color:#38bdf8;}
+
+/* --- HEADER --- */
+header{text-align:center;padding:120px 20px 60px;}
+header h1{font-size:42px;margin:0;}
+header p{font-size:18px;color:#cbd5e1;}
+
+/* --- SECTIONS --- */
+section{max-width:1100px;margin:auto;padding:60px 20px;background:rgba(56,189,248,0.1);border-radius:12px;margin-bottom:40px;opacity:0;transform:translateY(30px);transition:all 0.8s ease-in-out;}
+section.visible{opacity:1;transform:translateY(0);}
+h2{border-left:6px solid #38bdf8;padding-left:10px;margin-bottom:25px;color:#0f172a;}
+
+/* --- PROFIL --- */
+.profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
+.profil img{width:180px;border-radius:50%;border:4px solid #38bdf8;}
+
+/* --- CARDS --- */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
+.card,.project{background:#38bdf8;padding:25px;border-radius:12px;transition:0.3s;cursor:pointer;color:#0f172a;}
+.card:hover,.project:hover{transform:translateY(-8px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+
+/* --- PROJETS --- */
+.project{position:relative;overflow:hidden;}
+.project img{width:100%;height:200px;object-fit:cover;border-radius:8px;}
+.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:0.3s;text-align:center;color:white;}
+.project:hover .overlay{opacity:1;}
+
+/* --- BUTTON --- */
+.btn{background:#0ea5e9;padding:8px 14px;border-radius:5px;color:white;text-decoration:none;margin-top:10px;font-weight:bold;}
+
+/* --- TIMELINE --- */
+.timeline{position:relative;max-width:900px;margin:auto;}
+.timeline::after{content:'';position:absolute;width:4px;background:#38bdf8;top:0;bottom:0;left:50%;}
+.timeline-item{padding:20px 40px;position:relative;width:50%;}
+.timeline-item:nth-child(odd){left:0;}
+.timeline-item:nth-child(even){left:50%;}
+.timeline-content{background:#38bdf8;padding:20px;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,0.1);color:#0f172a;}
+
+/* --- MODAL --- */
+.modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:2000;}
+.modal-content{background:#38bdf8;padding:30px;border-radius:12px;max-width:800px;width:90%;max-height:90%;overflow:auto;position:relative;color:#0f172a;}
+.modal-close{position:absolute;top:10px;right:15px;color:#0ea5e9;font-size:24px;cursor:pointer;}
+.projectChart{margin-top:20px;}
+.file-list a{display:block;color:#0ea5e9;margin:5px 0;text-decoration:none;}
+.file-list a:hover{text-decoration:underline;}
+.formation-item{display:flex;align-items:center;margin-bottom:20px;opacity:0;transform:translateX(-30px);transition:0.6s;}
+.formation-item.visible{opacity:1;transform:translateX(0);}
+</style>
 </head>
-<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-6">
+<body>
 
-  <h1 class="text-3xl font-bold mb-8 text-blue-700">Mes Projets Cloud</h1>
+<canvas id="bgCanvas"></canvas>
 
-  <div class="flex flex-wrap gap-6 justify-center">
+<nav>
+<a href="#profil">Profil</a>
+<a href="#experience">Expérience</a>
+<a href="#formations">Formations</a>
+<a href="#parcours">Parcours</a>
+<a href="#projets">Projets</a>
+<a href="#documents">Documents</a>
+<a href="#github">GitHub</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <!-- Carte 1 -->
-    <div class="w-64 h-40 rounded-2xl shadow-lg shadow-blue-200/20 
-                bg-gradient-to-r from-blue-400 via-blue-500 to-indigo-500 
-                animate-gradient-x text-white p-4 flex flex-col justify-between
-                backdrop-blur-md bg-white/10 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <h2 class="text-xl font-semibold drop-shadow-sm">Projet Cloud 1</h2>
-      <p class="text-sm drop-shadow-sm">Description courte pour expliquer le projet rapidement.</p>
-      <button class="mt-2 px-4 py-1 bg-white/20 rounded-lg text-white hover:bg-white/30 transition">Voir</button>
-    </div>
+<header>
+<h1>Danielle</h1>
+<p>Data Analyst | Analyse statistique & actuarielle | SQL • Python • Tableau • Power BI</p>
+</header>
 
-    <!-- Carte 2 -->
-    <div class="w-64 h-40 rounded-2xl shadow-lg shadow-blue-200/20 
-                bg-gradient-to-r from-indigo-400 via-blue-500 to-blue-600 
-                animate-gradient-x text-white p-4 flex flex-col justify-between
-                backdrop-blur-md bg-white/10 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <h2 class="text-xl font-semibold drop-shadow-sm">Projet Cloud 2</h2>
-      <p class="text-sm drop-shadow-sm">Une petite description pour mieux comprendre le projet.</p>
-      <button class="mt-2 px-4 py-1 bg-white/20 rounded-lg text-white hover:bg-white/30 transition">Voir</button>
-    </div>
+<!-- PROFIL -->
+<section id="profil">
+<h2>Profil</h2>
+<div class="profil">
+<img src="photo_profil.jpg" alt="Photo Danielle">
+<div>
+<p>Data Analyst spécialisée dans l'analyse de données chiffrées et statistiques avec expérience en analyses actuarielles pour la CAVOM.</p>
+<p>Analyse de données métiers, modélisations statistiques et actuarielles, dashboards interactifs et échanges étroits avec les équipes métiers.</p>
+<p><a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">Voir mon LinkedIn</a></p>
+</div>
+</div>
+</section>
 
-    <!-- Carte 3 -->
-    <div class="w-64 h-40 rounded-2xl shadow-lg shadow-blue-200/20 
-                bg-gradient-to-r from-blue-500 via-indigo-500 to-blue-400 
-                animate-gradient-x text-white p-4 flex flex-col justify-between
-                backdrop-blur-md bg-white/10 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <h2 class="text-xl font-semibold drop-shadow-sm">Projet Cloud 3</h2>
-      <p class="text-sm drop-shadow-sm">Encore un projet pour tester vos compétences.</p>
-      <button class="mt-2 px-4 py-1 bg-white/20 rounded-lg text-white hover:bg-white/30 transition">Voir</button>
-    </div>
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Expérience</h2>
+<div class="card">
+<h3>CAVOM – Chargé d’études actuarielles</h3>
+<ul>
+<li>Analyses statistiques et actuarielles</li>
+<li>SQL, Excel, Python</li>
+<li>Production dashboards Power BI</li>
+<li>Échanges avec les métiers, reporting et études</li>
+<li>Participation à des projets de migration RGCU</li>
+</ul>
+</div>
+</section>
 
-    <!-- Carte 4 -->
-    <div class="w-64 h-40 rounded-2xl shadow-lg shadow-blue-200/20 
-                bg-gradient-to-r from-indigo-500 via-blue-400 to-blue-500 
-                animate-gradient-x text-white p-4 flex flex-col justify-between
-                backdrop-blur-md bg-white/10 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <h2 class="text-xl font-semibold drop-shadow-sm">Projet Cloud 4</h2>
-      <p class="text-sm drop-shadow-sm">Un autre projet intéressant pour apprendre le cloud.</p>
-      <button class="mt-2 px-4 py-1 bg-white/20 rounded-lg text-white hover:bg-white/30 transition">Voir</button>
-    </div>
+<!-- FORMATIONS -->
+<section id="formations">
+<h2>Formations</h2>
+<div class="cards">
+<div class="formation-item card">
+<h4>OpenClassrooms – Data Analyst</h4>
+<p>Nov. 2023 – Nov. 2025 | SQL, Python, Tableau, Google Data Studio, analyse statistique</p>
+</div>
+<div class="formation-item card">
+<h4>DataBird – Data Analyst</h4>
+<p>Mai 2023 – Oct. 2023 | Python, SQL, dashboards, Google Analytics, data storytelling</p>
+</div>
+<div class="formation-item card">
+<h4>École O'clock – Développeur Web Back-end</h4>
+<p>Oct. 2022 – Fév. 2023 | HTML, CSS, JS, NodeJS, PostgreSQL, certification CCP2 Web & Mobile</p>
+</div>
+</div>
+</section>
 
-    <!-- Carte 5 -->
-    <div class="w-64 h-40 rounded-2xl shadow-lg shadow-blue-200/20 
-                bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-500 
-                animate-gradient-x text-white p-4 flex flex-col justify-between
-                backdrop-blur-md bg-white/10 transition-transform duration-300 hover:scale-105 hover:shadow-xl">
-      <h2 class="text-xl font-semibold drop-shadow-sm">Projet Cloud 5</h2>
-      <p class="text-sm drop-shadow-sm">Dernier projet pour compléter le portfolio.</p>
-      <button class="mt-2 px-4 py-1 bg-white/20 rounded-lg text-white hover:bg-white/30 transition">Voir</button>
-    </div>
+<!-- PARCOURS -->
+<section id="parcours">
+<h2>Parcours</h2>
+<div class="timeline">
+<div class="timeline-item"><div class="timeline-content"><h3>Chargé d’études actuarielles – CAVOM</h3><p>Analyse chiffrée et actuarielle (poste actuel)</p></div></div>
+<div class="timeline-item"><div class="timeline-content"><h3>OpenClassrooms – Data Analyst</h3><p>SQL, Python, Tableau, analyse de données</p></div></div>
+<div class="timeline-item"><div class="timeline-content"><h3>École O'clock – Développeur Web</h3><p>Back-end & développement web</p></div></div>
+</div>
+</section>
 
-  </div>
+<!-- PROJETS -->
+<section id="projets">
+<h2>Projets</h2>
+<div class="cards">
+<div class="project" onclick="openModal('Dashboard Eau Potable','Dashboard interactif pour priorisation des actions eau potable.','photo_p10.jpg',['P10_1302OK.twbx','P10_OPC_Faites_une_étude_sur_l\'eau_potable_pres.pptx'],[92,75,80,85])">
+<img src="photo_p10.jpg">
+<div class="overlay"><h3>Dashboard Eau Potable</h3><p>Cliquez pour détails</p></div>
+</div>
+
+<div class="project" onclick="openModal('Étude de Marché','Analyse stratégique d’un marché cible avec recommandations.','photo_p11.jpg',['CLEAN_ETUDE_DE_MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb','OPC11_Notebook _2 _PCA _+_clustering_03_01_2026.ipynb','Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx'],[88,85,90,80])">
+<img src="photo_p11.jpg">
+<div class="overlay"><h3>Étude de Marché</h3><p>Cliquez pour détails</p></div>
+</div>
+
+<div class="project" onclick="openModal('Faux Billets ML','Machine Learning pour détecter faux billets.','photo_p12.jpg',['faux_billets (1).ipynb','Détectez_des_faux_billets_avec_R_ou_Python.pptm'],[90,80,85,88])">
+<img src="photo_p12.jpg">
+<div class="overlay"><h3>Faux Billets ML</h3><p>Cliquez pour détails</p></div>
+</div>
+</div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal-bg">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<h3 id="modalTitle"></h3>
+<img id="modalImg" src="" style="width:100%;border-radius:8px;margin:15px 0;">
+<p id="modalDesc"></p>
+<div class="file-list" id="fileList"></div>
+<canvas id="projectChart" class="projectChart"></canvas>
+<a id="modalBtn" href="#" class="btn" target="_blank">Voir le projet GitHub</a>
+</div>
+</div>
+
+<!-- DOCUMENTS -->
+<section id="documents">
+<h2>Documents</h2>
+<div class="cards">
+<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Dashboard Power BI</a></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Phases du projet Aeroworld</a></div>
+<div class="card"><a href="My First Board miro.pdf" download>My First Board Miro</a></div>
+</div>
+</section>
+
+<!-- GITHUB -->
+<section id="github">
+<h2>GitHub</h2>
+<div class="card">
+<p>Voir mes projets et notebooks :</p>
+<a class="btn" href="https://github.com/Badansi/portfolio-consultant-data-aeroworld" target="_blank">Voir GitHub</a>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>Email : <a href="mailto:dchancerelle@gmail.com">dchancerelle@gmail.com</a></p>
+<p><a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">LinkedIn</a></p>
+</section>
+
+<script>
+/* --- FOND BLEU FONCE AVEC BULLES --- */
+const canvas=document.getElementById('bgCanvas');
+const ctx=canvas.getContext('2d');
+let w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight;
+const techs=['SQL','Python','Tableau','Power BI','Excel','R'];
+class Bubble{constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.size=25+Math.random()*25;this.speedX=(Math.random()-0.5)*0.5;this.speedY=(Math.random()-0.5)*0.5;this.text=techs[Math.floor(Math.random()*techs.length)];}
+draw(){ctx.fillStyle='rgba(56,189,248,0.15)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();ctx.fillStyle='white';ctx.font='bold 14px Arial';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(this.text,this.x,this.y);}
+update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>w)this.speedX*=-1;if(this.y<0||this.y>h)this.speedY*=-1;this.draw();}}
+let bubbles=[];for(let i=0;i<30;i++)bubbles.push(new Bubble());
+function animate(){ctx.clearRect(0,0,w,h);bubbles.forEach(b=>b.update());requestAnimationFrame(animate);}
+animate();
+window.addEventListener('resize',()=>{w=canvas.width=window.innerWidth;h=canvas.height=window.innerHeight;});
+
+/* --- MODAL PROJETS --- */
+let projectChart=null;
+function openModal(title,desc,img,files,data){
+document.getElementById('modalTitle').innerText=title;
+document.getElementById('modalDesc').innerText=desc;
+document.getElementById('modalImg').src=img;
+const list=document.getElementById('fileList');list.innerHTML='';
+files.forEach(f=>{let a=document.createElement('a');a.href=f;a.download=f;a.target='_blank';a.textContent=f;list.appendChild(a);});
+document.getElementById('modal').style.display='flex';
+document.getElementById('modalBtn').href='https://github.com/Badansi/portfolio-consultant-data-aeroworld';
+if(projectChart) projectChart.destroy();
+projectChart=new Chart(document.getElementById('projectChart'),{
+type:'bar',data:{labels:['KPI1','KPI2','KPI3','KPI4'],datasets:[{label:'Performance',data:data,backgroundColor:'#0ea5e9'}]},
+options:{responsive:true,plugins:{legend:{display:false}}}
+});}
+function closeModal(){document.getElementById('modal').style.display='none';}
+
+/* --- ANIMATION AU SCROLL --- */
+const observer=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');}});},{threshold:0.2});
+document.querySelectorAll('section').forEach(s=>observer.observe(s));
+document.querySelectorAll('.formation-item').forEach(f=>observer.observe(f));
+
+/* --- RADAR COMPETENCES --- */
+new Chart(document.getElementById("skillsChart"),{
+type:"radar",
+data:{labels:["SQL","Python","Statistiques","Actuariat","Power BI","Visualisation"],datasets:[{label:"Compétences",data:[85,80,75,70,85,90],backgroundColor:"rgba(56,189,248,0.2)",borderColor:"#38bdf8"}]},
+options:{scales:{r:{beginAtZero:true}}}
+});
+</script>
 
 </body>
 </html>
