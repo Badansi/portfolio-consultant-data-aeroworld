@@ -5,7 +5,6 @@
 <title>Portfolio Danielle | Data Analyst</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-/* FOND INTERACTIF ET BODY */
 body{margin:0;font-family:Arial;background:#0f172a;color:white;overflow-x:hidden;}
 canvas#network{position:fixed;top:0;left:0;z-index:-1;}
 nav{position:fixed;top:0;width:100%;background:#1e293b;padding:15px;text-align:center;z-index:1000;}
@@ -19,11 +18,11 @@ h2{border-left:6px solid #38bdf8;padding-left:10px;margin-bottom:30px;}
 .profil{display:flex;gap:30px;flex-wrap:wrap;align-items:center;}
 .profil img{width:180px;border-radius:50%;border:4px solid #38bdf8;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px;}
-.card,.project{background:#d8dfe4;padding:15px;border-radius:12px;transition:0.3s; font-size:14px;}
-.card:hover,.project:hover{transform:translateY(-6px);background:#e2e8f0;}
+.card,.project{background:#b9b3f0;padding:15px;border-radius:12px;transition:0.3s; font-size:14px;color:#1e293b;}
+.card:hover,.project:hover{transform:translateY(-6px);background:#c6c0f5;}
 .project{position:relative;overflow:hidden;cursor:pointer;}
 .project img{width:100%;height:120px;object-fit:cover;}
-.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:0.3s;text-align:center;padding:10px;}
+.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.85);display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;transition:0.3s;text-align:center;padding:10px;color:white;}
 .project:hover .overlay{opacity:1;}
 .btn{background:#38bdf8;padding:6px 12px;border-radius:5px;color:white;text-decoration:none;margin-top:8px;font-weight:bold;font-size:13px;}
 .timeline{position:relative;max-width:900px;margin:auto;}
@@ -31,11 +30,11 @@ h2{border-left:6px solid #38bdf8;padding-left:10px;margin-bottom:30px;}
 .timeline-item{padding:15px 20px;position:relative;width:50%;}
 .timeline-item:nth-child(odd){left:0;}
 .timeline-item:nth-child(even){left:50%;}
-.timeline-content{background:#d8dfe4;padding:15px;border-radius:10px;color:#1e293b;}
+.timeline-content{background:#b9b3f0;padding:15px;border-radius:10px;color:#1e293b;}
 .contact{text-align:center;padding:40px;}
 .contact a{color:#38bdf8;}
 .modal-bg{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:none;justify-content:center;align-items:center;z-index:2000;}
-.modal-content{background:#d8dfe4;padding:20px;border-radius:12px;max-width:700px;width:90%;max-height:90%;overflow:auto;position:relative;color:#1e293b;}
+.modal-content{background:#b9b3f0;padding:20px;border-radius:12px;max-width:700px;width:90%;max-height:90%;overflow:auto;position:relative;color:#1e293b;}
 .modal-close{position:absolute;top:10px;right:15px;color:#38bdf8;font-size:24px;cursor:pointer;}
 canvas.projectChart{margin-top:15px;}
 .file-list a{display:block;color:#38bdf8;margin:3px 0;text-decoration:none;font-size:13px;}
@@ -223,13 +222,13 @@ function openModal(title,desc,img,files,data){
 }
 function closeModal(){document.getElementById('modal').style.display='none';}
 
-/* FOND RESEAU DATA AVEC TECHNOS */
+/* FOND RESEAU DATA AVEC TECHNOS ET MOTS */
 const canvas=document.getElementById("network");
 const ctx=canvas.getContext("2d");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight;
 let particles=[];
-const techs=['SQL','Python','PowerBI','Tableau','R','Excel','Dash','ML'];
+const techs=['SQL','Python','PowerBI','Tableau','R','Excel','Dash','ML','Cloud','Big Data','PyTorch','Machine Learning','Prediction'];
 for(let i=0;i<120;i++){
   particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,vx:(Math.random()-0.5),vy:(Math.random()-0.5),label:techs[Math.floor(Math.random()*techs.length)]});
 }
