@@ -1,120 +1,453 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Portfolio Danielle</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 0; color: #333; }
-    header { background: #2c3e50; color: #fff; padding: 50px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    header p { font-size: 1.2em; color: #ddd; margin-top: 10px; }
+<meta charset="UTF-8">
+<title>Portfolio Danielle - Data Analyst</title>
 
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; border-radius: 10px; margin-bottom: 40px; }
-    h2 { padding-bottom: 5px; margin-bottom: 20px; color: #fff; padding-left: 10px; border-radius: 5px; }
+<style>
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+body{
+font-family:Arial;
+margin:0;
+background:#f4f6f9;
+color:#333;
+}
 
-    .card a { text-decoration: none; color: #2980b9; font-weight: bold; display: block; margin-bottom: 5px; }
-    .card a:hover { text-decoration: underline; }
-    .card p { margin: 0; font-size: 14px; color: #555; }
-    .description { font-size: 14px; margin-top: 10px; padding: 10px; background: #f9f9f9; border-left: 4px solid #2980b9; border-radius: 5px; }
+/* MENU */
 
-    /* Couleurs des sections projets */
-    #p10 h2 { background-color: #3498db; }
-    #p11 h2 { background-color: #e67e22; }
-    #p12 h2 { background-color: #9b59b6; }
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:#2c3e50;
+padding:15px;
+text-align:center;
+z-index:1000;
+}
 
-    /* Couleur pour documents et liens */
-    #documents h2 { background-color: #16a085; }
-    #liens h2 { background-color: #c0392b; }
-  </style>
+nav a{
+color:white;
+margin:0 20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+nav a:hover{
+color:#3498db;
+}
+
+/* HEADER */
+
+header{
+background:#2c3e50;
+color:white;
+padding:120px 20px 60px;
+text-align:center;
+}
+
+header h1{
+margin:0;
+font-size:40px;
+}
+
+header p{
+color:#ddd;
+}
+
+/* SECTIONS */
+
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+border-left:6px solid #3498db;
+padding-left:10px;
+}
+
+/* PROFIL */
+
+.profil{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.profil img{
+width:180px;
+border-radius:50%;
+border:4px solid #3498db;
+}
+
+/* COMPETENCES */
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.skill-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* PROJETS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.project{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 6px 15px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.project:hover{
+transform:translateY(-6px);
+}
+
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.project-content{
+padding:20px;
+}
+
+.btn{
+display:inline-block;
+margin-top:10px;
+padding:8px 14px;
+background:#3498db;
+color:white;
+border-radius:5px;
+text-decoration:none;
+font-size:14px;
+}
+
+.btn:hover{
+background:#2980b9;
+}
+
+/* DOCUMENTS */
+
+.docs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.doc{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* CONTACT */
+
+.contact{
+background:#2c3e50;
+color:white;
+text-align:center;
+padding:40px;
+}
+
+.contact a{
+color:#3498db;
+text-decoration:none;
+}
+
+</style>
+
 </head>
+
 <body>
 
+<!-- MENU -->
+
+<nav>
+
+<a href="#profil">Profil</a>
+<a href="#competences">Compétences</a>
+<a href="#missions">Mission</a>
+<a href="#projets">Projets</a>
+<a href="#documents">Documents</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
 <header>
-  <h1>Portfolio Danielle</h1>
-  <p>Mes documents et projets interactifs</p>
+
+<h1>Danielle</h1>
+<p>Data Analyst | Visualisation | Machine Learning</p>
+
 </header>
 
-<!-- DOCUMENTS -->
-<section id="documents">
-  <h2>Documents</h2>
-  <div class="cards">
-    <div class="card"><a href="Documentation Outil viz.docx" target="_blank">Documentation Outil viz.docx</a></div>
-    <div class="card"><a href="My First Board miro.pdf" target="_blank">My First Board miro.pdf</a></div>
-    <div class="card"><a href="PHASES_DU_PROJET_AEROWORLD.xlsx" target="_blank">Phases du projet Aeroworld.xlsx</a></div>
-    <div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" target="_blank">Production Portfolio.pbix</a></div>
-    <div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" target="_blank">Analyse Projets PBI OPC</a></div>
-  </div>
+<!-- PROFIL -->
+
+<section id="profil">
+
+<h2>À propos</h2>
+
+<div class="profil">
+
+<img src="photo_profil.jpg">
+
+<div>
+
+<p>
+Data Analyst spécialisée dans l'analyse de données,
+la modélisation statistique et la visualisation
+pour aider à la prise de décision.
+</p>
+
+<p>
+Analyse de données SQL, Python, Excel et Power BI
+avec création de dashboards interactifs.
+</p>
+
+<p>
+<a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">
+Voir mon LinkedIn
+</a>
+</p>
+
+</div>
+
+</div>
+
 </section>
+
+<!-- COMPETENCES -->
+
+<section id="competences">
+
+<h2>Compétences</h2>
+
+<div class="skills">
+
+<div class="skill-card">
+
+<h3>Data Analyse</h3>
+
+<p>
+Analyse, nettoyage, pré-traitement,
+tests statistiques.
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Machine Learning</h3>
+
+<p>
+Modèles supervisés et non supervisés,
+sélection de variables.
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Data Visualisation</h3>
+
+<p>
+Dashboards interactifs,
+récit et interprétation des résultats.
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Data Engineering</h3>
+
+<p>
+SQL, bases de données,
+extraction et traitement des données.
+</p>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Gestion de projet data</h3>
+
+<p>
+Cahier des charges,
+documentation,
+suivi de projet data.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MISSIONS -->
+
+<section id="missions">
+
+<h2>Mission</h2>
+
+<p>
+
+Analyse de données avec SQL, Excel, Python et Power BI.
+
+Production de reportings et support à la décision.
+
+Participation aux projets de migration RGCU.
+
+Extraction, identification et traitement des données.
+
+Modélisation et analyse statistique.
+
+</p>
+
+</section>
+
+<!-- PROJETS -->
+
+<section id="projets">
+
+<h2>Projets</h2>
+
+<div class="projects">
 
 <!-- PROJET 10 -->
-<section id="p10">
-  <h2>Projet 10 – DWFA | Priorisation des actions d’accès à l’eau potable</h2>
-  <div class="cards">
-    <div class="card">
-      <a href="P10_1302OK.twbx" target="_blank">Fichier Tableau (.twbx)</a>
-      <a href="P10_OPC_Etude_Eau_Potable.pptx" target="_blank">Présentation (.pptx)</a>
-      <div class="description">
-        <p><strong>Contexte :</strong> Mission de conseil réalisée pour l’ONG DWFA (Drinking Water For All). Objectif : cadrer un tableau de bord décisionnel pour prioriser les investissements en matière d’accès à l’eau potable.</p>
-        <p><strong>Objectif :</strong> Concevoir un dashboard stratégique permettant d’identifier les pays en difficulté, prioriser les actions et suivre les progrès.</p>
-        <p><strong>Dashboards conçus :</strong> Diagnostic global, spécialisation par domaine DWFA, suivi et recommandations.</p>
-        <p><strong>Livrables :</strong> Dashboard interactif, note de cadrage PDF, présentation synthétique.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
+<div class="project">
+
+<img src="photo_p10.jpg">
+
+<div class="project-content">
+
+<h3>Projet Eau Potable</h3>
+
+<p>
+Dashboard stratégique pour prioriser
+les investissements en accès à l'eau potable.
+</p>
+
+<a class="btn" href="P10_1302OK.twbx">Dashboard</a>
+<a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx">Présentation</a>
+
+</div>
+
+</div>
 
 <!-- PROJET 11 -->
-<section id="p11">
-  <h2>Projet 11 – Étude de marché stratégique</h2>
-  <div class="cards">
-    <div class="card">
-      <a href="CLEAN_ETUDE_DE_MARCHE.ipynb" download>Notebook (.ipynb)</a>
-      <a href="OPC11_Notebook_2_PCA_Clustering.ipynb" download>Notebook PCA/Clustering (.ipynb)</a>
-      <a href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" target="_blank">Présentation (.pptx)</a>
-      <div class="description">
-        <p><strong>Contexte :</strong> Mission d’analyse dans le cadre d’une étude de marché pour identifier des opportunités stratégiques.</p>
-        <p><strong>Objectif :</strong> Analyser un marché cible, identifier les segments porteurs et proposer des recommandations basées sur les données.</p>
-        <p><strong>Méthodologie :</strong> Exploration des données, analyse approfondie, recommandations.</p>
-        <p><strong>Livrables :</strong> Notebook d’analyse, visualisations graphiques, synthèse stratégique.</p>
-      </div>
-    </div>
-  </div>
-</section>
+
+<div class="project">
+
+<img src="photo_p11.jpg">
+
+<div class="project-content">
+
+<h3>Étude de marché</h3>
+
+<p>
+Analyse de données et segmentation
+avec PCA et clustering.
+</p>
+
+<a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb">Notebook</a>
+
+<a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx">Présentation</a>
+
+</div>
+
+</div>
 
 <!-- PROJET 12 -->
-<section id="p12">
-  <h2>Projet 12 – Détection de faux billets (Machine Learning)</h2>
-  <div class="cards">
-    <div class="card">
-      <a href="faux_billets_1.ipynb" download>Notebook Python/R (.ipynb)</a>
-      <a href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" target="_blank">Présentation (.pptm)</a>
-      <div class="description">
-        <p><strong>Contexte :</strong> Mission pour l’Organisation nationale de lutte contre le faux-monnayage (ONCFM) pour distinguer billets vrais/faux.</p>
-        <p><strong>Objectif :</strong> Créer un modèle performant capable d’identifier un maximum de faux billets.</p>
-        <p><strong>Méthodologie :</strong> Analyse exploratoire, préparation des données, modélisation, évaluation, déploiement.</p>
-        <p><strong>Livrables :</strong> Notebook d’analyse exploratoire, notebook prédictif, support de présentation, recommandations.</p>
-      </div>
-    </div>
-  </div>
+
+<div class="project">
+
+<img src="photo_p12.jpg">
+
+<div class="project-content">
+
+<h3>Détection Faux Billets</h3>
+
+<p>
+Modèle de machine learning pour
+détecter les faux billets.
+</p>
+
+<a class="btn" href="faux_billets (1).ipynb">Notebook</a>
+
+<a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm">Présentation</a>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
-<!-- LIENS INTERACTIFS -->
-<section id="liens">
-  <h2>Liens interactifs</h2>
-  <div class="cards">
-    <div class="card">
-      <a href="https://www.figma.com/board/WBx5qxpm6WGJX3XIBXAz12/AEROWORLD?node-id=0-1&p=f&t=oNC0E5hpAVCothiY-0" target="_blank">Voir le design Figma</a>
-      <p>Mock-up Figma</p>
-    </div>
-    <div class="card">
-      <a href="https://www.loom.com/share/3bd7fa81bce84ea0b694c1757bf474d6" target="_blank">Regarder la vidéo Loom</a>
-      <p>Vidéo explicative</p>
-    </div>
-  </div>
+<!-- DOCUMENTS -->
+
+<section id="documents">
+
+<h2>Documents</h2>
+
+<div class="docs">
+
+<div class="doc">
+<a href="Documentation Outil viz.docx">Documentation Outil Viz</a>
+</div>
+
+<div class="doc">
+<a href="PHASES DU PROJET AEROWORLD .xlsx">Phases Projet Aeroworld</a>
+</div>
+
+<div class="doc">
+<a href="PRODUCTION_PORTFOLIO.pbix">Dashboard Power BI</a>
+</div>
+
+<div class="doc">
+<a href="analyse_projets_PBI_OPC_13.xlsx">Analyse projets</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h2>Contact</h2>
+
+<p>Email :  
+<a href="mailto:dchancerelle@gmail.com">
+dchancerelle@gmail.com
+</a>
+</p>
+
+<p>
+<a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">
+LinkedIn
+</a>
+</p>
+
 </section>
 
 </body>
