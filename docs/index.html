@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="fr">
+
 <head>
 <meta charset="UTF-8">
 <title>Portfolio Data de Danielle</title>
@@ -18,7 +19,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FOND RESEAU DATA */
+/* FOND DATA */
 
 canvas#network{
 position:fixed;
@@ -106,7 +107,7 @@ gap:25px;
 
 /* CARTE CUIVRE */
 
-.card,.project{
+.card{
 background:#b87333;
 padding:20px;
 border-radius:12px;
@@ -114,7 +115,7 @@ transition:0.35s;
 box-shadow:0 8px 25px rgba(184,115,51,0.3);
 }
 
-.card:hover,.project:hover{
+.card:hover{
 transform:translateY(-8px);
 background:#cd7f32;
 box-shadow:0 12px 35px rgba(184,115,51,0.6);
@@ -123,49 +124,16 @@ box-shadow:0 12px 35px rgba(184,115,51,0.6);
 /* PROJETS */
 
 .project{
-position:relative;
-overflow:hidden;
+background:#b87333;
+padding:20px;
+border-radius:12px;
 cursor:pointer;
-}
-
-.project img{
-width:100%;
-height:150px;
-object-fit:cover;
-border-radius:8px;
-}
-
-.overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.85);
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-opacity:0;
 transition:0.3s;
-text-align:center;
-padding:10px;
 }
 
-.project:hover .overlay{
-opacity:1;
-}
-
-/* BOUTON */
-
-.btn{
-background:#38bdf8;
-padding:8px 14px;
-border-radius:5px;
-color:white;
-text-decoration:none;
-margin-top:10px;
-font-weight:bold;
+.project:hover{
+transform:translateY(-8px);
+background:#cd7f32;
 }
 
 /* TIMELINE */
@@ -206,7 +174,7 @@ padding:20px;
 border-radius:10px;
 }
 
-/* GRAPH COMPETENCES */
+/* GRAPH */
 
 .chart-container{
 max-width:450px;
@@ -222,6 +190,7 @@ padding:40px;
 
 .contact a{
 color:#38bdf8;
+text-decoration:none;
 }
 
 </style>
@@ -243,8 +212,13 @@ color:#38bdf8;
 </nav>
 
 <header>
+
 <h1>Portfolio Data de Danielle</h1>
-<p>Data Analyst | Analyse statistique | SQL • Python • Power BI • Visualisation</p>
+
+<p>
+Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation
+</p>
+
 </header>
 
 <section id="profil">
@@ -257,11 +231,17 @@ color:#38bdf8;
 
 <div>
 
-<p>Data Analyst spécialisée dans l'analyse statistique et l'exploitation de données pour soutenir la prise de décision.</p>
+<p>
+Data Analyst spécialisée dans l'analyse statistique et la valorisation de données pour soutenir la prise de décision.
+</p>
 
-<p>Au sein de la CAVOM, j'analyse les données métiers, réalise des études statistiques et produis des dashboards décisionnels.</p>
+<p>
+Expérience en analyse métier, dashboards et études actuarielles.
+</p>
 
-<a class="btn" href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">Voir LinkedIn</a>
+<a href="https://www.linkedin.com" target="_blank">
+Voir LinkedIn
+</a>
 
 </div>
 
@@ -290,10 +270,14 @@ color:#38bdf8;
 <ul>
 
 <li>Analyse de données statistiques</li>
-<li>Études actuarielles</li>
+
 <li>Extraction SQL / Excel / Python</li>
+
 <li>Dashboards Power BI</li>
-<li>Analyse métier et reporting</li>
+
+<li>Études actuarielles</li>
+
+<li>Analyse métier</li>
 
 </ul>
 
@@ -309,25 +293,25 @@ color:#38bdf8;
 
 <div class="card">
 
-<h4>OpenClassrooms | Data Processing</h4>
+<h4>OpenClassrooms</h4>
 
-<p>SQL, Python, visualisation Tableau, analyse statistique</p>
-
-</div>
-
-<div class="card">
-
-<h4>DataBird | Data Analyst</h4>
-
-<p>Python, SQL, data cleaning, dashboards</p>
+<p>Data Processing – SQL, Python, Visualisation</p>
 
 </div>
 
 <div class="card">
 
-<h4>O'clock | Développeur Web</h4>
+<h4>DataBird</h4>
 
-<p>HTML, CSS, JS, NodeJS, PostgreSQL</p>
+<p>Formation Data Analyst</p>
+
+</div>
+
+<div class="card">
+
+<h4>École O'clock</h4>
+
+<p>Développeur Web</p>
 
 </div>
 
@@ -345,9 +329,9 @@ color:#38bdf8;
 
 <div class="timeline-content">
 
-<h3>Data Analyst – CAVOM</h3>
+<h3>Data Analyst</h3>
 
-<p>Analyse statistique et études actuarielles</p>
+<p>CAVOM</p>
 
 </div>
 
@@ -381,6 +365,40 @@ color:#38bdf8;
 
 </section>
 
+<section id="projets">
+
+<h2>Projets</h2>
+
+<div class="cards">
+
+<div class="project">
+
+<h3>Dashboard Eau Potable</h3>
+
+<p>Analyse et priorisation des actions eau potable.</p>
+
+</div>
+
+<div class="project">
+
+<h3>Étude de Marché</h3>
+
+<p>Analyse statistique d'un marché cible.</p>
+
+</div>
+
+<div class="project">
+
+<h3>Détection Faux Billets</h3>
+
+<p>Machine Learning pour détecter les faux billets.</p>
+
+</div>
+
+</div>
+
+</section>
+
 <section id="contact" class="contact">
 
 <h2>Contact</h2>
@@ -388,11 +406,9 @@ color:#38bdf8;
 <p>Email : dchancerelle@gmail.com</p>
 
 <p>
-
-<a href="https://www.linkedin.com/in/danielle-d-7a4147175/" target="_blank">
+<a href="https://www.linkedin.com" target="_blank">
 LinkedIn
 </a>
-
 </p>
 
 </section>
@@ -425,15 +441,7 @@ borderColor:"#38bdf8"
 
 options:{
 
-scales:{
-
-r:{
-
-beginAtZero:true
-
-}
-
-}
+scales:{r:{beginAtZero:true}}
 
 }
 
@@ -451,9 +459,9 @@ canvas.height=window.innerHeight;
 
 let particles=[];
 
-const tech=["SQL","Python","PowerBI","ML","Data","Cloud","AI","R","Excel"];
+const tech=["SQL","Python","PowerBI","ML","AI","Cloud","Data","Excel","R"];
 
-for(let i=0;i<100;i++){
+for(let i=0;i<120;i++){
 
 particles.push({
 
@@ -502,5 +510,4 @@ animate();
 </script>
 
 </body>
-
 </html>
