@@ -3,17 +3,19 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Danielle | Data Consultant</title>
+<title>Portfolio Data de Danielle</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
 
-/* BASE */
+/* BODY */
 
 body{
 margin:0;
-font-family:'Inter', sans-serif;
-background:#f9fbfd;
+font-family:'Segoe UI', sans-serif;
+background:#f8fafc;
 color:#0f172a;
 }
 
@@ -26,23 +28,27 @@ width:100%;
 background:white;
 padding:15px;
 text-align:center;
-box-shadow:0 2px 15px rgba(0,0,0,0.05);
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
 z-index:1000;
 }
 
 nav a{
+color:#334155;
 margin:0 15px;
 text-decoration:none;
-color:#475569;
 font-weight:500;
+}
+
+nav a:hover{
+color:#2563eb;
 }
 
 /* HEADER */
 
 header{
-padding:120px 20px 60px;
 text-align:center;
-background:linear-gradient(120deg,#e0f2fe,#ffffff);
+padding:120px 20px 60px;
+background:linear-gradient(to right,#e0f2fe,#f8fafc);
 }
 
 header h1{
@@ -57,104 +63,98 @@ color:#64748b;
 /* SECTION */
 
 section{
-max-width:1200px;
+max-width:1100px;
 margin:auto;
 padding:60px 20px;
 }
 
-/* GRID */
+h2{
+border-left:4px solid #2563eb;
+padding-left:10px;
+}
 
-.grid{
+/* PROFIL */
+
+.profil{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.profil img{
+width:180px;
+border-radius:50%;
+}
+
+/* CARDS */
+
+.cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
 }
 
-/* CARD GLASS */
-
-.card{
-background:rgba(255,255,255,0.8);
-backdrop-filter:blur(10px);
-border-radius:18px;
+.card, .project{
+background:white;
 padding:20px;
+border-radius:15px;
 transition:0.3s;
-box-shadow:0 10px 30px rgba(0,0,0,0.06);
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+text-decoration:none;
+color:inherit;
 }
 
-.card:hover{
-transform:translateY(-10px) scale(1.02);
-}
-
-/* IMAGE */
-
-.card img{
-width:100%;
-border-radius:12px;
-margin-bottom:15px;
-}
-
-/* TAG */
-
-.tag{
-font-size:12px;
-padding:5px 10px;
-border-radius:20px;
-background:#e0f2fe;
-color:#0369a1;
-display:inline-block;
-margin-bottom:10px;
-}
-
-/* SEARCH */
-
-.search{
-text-align:center;
-margin-bottom:30px;
-}
-
-.search input{
-width:60%;
-padding:12px;
-border-radius:10px;
-border:1px solid #cbd5e1;
-}
-
-/* FILTERS */
-
-.filters{
-text-align:center;
-margin-bottom:30px;
-}
-
-.filters button{
-margin:5px;
-padding:8px 12px;
-border:none;
-border-radius:20px;
-background:#e2e8f0;
-cursor:pointer;
-}
-
-.filters button:hover{
-background:#2563eb;
-color:white;
+.card:hover, .project:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 40px rgba(0,0,0,0.1);
 }
 
 /* DOC LIST */
 
-.doc{
-padding:8px;
-border-bottom:1px solid #e2e8f0;
+.doc-list a{
+display:block;
+padding:6px 0;
+color:#475569;
+text-decoration:none;
 font-size:14px;
 }
 
-.doc a{
-text-decoration:none;
-color:#334155;
+.doc-list a:hover{
+color:#2563eb;
 }
 
-.doc a:hover{
-color:#2563eb;
+/* TIMELINE */
+
+.timeline{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.timeline::after{
+content:'';
+position:absolute;
+width:3px;
+background:#2563eb;
+top:0;
+bottom:0;
+left:50%;
+}
+
+.timeline-item{
+padding:20px 40px;
+position:relative;
+width:50%;
+}
+
+.timeline-item:nth-child(odd){left:0;}
+.timeline-item:nth-child(even){left:50%;}
+
+.timeline-content{
+background:white;
+padding:20px;
+border-radius:10px;
 }
 
 /* CONTACT */
@@ -172,43 +172,110 @@ background:#f1f5f9;
 <body>
 
 <nav>
+<a href="#profil">Profil</a>
+<a href="#competences">Compétences</a>
+<a href="#experience">Expérience</a>
+<a href="#formations">Formations</a>
+<a href="#parcours">Parcours</a>
 <a href="#projets">Projets</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
-<h1>Danielle</h1>
-<p>Consultante Data | Analyse • BI • Machine Learning</p>
+<h1>Portfolio Data de Danielle</h1>
+<p>Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation</p>
 </header>
+
+<!-- PROFIL -->
+
+<section id="profil">
+<h2>Profil</h2>
+
+<div class="profil">
+
+<img src="photo_profil.jpg">
+
+<div>
+<p>Data Analyst spécialisée dans l'analyse statistique et la valorisation de données.</p>
+<p>Expérience en analyse métier, dashboards et études actuarielles.</p>
+</div>
+
+</div>
+</section>
+
+<!-- COMPETENCES -->
+
+<section id="competences">
+<h2>Compétences</h2>
+<canvas id="skillsChart"></canvas>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+<h2>Expérience</h2>
+
+<div class="card">
+<h3>CAVOM – Chargé d'études actuarielles</h3>
+<ul>
+<li>Analyse de données statistiques</li>
+<li>Extraction SQL / Python</li>
+<li>Dashboards Power BI</li>
+<li>Études actuarielles</li>
+<li>Analyse métier</li>
+</ul>
+</div>
+
+</section>
+
+<!-- FORMATIONS -->
+
+<section id="formations">
+<h2>Formations</h2>
+
+<div class="cards">
+
+<div class="card">
+<h4>OpenClassrooms</h4>
+<p>Data Processing</p>
+</div>
+
+<div class="card">
+<h4>DataBird</h4>
+<p>Data Analyst</p>
+</div>
+
+<div class="card">
+<h4>École O'clock</h4>
+<p>Développeur Web</p>
+</div>
+
+</div>
+
+</section>
 
 <!-- PROJETS -->
 
 <section id="projets">
-
 <h2>Projets</h2>
 
-<div class="grid">
+<div class="cards">
 
-<div class="card" data-cat="bi">
-<img src="photo_p10.jpg">
-<span class="tag">BI</span>
+<div class="project">
 <h3>Eau Potable</h3>
-<p>Dashboard décisionnel</p>
+<div class="doc-list">
+<a href="docs/P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>Télécharger présentation</a>
+<a href="docs/P10_1302OK.twbx" download>Télécharger dashboard</a>
+</div>
 </div>
 
-<div class="card" data-cat="ml">
-<img src="photo_p11.jpg">
-<span class="tag">Machine Learning</span>
+<div class="project">
 <h3>Faux Billets</h3>
-<p>Classification ML</p>
+<div class="doc-list">
+<a href="docs/Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>Télécharger PPT</a>
+<a href="docs/faux_billets (1).ipynb" download>Notebook</a>
 </div>
-
-<div class="card" data-cat="analyse">
-<img src="photo_p12.jpg">
-<span class="tag">Analyse</span>
-<h3>Étude de Marché</h3>
-<p>Exploration statistique</p>
 </div>
 
 </div>
@@ -218,41 +285,14 @@ background:#f1f5f9;
 <!-- DOCUMENTS -->
 
 <section id="documents">
+<h2>Tous les documents</h2>
 
-<h2>Documents</h2>
+<div class="card doc-list">
 
-<div class="search">
-<input type="text" id="searchInput" placeholder="Rechercher un document...">
-</div>
-
-<div class="filters">
-<button onclick="filter('all')">Tous</button>
-<button onclick="filter('ml')">ML</button>
-<button onclick="filter('bi')">BI</button>
-<button onclick="filter('analyse')">Analyse</button>
-</div>
-
-<div id="docContainer">
-
-<div class="doc" data-cat="analyse">
-<a href="docs/CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb">Notebook Étude Marché</a>
-</div>
-
-<div class="doc" data-cat="bi">
-<a href="docs/PRODUCTION_PORTFOLIO.pbix">Dashboard Power BI</a>
-</div>
-
-<div class="doc" data-cat="ml">
-<a href="docs/faux_billets (1).ipynb">Notebook Faux Billets</a>
-</div>
-
-<div class="doc" data-cat="bi">
-<a href="docs/P10_1302OK.twbx">Dashboard Tableau</a>
-</div>
-
-<div class="doc" data-cat="analyse">
-<a href="docs/analyse_projets_PBI_OPC_13.xlsx">Analyse Excel</a>
-</div>
+<a href="docs/Documentation Outil viz.docx" download>Documentation Viz</a>
+<a href="docs/My First Board miro.pdf" download>Miro Board</a>
+<a href="docs/PHASES DU PROJET AEROWORLD .xlsx" download>Phases projet</a>
+<a href="docs/PRODUCTION_PORTFOLIO.pbix" download>Power BI</a>
 
 </div>
 
@@ -260,42 +300,24 @@ background:#f1f5f9;
 
 <!-- CONTACT -->
 
-<section class="contact" id="contact">
-
+<section id="contact" class="contact">
 <h2>Contact</h2>
 <p>dchancerelle@gmail.com</p>
-
 </section>
 
 <script>
 
-/* SEARCH */
-
-document.getElementById("searchInput").addEventListener("keyup", function(){
-let value = this.value.toLowerCase();
-let docs = document.querySelectorAll(".doc");
-
-docs.forEach(doc=>{
-doc.style.display = doc.innerText.toLowerCase().includes(value) ? "block" : "none";
-});
-});
-
-/* FILTER */
-
-function filter(cat){
-let docs = document.querySelectorAll(".doc");
-
-docs.forEach(doc=>{
-if(cat==="all" || doc.dataset.cat===cat){
-doc.style.display="block";
-}else{
-doc.style.display="none";
+new Chart(document.getElementById("skillsChart"),{
+type:"radar",
+data:{
+labels:["SQL","Python","Statistiques","ML","Power BI","Viz"],
+datasets:[{
+data:[85,80,75,70,85,90]
+}]
 }
 });
-}
 
 </script>
 
 </body>
 </html>
-
