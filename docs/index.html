@@ -3,162 +3,158 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Portfolio Data de Danielle</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<title>Danielle | Data Consultant</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 
-/* BODY */
+/* BASE */
 
 body{
 margin:0;
-font-family:Arial, sans-serif;
-background:#0f172a;
-color:white;
-overflow-x:hidden;
+font-family:'Inter', sans-serif;
+background:#f9fbfd;
+color:#0f172a;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
 position:fixed;
 top:0;
 width:100%;
-background:#1e293b;
+background:white;
 padding:15px;
 text-align:center;
+box-shadow:0 2px 15px rgba(0,0,0,0.05);
 z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 nav a{
-color:#e2e8f0;
 margin:0 15px;
 text-decoration:none;
+color:#475569;
 font-weight:500;
-}
-
-nav a:hover{
-color:#38bdf8;
 }
 
 /* HEADER */
 
 header{
-text-align:center;
 padding:120px 20px 60px;
+text-align:center;
+background:linear-gradient(120deg,#e0f2fe,#ffffff);
 }
 
 header h1{
 font-size:42px;
 margin:0;
-font-weight:600;
 }
 
 header p{
-font-size:18px;
-color:#94a3b8;
+color:#64748b;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 padding:60px 20px;
 }
 
-h2{
-border-left:4px solid #38bdf8;
-padding-left:10px;
-font-weight:600;
-}
+/* GRID */
 
-/* PROFIL */
-
-.profil{
-display:flex;
-gap:40px;
-flex-wrap:wrap;
-align-items:center;
-}
-
-.profil img{
-width:180px;
-border-radius:50%;
-border:3px solid #38bdf8;
-}
-
-/* CARDS */
-
-.cards{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
 }
 
-/* CARDS & PROJECTS */
+/* CARD GLASS */
 
-.card, .project{
-background:#1e293b;
+.card{
+background:rgba(255,255,255,0.8);
+backdrop-filter:blur(10px);
+border-radius:18px;
 padding:20px;
-border-radius:14px;
-transition:0.25s ease;
-box-shadow:0 6px 20px rgba(0,0,0,0.3);
-border:1px solid rgba(255,255,255,0.05);
-text-decoration:none;
+transition:0.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.06);
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+}
+
+/* IMAGE */
+
+.card img{
+width:100%;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+/* TAG */
+
+.tag{
+font-size:12px;
+padding:5px 10px;
+border-radius:20px;
+background:#e0f2fe;
+color:#0369a1;
+display:inline-block;
+margin-bottom:10px;
+}
+
+/* SEARCH */
+
+.search{
+text-align:center;
+margin-bottom:30px;
+}
+
+.search input{
+width:60%;
+padding:12px;
+border-radius:10px;
+border:1px solid #cbd5e1;
+}
+
+/* FILTERS */
+
+.filters{
+text-align:center;
+margin-bottom:30px;
+}
+
+.filters button{
+margin:5px;
+padding:8px 12px;
+border:none;
+border-radius:20px;
+background:#e2e8f0;
+cursor:pointer;
+}
+
+.filters button:hover{
+background:#2563eb;
 color:white;
 }
 
-.card:hover, .project:hover{
-transform:translateY(-5px);
-border:1px solid #38bdf8;
-box-shadow:0 10px 30px rgba(56,189,248,0.2);
+/* DOC LIST */
+
+.doc{
+padding:8px;
+border-bottom:1px solid #e2e8f0;
+font-size:14px;
 }
 
-/* TIMELINE */
-
-.timeline{
-position:relative;
-max-width:900px;
-margin:auto;
+.doc a{
+text-decoration:none;
+color:#334155;
 }
 
-.timeline::after{
-content:'';
-position:absolute;
-width:3px;
-background:#38bdf8;
-top:0;
-bottom:0;
-left:50%;
-}
-
-.timeline-item{
-padding:20px 40px;
-position:relative;
-width:50%;
-}
-
-.timeline-item:nth-child(odd){
-left:0;
-}
-
-.timeline-item:nth-child(even){
-left:50%;
-}
-
-.timeline-content{
-background:#1e293b;
-padding:20px;
-border-radius:10px;
-}
-
-/* GRAPH */
-
-.chart-container{
-max-width:450px;
-margin:auto;
+.doc a:hover{
+color:#2563eb;
 }
 
 /* CONTACT */
@@ -166,11 +162,7 @@ margin:auto;
 .contact{
 text-align:center;
 padding:40px;
-}
-
-.contact a{
-color:#38bdf8;
-text-decoration:none;
+background:#f1f5f9;
 }
 
 </style>
@@ -180,196 +172,130 @@ text-decoration:none;
 <body>
 
 <nav>
-<a href="#profil">Profil</a>
-<a href="#competences">Compétences</a>
-<a href="#experience">Expérience</a>
-<a href="#formations">Formations</a>
-<a href="#parcours">Parcours</a>
 <a href="#projets">Projets</a>
+<a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
-<h1>Portfolio Data de Danielle</h1>
-<p>Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation</p>
+<h1>Danielle</h1>
+<p>Consultante Data | Analyse • BI • Machine Learning</p>
 </header>
 
-<section id="profil">
-
-<h2>Profil</h2>
-
-<div class="profil">
-
-<img src="photo_profil.jpg">
-
-<div>
-<p>
-Data Analyst spécialisée dans l'analyse statistique et la valorisation de données pour soutenir la prise de décision.
-</p>
-
-<p>
-Expérience en analyse métier, dashboards et études actuarielles.
-</p>
-
-<a href="https://www.linkedin.com" target="_blank">
-Voir LinkedIn
-</a>
-</div>
-
-</div>
-
-</section>
-
-<section id="competences">
-
-<h2>Compétences</h2>
-
-<div class="chart-container">
-<canvas id="skillsChart"></canvas>
-</div>
-
-</section>
-
-<section id="experience">
-
-<h2>Expérience</h2>
-
-<div class="card">
-
-<h3>CAVOM – Chargé d'études actuarielles</h3>
-
-<ul>
-<li>Analyse de données statistiques</li>
-<li>Extraction SQL / Excel / Python</li>
-<li>Dashboards Power BI</li>
-<li>Études actuarielles</li>
-<li>Analyse métier</li>
-</ul>
-
-</div>
-
-</section>
-
-<section id="formations">
-
-<h2>Formations</h2>
-
-<div class="cards">
-
-<div class="card">
-<h4>OpenClassrooms</h4>
-<p>Data Processing – SQL, Python, Visualisation</p>
-</div>
-
-<div class="card">
-<h4>DataBird</h4>
-<p>Formation Data Analyst</p>
-</div>
-
-<div class="card">
-<h4>École O'clock</h4>
-<p>Développeur Web</p>
-</div>
-
-</div>
-
-</section>
-
-<section id="parcours">
-
-<h2>Parcours</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<div class="timeline-content">
-<h3>Data Analyst</h3>
-<p>CAVOM</p>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-content">
-<h3>Formation Data Analyst</h3>
-<p>OpenClassrooms</p>
-</div>
-</div>
-
-<div class="timeline-item">
-<div class="timeline-content">
-<h3>Développeur Web</h3>
-<p>École O'clock</p>
-</div>
-</div>
-
-</div>
-
-</section>
+<!-- PROJETS -->
 
 <section id="projets">
 
 <h2>Projets</h2>
 
-<div class="cards">
+<div class="grid">
 
-<a href="docs/dashboard-eau.pdf" target="_blank" class="project">
-<h3>Dashboard Eau Potable</h3>
-<p>Analyse et priorisation des actions eau potable.</p>
-</a>
+<div class="card" data-cat="bi">
+<img src="photo_p10.jpg">
+<span class="tag">BI</span>
+<h3>Eau Potable</h3>
+<p>Dashboard décisionnel</p>
+</div>
 
-<a href="docs/etude-marche.pdf" target="_blank" class="project">
+<div class="card" data-cat="ml">
+<img src="photo_p11.jpg">
+<span class="tag">Machine Learning</span>
+<h3>Faux Billets</h3>
+<p>Classification ML</p>
+</div>
+
+<div class="card" data-cat="analyse">
+<img src="photo_p12.jpg">
+<span class="tag">Analyse</span>
 <h3>Étude de Marché</h3>
-<p>Analyse statistique d'un marché cible.</p>
-</a>
-
-<a href="https://github.com/" target="_blank" class="project">
-<h3>Détection Faux Billets</h3>
-<p>Machine Learning pour détecter les faux billets.</p>
-</a>
+<p>Exploration statistique</p>
+</div>
 
 </div>
 
 </section>
 
-<section id="contact" class="contact">
+<!-- DOCUMENTS -->
+
+<section id="documents">
+
+<h2>Documents</h2>
+
+<div class="search">
+<input type="text" id="searchInput" placeholder="Rechercher un document...">
+</div>
+
+<div class="filters">
+<button onclick="filter('all')">Tous</button>
+<button onclick="filter('ml')">ML</button>
+<button onclick="filter('bi')">BI</button>
+<button onclick="filter('analyse')">Analyse</button>
+</div>
+
+<div id="docContainer">
+
+<div class="doc" data-cat="analyse">
+<a href="docs/CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb">Notebook Étude Marché</a>
+</div>
+
+<div class="doc" data-cat="bi">
+<a href="docs/PRODUCTION_PORTFOLIO.pbix">Dashboard Power BI</a>
+</div>
+
+<div class="doc" data-cat="ml">
+<a href="docs/faux_billets (1).ipynb">Notebook Faux Billets</a>
+</div>
+
+<div class="doc" data-cat="bi">
+<a href="docs/P10_1302OK.twbx">Dashboard Tableau</a>
+</div>
+
+<div class="doc" data-cat="analyse">
+<a href="docs/analyse_projets_PBI_OPC_13.xlsx">Analyse Excel</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
 
 <h2>Contact</h2>
-
-<p>Email : dchancerelle@gmail.com</p>
-
-<p>
-<a href="https://www.linkedin.com" target="_blank">
-LinkedIn
-</a>
-</p>
+<p>dchancerelle@gmail.com</p>
 
 </section>
 
 <script>
 
-/* GRAPH COMPETENCES */
+/* SEARCH */
 
-new Chart(document.getElementById("skillsChart"),{
+document.getElementById("searchInput").addEventListener("keyup", function(){
+let value = this.value.toLowerCase();
+let docs = document.querySelectorAll(".doc");
 
-type:"radar",
-
-data:{
-labels:["SQL","Python","Statistiques","Machine Learning","Power BI","Visualisation"],
-datasets:[{
-label:"Compétences",
-data:[85,80,75,70,85,90],
-backgroundColor:"rgba(56,189,248,0.2)",
-borderColor:"#38bdf8"
-}]
-},
-
-options:{
-scales:{r:{beginAtZero:true}}
-}
-
+docs.forEach(doc=>{
+doc.style.display = doc.innerText.toLowerCase().includes(value) ? "block" : "none";
 });
+});
+
+/* FILTER */
+
+function filter(cat){
+let docs = document.querySelectorAll(".doc");
+
+docs.forEach(doc=>{
+if(cat==="all" || doc.dataset.cat===cat){
+doc.style.display="block";
+}else{
+doc.style.display="none";
+}
+});
+}
 
 </script>
 
 </body>
 </html>
+
