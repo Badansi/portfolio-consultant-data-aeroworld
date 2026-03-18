@@ -8,7 +8,7 @@
 
 <style>
 body{margin:0;font-family:'Segoe UI';background:#f8fafc;color:#0f172a;}
-nav{position:fixed;top:0;width:100%;background:white;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+nav{position:fixed;top:0;width:100%;background:white;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000;}
 nav a{margin:0 10px;text-decoration:none;color:#334155;font-weight:500;}
 header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,#e0f2fe,#f8fafc);} 
 section{max-width:1100px;margin:auto;padding:60px 20px;}
@@ -32,6 +32,8 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 .skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);}
 
+.details{display:none;margin-top:10px;background:#f1f5f9;padding:10px;border-radius:8px;font-size:14px;}
+
 .contact{text-align:center;padding:40px;background:#f1f5f9;}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
@@ -53,7 +55,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 
 <header>
 <h1>Portfolio Data de Danielle</h1>
-<p>Chargée de missions actuarielles | Data Analyst</p>
+<p>Chargée de missions actuarielles | CAVOM</p>
 </header>
 
 <section id="profil">
@@ -61,8 +63,8 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="profil">
 <img src="photo_profil.jpg">
 <div>
-<p>Chargée de missions actuarielles à Paris 8 avec une spécialisation en data analyse.</p>
-<p>Analyse statistique, machine learning et visualisation pour la prise de décision.</p>
+<p>Chargée de missions actuarielles à la CAVOM. Je travaille en collaboration avec les équipes métier et réalise des extractions et analyses de données pour des organismes d'États et partenaires externes.</p>
+<p>Spécialisée en data analyse, visualisation et modélisation statistique.</p>
 </div>
 </div>
 </section>
@@ -87,24 +89,36 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 
 <div class="card project">
 <img src="photo_p10.jpg">
-<h3>Eau Potable (2024)</h3>
+<h3>Eau Potable</h3>
 <p><strong>Résultat :</strong> Dashboard stratégique.</p>
+<button onclick="toggleDetails(this)">Voir détails</button>
+<div class="details">
+Analyse pour ONG visant à prioriser les investissements en accès à l’eau potable. Dashboard décisionnel avec indicateurs clés.
+</div>
 <a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
 <a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
 
 <div class="card project">
 <img src="photo_p11.jpg">
-<h3>Étude de marché (2024)</h3>
+<h3>Étude de marché</h3>
 <p><strong>Résultat :</strong> Segmentation data.</p>
+<button onclick="toggleDetails(this)">Voir détails</button>
+<div class="details">
+Utilisation de PCA et clustering pour identifier des segments stratégiques et opportunités business.
+</div>
 <a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
 <a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
 </div>
 
 <div class="card project">
 <img src="photo_p12.jpg">
-<h3>Faux Billets (2025)</h3>
+<h3>Faux Billets</h3>
 <p><strong>Résultat :</strong> Modèle ML performant.</p>
+<button onclick="toggleDetails(this)">Voir détails</button>
+<div class="details">
+Développement d’un modèle de machine learning pour détecter les faux billets avec précision.
+</div>
 <a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
 <a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
@@ -115,7 +129,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <section id="experience">
 <h2>Expériences</h2>
 <div class="timeline">
-<div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : Chargée de missions actuarielles - Paris 8</div>
+<div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : Chargée de missions actuarielles - CAVOM (Paris)</div>
 <div class="timeline-item"><strong>2020-2022</strong> : Freelance - Paris</div>
 <div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco - Paris</div>
 </div>
@@ -134,12 +148,12 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <section id="documents">
 <h2>Documents</h2>
 <div class="cards">
-<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a></div>
-<div class="card"><a href="My First Board miro.pdf" download>Miro</a></div>
-<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Projet Aeroworld</a></div>
-<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a></div>
-<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a></div>
-<div class="card"><a href="README.md" download>README</a></div>
+<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard de suivi des projets data du portfolio.</p></div>
+<div class="card"><a href="My First Board miro.pdf" download>Miro</a><p>Présentation visuelle du portfolio et organisation.</p></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Aeroworld</a><p>Diagramme de Gantt et suivi des projets.</p></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée des données.</p></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Analyse des thèmes, temps, statut et avancement.</p></div>
+<div class="card"><a href="README.md" download>README</a><p>Mission AeroWorld : vision stratégique, gestion projet et data.</p></div>
 </div>
 </section>
 
@@ -149,9 +163,14 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 </section>
 
 <script>
+function toggleDetails(btn){
+const d = btn.nextElementSibling;
+d.style.display = d.style.display === 'block' ? 'none' : 'block';
+}
+
 new Chart(document.getElementById("skillsChart"),{
 type:"radar",
-data:{labels:["SQL","Python","Stats","ML","Power BI","Viz"],datasets:[{data:[80,80,80,65,80,80]}]}
+data:{labels:["SQL","Python","Stats","ML","Power BI","Viz"],datasets:[{data:[80,80,80,75,80,80]}]}
 });
 </script>
 
