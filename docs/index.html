@@ -1,172 +1,31 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <title>Portfolio Data de Danielle</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
+body{margin:0;font-family:'Segoe UI';background:#f8fafc;color:#0f172a;}
+nav{position:fixed;top:0;width:100%;background:white;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+nav a{margin:0 10px;text-decoration:none;color:#334155;font-weight:500;}
+header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,#e0f2fe,#f8fafc);} 
+section{max-width:1100px;margin:auto;padding:60px 20px;}
+h2{border-left:4px solid #2563eb;padding-left:10px;}
 
-/* BODY */
+.profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
+.profil img{width:180px;border-radius:50%;}
 
-body{
-margin:0;
-font-family:'Segoe UI', sans-serif;
-background:#f8fafc;
-color:#0f172a;
-}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
+.card{background:white;padding:20px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.05);}
+.card:hover{transform:translateY(-5px);} 
 
-/* NAV */
+.project img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
+.btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2563eb;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
 
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-padding:15px;
-text-align:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-z-index:1000;
-}
-
-nav a{
-color:#334155;
-margin:0 15px;
-text-decoration:none;
-font-weight:500;
-}
-
-nav a:hover{
-color:#2563eb;
-}
-
-/* HEADER */
-
-header{
-text-align:center;
-padding:120px 20px 60px;
-background:linear-gradient(to right,#e0f2fe,#f8fafc);
-}
-
-header h1{
-font-size:42px;
-margin:0;
-}
-
-header p{
-color:#64748b;
-}
-
-/* SECTION */
-
-section{
-max-width:1100px;
-margin:auto;
-padding:60px 20px;
-}
-
-h2{
-border-left:4px solid #2563eb;
-padding-left:10px;
-}
-
-/* PROFIL */
-
-.profil{
-display:flex;
-gap:40px;
-flex-wrap:wrap;
-align-items:center;
-}
-
-.profil img{
-width:180px;
-border-radius:50%;
-}
-
-/* CARDS */
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
-
-.card, .project{
-background:white;
-padding:20px;
-border-radius:15px;
-transition:0.3s;
-box-shadow:0 8px 25px rgba(0,0,0,0.05);
-text-decoration:none;
-color:inherit;
-}
-
-.card:hover, .project:hover{
-transform:translateY(-6px);
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-}
-
-/* DOC LIST */
-
-.doc-list a{
-display:block;
-padding:6px 0;
-color:#475569;
-text-decoration:none;
-font-size:14px;
-}
-
-.doc-list a:hover{
-color:#2563eb;
-}
-
-/* TIMELINE */
-
-.timeline{
-position:relative;
-max-width:900px;
-margin:auto;
-}
-
-.timeline::after{
-content:'';
-position:absolute;
-width:3px;
-background:#2563eb;
-top:0;
-bottom:0;
-left:50%;
-}
-
-.timeline-item{
-padding:20px 40px;
-position:relative;
-width:50%;
-}
-
-.timeline-item:nth-child(odd){left:0;}
-.timeline-item:nth-child(even){left:50%;}
-
-.timeline-content{
-background:white;
-padding:20px;
-border-radius:10px;
-}
-
-/* CONTACT */
-
-.contact{
-text-align:center;
-padding:40px;
-background:#f1f5f9;
-}
-
+.contact{text-align:center;padding:40px;background:#f1f5f9;}
 </style>
-
 </head>
 
 <body>
@@ -174,9 +33,6 @@ background:#f1f5f9;
 <nav>
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
-<a href="#experience">Expérience</a>
-<a href="#formations">Formations</a>
-<a href="#parcours">Parcours</a>
 <a href="#projets">Projets</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
@@ -184,121 +40,73 @@ background:#f1f5f9;
 
 <header>
 <h1>Portfolio Data de Danielle</h1>
-<p>Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation</p>
+<p>Data Analyst | SQL • Python • Statistiques • Power BI</p>
 </header>
-
-<!-- PROFIL -->
 
 <section id="profil">
 <h2>Profil</h2>
-
 <div class="profil">
-
 <img src="photo_profil.jpg">
-
 <div>
-<p>Data Analyst spécialisée dans l'analyse statistique et la valorisation de données.</p>
-<p>Expérience en analyse métier, dashboards et études actuarielles.</p>
+<p>Data Analyst spécialisée en analyse statistique et visualisation.</p>
+<p>Création de dashboards et modèles data pour la décision.</p>
 </div>
-
 </div>
 </section>
-
-<!-- COMPETENCES -->
 
 <section id="competences">
 <h2>Compétences</h2>
 <canvas id="skillsChart"></canvas>
 </section>
 
-<!-- EXPERIENCE -->
-
-<section id="experience">
-<h2>Expérience</h2>
-
-<div class="card">
-<h3>CAVOM – Chargé d'études actuarielles</h3>
-<ul>
-<li>Analyse de données statistiques</li>
-<li>Extraction SQL / Python</li>
-<li>Dashboards Power BI</li>
-<li>Études actuarielles</li>
-<li>Analyse métier</li>
-</ul>
-</div>
-
-</section>
-
-<!-- FORMATIONS -->
-
-<section id="formations">
-<h2>Formations</h2>
-
-<div class="cards">
-
-<div class="card">
-<h4>OpenClassrooms</h4>
-<p>Data Processing</p>
-</div>
-
-<div class="card">
-<h4>DataBird</h4>
-<p>Data Analyst</p>
-</div>
-
-<div class="card">
-<h4>École O'clock</h4>
-<p>Développeur Web</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJETS -->
-
 <section id="projets">
 <h2>Projets</h2>
-
 <div class="cards">
 
-<div class="project">
+<div class="card project">
+<img src="photo_p10.jpg">
 <h3>Eau Potable</h3>
-<div class="doc-list">
-<a href="docs/P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>Télécharger présentation</a>
-<a href="docs/P10_1302OK.twbx" download>Télécharger dashboard</a>
-</div>
+<p><strong>Contexte :</strong> Analyse pour une ONG sur l'accès à l'eau potable.</p>
+<p><strong>Objectif :</strong> Prioriser les investissements.</p>
+<p><strong>Résultat :</strong> Dashboard stratégique facilitant la décision.</p>
+<a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
+<a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
 
-<div class="project">
+<div class="card project">
+<img src="photo_p11.jpg">
+<h3>Étude de marché</h3>
+<p><strong>Contexte :</strong> Analyse data pour identifier opportunités.</p>
+<p><strong>Objectif :</strong> Segmenter via PCA & clustering.</p>
+<p><strong>Résultat :</strong> Identification de segments stratégiques.</p>
+<a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
+<a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
+</div>
+
+<div class="card project">
+<img src="photo_p12.jpg">
 <h3>Faux Billets</h3>
-<div class="doc-list">
-<a href="docs/Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>Télécharger PPT</a>
-<a href="docs/faux_billets (1).ipynb" download>Notebook</a>
-</div>
+<p><strong>Contexte :</strong> Détection de fraude monétaire.</p>
+<p><strong>Objectif :</strong> Modèle ML de classification.</p>
+<p><strong>Résultat :</strong> Modèle performant de détection.</p>
+<a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
+<a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
 
 </div>
-
 </section>
-
-<!-- DOCUMENTS -->
 
 <section id="documents">
 <h2>Tous les documents</h2>
-
-<div class="card doc-list">
-
-<a href="docs/Documentation Outil viz.docx" download>Documentation Viz</a>
-<a href="docs/My First Board miro.pdf" download>Miro Board</a>
-<a href="docs/PHASES DU PROJET AEROWORLD .xlsx" download>Phases projet</a>
-<a href="docs/PRODUCTION_PORTFOLIO.pbix" download>Power BI</a>
-
+<div class="cards">
+<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a></div>
+<div class="card"><a href="My First Board miro.pdf" download>Miro Board</a></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Projet Aeroworld</a></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a></div>
+<div class="card"><a href="README.md" download>README</a></div>
 </div>
-
 </section>
-
-<!-- CONTACT -->
 
 <section id="contact" class="contact">
 <h2>Contact</h2>
@@ -306,17 +114,15 @@ background:#f1f5f9;
 </section>
 
 <script>
-
 new Chart(document.getElementById("skillsChart"),{
 type:"radar",
 data:{
-labels:["SQL","Python","Statistiques","ML","Power BI","Viz"],
+labels:["SQL","Python","Stats","ML","Power BI","Viz"],
 datasets:[{
-data:[85,80,75,70,85,90]
+data:[80,80,80,75,80,80]
 }]
 }
 });
-
 </script>
 
 </body>
