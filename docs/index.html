@@ -17,12 +17,16 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 .profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
 .profil img{width:180px;border-radius:50%;}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;}
 .card{background:white;padding:20px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.05);}
 .card:hover{transform:translateY(-5px);} 
 
 .project img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
 .btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2563eb;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
+.tag{display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 8px;border-radius:5px;font-size:12px;margin:3px;}
+
+.timeline{border-left:3px solid #2563eb;padding-left:20px;}
+.timeline-item{margin-bottom:20px;}
 
 .contact{text-align:center;padding:40px;background:#f1f5f9;}
 </style>
@@ -34,6 +38,8 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
 <a href="#projets">Projets</a>
+<a href="#experience">Expérience</a>
+<a href="#formations">Formations</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -49,7 +55,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <img src="photo_profil.jpg">
 <div>
 <p>Data Analyst spécialisée en analyse statistique et visualisation.</p>
-<p>Création de dashboards et modèles data pour la décision.</p>
+<p>Création de dashboards, modèles ML et outils d’aide à la décision.</p>
 </div>
 </div>
 </section>
@@ -65,30 +71,36 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 
 <div class="card project">
 <img src="photo_p10.jpg">
-<h3>Eau Potable</h3>
-<p><strong>Contexte :</strong> Analyse pour une ONG sur l'accès à l'eau potable.</p>
+<h3>Eau Potable (2024)</h3>
+<p><strong>Contexte :</strong> ONG souhaitant améliorer l’accès à l’eau.</p>
 <p><strong>Objectif :</strong> Prioriser les investissements.</p>
-<p><strong>Résultat :</strong> Dashboard stratégique facilitant la décision.</p>
+<p><strong>Méthodologie :</strong> Analyse + Dashboard.</p>
+<p><strong>Résultat :</strong> Aide à la décision stratégique.</p>
+<div><span class="tag">SQL</span><span class="tag">Tableau</span></div>
 <a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
 <a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
 
 <div class="card project">
 <img src="photo_p11.jpg">
-<h3>Étude de marché</h3>
-<p><strong>Contexte :</strong> Analyse data pour identifier opportunités.</p>
-<p><strong>Objectif :</strong> Segmenter via PCA & clustering.</p>
-<p><strong>Résultat :</strong> Identification de segments stratégiques.</p>
+<h3>Étude de marché (2024)</h3>
+<p><strong>Contexte :</strong> Analyse stratégique.</p>
+<p><strong>Objectif :</strong> Segmenter marché.</p>
+<p><strong>Méthodologie :</strong> PCA + clustering.</p>
+<p><strong>Résultat :</strong> Segments exploitables.</p>
+<div><span class="tag">Python</span><span class="tag">ML</span></div>
 <a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
 <a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
 </div>
 
 <div class="card project">
 <img src="photo_p12.jpg">
-<h3>Faux Billets</h3>
-<p><strong>Contexte :</strong> Détection de fraude monétaire.</p>
-<p><strong>Objectif :</strong> Modèle ML de classification.</p>
-<p><strong>Résultat :</strong> Modèle performant de détection.</p>
+<h3>Faux Billets (2025)</h3>
+<p><strong>Contexte :</strong> Détection fraude.</p>
+<p><strong>Objectif :</strong> Classification ML.</p>
+<p><strong>Méthodologie :</strong> Modèles supervisés.</p>
+<p><strong>Résultat :</strong> Modèle fiable.</p>
+<div><span class="tag">ML</span><span class="tag">Python</span></div>
 <a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
 <a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
@@ -96,15 +108,31 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 </div>
 </section>
 
+<section id="experience">
+<h2>Expériences</h2>
+<div class="timeline">
+<div class="timeline-item"><strong>2023 - Aujourd’hui</strong> : Data Analyst (en formation / projets)</div>
+<div class="timeline-item"><strong>2020-2022</strong> : Freelance Aide à domicile</div>
+<div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco</div>
+</div>
+</section>
+
+<section id="formations">
+<h2>Formations</h2>
+<div class="timeline">
+<div class="timeline-item"><strong>2023-2025</strong> : Data Analyst - OpenClassrooms</div>
+<div class="timeline-item"><strong>2023</strong> : Data Analyst - DataBird</div>
+<div class="timeline-item"><strong>2022-2023</strong> : Développeur Back-End - O’clock</div>
+<div class="timeline-item"><strong>2016</strong> : Bac STL</div>
+</div>
+</section>
+
 <section id="documents">
-<h2>Tous les documents</h2>
+<h2>Documents</h2>
 <div class="cards">
 <div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a></div>
-<div class="card"><a href="My First Board miro.pdf" download>Miro Board</a></div>
-<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Projet Aeroworld</a></div>
+<div class="card"><a href="My First Board miro.pdf" download>Miro</a></div>
 <div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a></div>
-<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a></div>
-<div class="card"><a href="README.md" download>README</a></div>
 </div>
 </section>
 
@@ -118,9 +146,7 @@ new Chart(document.getElementById("skillsChart"),{
 type:"radar",
 data:{
 labels:["SQL","Python","Stats","ML","Power BI","Viz"],
-datasets:[{
-data:[80,80,80,75,80,80]
-}]
+datasets:[{data:[80,80,80,65,80,80]}]
 }
 });
 </script>
