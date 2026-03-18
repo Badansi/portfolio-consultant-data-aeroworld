@@ -7,36 +7,33 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <style>
-body{margin:0;font-family:'Segoe UI';background:#f8fafc;color:#0f172a;}
-nav{position:fixed;top:0;width:100%;background:white;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000;}
-nav a{margin:0 10px;text-decoration:none;color:#334155;font-weight:500;}
-header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,#e0f2fe,#f8fafc);} 
-section{max-width:1100px;margin:auto;padding:60px 20px;}
-h2{border-left:4px solid #2563eb;padding-left:10px;}
+body{margin:0;font-family:'Poppins',sans-serif;background:#ffffff;color:#111;}
+nav{position:fixed;top:0;width:100%;background:white;padding:20px;text-align:center;border-bottom:1px solid #eee;z-index:1000;}
+nav a{margin:0 15px;text-decoration:none;color:#111;font-weight:500;}
+header{text-align:center;padding:140px 20px 80px;background:#fff;}
+header h1{font-size:40px;margin-bottom:10px;}
+header p{color:#666;}
+section{max-width:1100px;margin:auto;padding:80px 20px;}
+h2{font-size:28px;margin-bottom:20px;}
 
-.profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
-.profil img{width:180px;border-radius:50%;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;}
+.card{border:1px solid #eee;padding:25px;border-radius:10px;transition:0.3s;background:#fff;}
+.card:hover{box-shadow:0 10px 30px rgba(0,0,0,0.08);} 
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;}
-.card{background:white;padding:20px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.05);}
-.card:hover{transform:translateY(-5px);} 
+.btn{display:inline-block;margin-top:10px;padding:8px 14px;background:black;color:white;border-radius:4px;text-decoration:none;font-size:13px;}
 
-.project img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
-.btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2563eb;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
-.tag{display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 8px;border-radius:5px;font-size:12px;margin:3px;}
-
-.timeline{border-left:3px solid #2563eb;padding-left:20px;animation:fadeIn 1s ease-in;}
-.timeline-item{margin-bottom:20px;position:relative;}
-.timeline-item::before{content:'';position:absolute;left:-10px;top:5px;width:10px;height:10px;background:#2563eb;border-radius:50%;}
+.timeline{border-left:2px solid black;padding-left:20px;}
+.timeline-item{margin-bottom:25px;}
 
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);}
+.skill-box{border:1px solid #eee;padding:20px;border-radius:8px;}
 
-.details{display:none;margin-top:10px;background:#f1f5f9;padding:10px;border-radius:8px;font-size:14px;}
+.details{display:none;margin-top:10px;font-size:14px;color:#555;}
 
-.contact{text-align:center;padding:40px;background:#f1f5f9;}
+.slider{margin-top:20px;text-align:center;}
+.slider button{margin:5px;padding:10px 15px;border:none;background:black;color:white;cursor:pointer;}
 
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.contact{text-align:center;padding:60px;background:#fafafa;}
 </style>
 </head>
 
@@ -44,42 +41,25 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 
 <nav>
 <a href="#profil">Profil</a>
-<a href="#competences">Compétences</a>
 <a href="#projets">Projets</a>
 <a href="#experience">Expérience</a>
-<a href="#formations">Formations</a>
 <a href="#skills">Skills</a>
 <a href="#documents">Documents</a>
-<a href="#contact">Contact</a>
 </nav>
 
 <header>
-<h1>Portfolio Data de Danielle</h1>
+<h1>Danielle - Data Portfolio</h1>
 <p>Chargée de missions actuarielles | CAVOM</p>
 </header>
 
 <section id="profil">
 <h2>Profil</h2>
-<div class="profil">
-<img src="photo_profil.jpg">
-<div>
-<p>Chargée de missions actuarielles à la CAVOM. Je travaille en collaboration avec les équipes métier et réalise des extractions et analyses de données pour des organismes d'États et partenaires externes.</p>
-<p>Spécialisée en data analyse, visualisation et modélisation statistique.</p>
-</div>
-</div>
-</section>
+<p>Chargée de missions actuarielles à la CAVOM. Collaboration avec les équipes métier et réalisation d’extractions de données pour des organismes d'États externes.</p>
 
-<section id="competences">
-<h2>Compétences techniques</h2>
-<canvas id="skillsChart"></canvas>
-</section>
-
-<section id="skills">
-<h2>Soft & Hard Skills</h2>
-<div class="skills-grid">
-<div class="skill-box"><h3>Hard Skills</h3><p>SQL, Python, Power BI, Machine Learning, DataViz</p></div>
-<div class="skill-box"><h3>Soft Skills</h3><p>Autonomie, rigueur, analyse, adaptabilité</p></div>
-<div class="skill-box"><h3>Langues</h3><p>Anglais B2<br>Roumain B2<br>Espagnol A1</p></div>
+<div class="slider">
+<p id="expText"><strong>Expérience Data : 3 ans</strong></p>
+<button onclick="changeExp(1)">◀</button>
+<button onclick="changeExp(2)">▶</button>
 </div>
 </section>
 
@@ -87,77 +67,61 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <h2>Projets</h2>
 <div class="cards">
 
-<div class="card project">
-<img src="photo_p10.jpg">
+<div class="card">
 <h3>Eau Potable</h3>
-<p><strong>Résultat :</strong> Dashboard stratégique.</p>
-<button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">
-Analyse pour ONG visant à prioriser les investissements en accès à l’eau potable. Dashboard décisionnel avec indicateurs clés.
-</div>
-<a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
-<a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
+<p>Dashboard stratégique pour ONG.</p>
+<button onclick="toggleDetails(this)">Détails</button>
+<div class="details">Analyse et priorisation des investissements.</div>
 </div>
 
-<div class="card project">
-<img src="photo_p11.jpg">
+<div class="card">
 <h3>Étude de marché</h3>
-<p><strong>Résultat :</strong> Segmentation data.</p>
-<button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">
-Utilisation de PCA et clustering pour identifier des segments stratégiques et opportunités business.
-</div>
-<a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
-<a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
+<p>Segmentation data avancée.</p>
+<button onclick="toggleDetails(this)">Détails</button>
+<div class="details">PCA et clustering pour stratégie business.</div>
 </div>
 
-<div class="card project">
-<img src="photo_p12.jpg">
+<div class="card">
 <h3>Faux Billets</h3>
-<p><strong>Résultat :</strong> Modèle ML performant.</p>
-<button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">
-Développement d’un modèle de machine learning pour détecter les faux billets avec précision.
-</div>
-<a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
-<a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
+<p>Modèle ML performant.</p>
+<button onclick="toggleDetails(this)">Détails</button>
+<div class="details">Détection automatisée de fraude.</div>
 </div>
 
 </div>
 </section>
 
 <section id="experience">
-<h2>Expériences</h2>
+<h2>Expérience</h2>
 <div class="timeline">
-<div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : Chargée de missions actuarielles - CAVOM (Paris)</div>
+<div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : CAVOM - Paris</div>
 <div class="timeline-item"><strong>2020-2022</strong> : Freelance - Paris</div>
-<div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco - Paris</div>
+<div class="timeline-item"><strong>2019-2020</strong> : Bacco - Paris</div>
 </div>
 </section>
 
-<section id="formations">
-<h2>Formations</h2>
-<div class="timeline">
-<div class="timeline-item"><strong>2023-2025</strong> : Data Analyst - OpenClassrooms</div>
-<div class="timeline-item"><strong>2023</strong> : Data Analyst - DataBird</div>
-<div class="timeline-item"><strong>2022-2023</strong> : Développeur Back-End - O’clock</div>
-<div class="timeline-item"><strong>2016</strong> : Bac STL</div>
+<section id="skills">
+<h2>Skills</h2>
+<div class="skills-grid">
+<div class="skill-box">Hard Skills : SQL, Python, ML, Power BI</div>
+<div class="skill-box">Soft Skills : Rigueur, autonomie, analyse</div>
+<div class="skill-box">Langues : Anglais B2, Roumain B2, Espagnol A1</div>
 </div>
 </section>
 
 <section id="documents">
 <h2>Documents</h2>
 <div class="cards">
-<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard de suivi des projets data du portfolio.</p></div>
-<div class="card"><a href="My First Board miro.pdf" download>Miro</a><p>Présentation visuelle du portfolio et organisation.</p></div>
-<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Aeroworld</a><p>Diagramme de Gantt et suivi des projets.</p></div>
-<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée des données.</p></div>
-<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Analyse des thèmes, temps, statut et avancement.</p></div>
-<div class="card"><a href="README.md" download>README</a><p>Mission AeroWorld : vision stratégique, gestion projet et data.</p></div>
+<div class="card">Documentation Viz - suivi projets</div>
+<div class="card">Miro - organisation portfolio</div>
+<div class="card">Aeroworld - diagramme Gantt</div>
+<div class="card">Power BI - dashboard</div>
+<div class="card">Analyse projets - KPI</div>
+<div class="card">README - mission data</div>
 </div>
 </section>
 
-<section id="contact" class="contact">
+<section class="contact">
 <h2>Contact</h2>
 <p>dchancerelle@gmail.com</p>
 </section>
@@ -168,10 +132,11 @@ const d = btn.nextElementSibling;
 d.style.display = d.style.display === 'block' ? 'none' : 'block';
 }
 
-new Chart(document.getElementById("skillsChart"),{
-type:"radar",
-data:{labels:["SQL","Python","Stats","ML","Power BI","Viz"],datasets:[{data:[80,80,80,75,80,80]}]}
-});
+function changeExp(dir){
+const el = document.getElementById("expText");
+if(dir===1){el.innerHTML="<strong>Expérience Data : 3 ans</strong>"}
+else{el.innerHTML="<strong>Spécialisation : Data & Actuariat</strong>"}
+}
 </script>
 
 </body>
