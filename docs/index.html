@@ -7,36 +7,150 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 /* BODY */
-body{margin:0;font-family:'Segoe UI',sans-serif;background:#f8fafc;color:#0f172a;}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fafc;
+    color: #334155;
+}
+
 /* NAV */
-nav{position:fixed;top:0;width:100%;background:white;padding:15px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);z-index:1000;}
-nav a{margin:0 10px;text-decoration:none;color:#334155;font-weight:500;}
-nav a:hover{color:#2563eb;}
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #f8fafc;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+nav a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #334155;
+    font-weight: 500;
+}
+nav a:hover { color: #D4AF37; }
+
 /* HEADER */
-header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,#e0f2fe,#f8fafc);} 
-header h1{font-size:42px;margin:0;}
-header p{color:#64748b;}
+header {
+    text-align: center;
+    padding: 120px 20px 60px;
+    background: linear-gradient(to right, #e0f2fe, #f8fafc);
+}
+header h1 { font-size: 42px; margin: 0; color: #334155; }
+header p { color: #64748b; }
+
 /* SECTIONS */
-section{max-width:1100px;margin:auto;padding:60px 20px;}
-h2{border-left:4px solid #2563eb;padding-left:10px;}
-.profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
-.profil img{width:180px;border-radius:50%;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;}
-.card, .project{background:white;padding:20px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.05);transition:0.3s;text-decoration:none;color:inherit;}
-.card:hover, .project:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.1);}
-.project img{width:100%;height:180px;object-fit:cover;border-radius:10px;}
-.btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2563eb;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
-.details{display:none;margin-top:10px;background:#f1f5f9;padding:10px;border-radius:8px;font-size:14px;}
-.timeline{position:relative;max-width:900px;margin:auto;}
-.timeline::after{content:'';position:absolute;width:3px;background:#2563eb;top:0;bottom:0;left:50%;}
-.timeline-item{padding:20px 40px;position:relative;width:50%;}
-.timeline-item:nth-child(odd){left:0;}
-.timeline-item:nth-child(even){left:50%;}
-.timeline-content{background:white;padding:20px;border-radius:10px;}
-.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
-.skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);}
-.contact{text-align:center;padding:40px;background:#f1f5f9;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+section { max-width: 1100px; margin: auto; padding: 60px 20px; }
+h2 {
+    border-left: 4px solid #D4AF37;
+    padding-left: 10px;
+    color: #334155;
+}
+
+/* PROFIL */
+.profil {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.profil img {
+    width: 180px;
+    border-radius: 50%;
+    border: 3px solid #D4AF37;
+}
+
+/* CARDS / PROJETS */
+.cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 25px; }
+.card, .project {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    color: #334155;
+    text-decoration: none;
+}
+.card:hover, .project:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+.project img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
+
+/* BOUTONS OR */
+.btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #D4AF37;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+}
+.btn:hover { background: #b8952e; }
+
+/* DETAILS */
+.details {
+    display: none;
+    margin-top: 10px;
+    background: #fdf6e3;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    border-left: 4px solid #D4AF37;
+}
+
+/* TIMELINE */
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: auto;
+}
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: #D4AF37;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+}
+.timeline-item {
+    padding: 20px 40px;
+    position: relative;
+    width: 50%;
+}
+.timeline-item:nth-child(odd){ left: 0; }
+.timeline-item:nth-child(even){ left: 50%; }
+.timeline-content {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* SKILLS GRID */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
+.skill-box { background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
+
+/* CONTACT */
+.contact { text-align: center; padding: 40px; background: #f8fafc; color: #334155; }
+
+/* GANTT IMAGE */
+.gantt-preview {
+    width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 2px solid #D4AF37;
+    margin-top: 20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
 </style>
 </head>
 <body>
@@ -44,10 +158,10 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <nav>
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
+<a href="#skills">Soft & Hard Skills</a>
 <a href="#projets">Projets</a>
 <a href="#experience">Expérience</a>
 <a href="#formations">Formations</a>
-<a href="#skills">Skills</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -90,6 +204,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <section id="projets">
 <h2>Projets</h2>
 <div class="cards">
+
 <div class="card project">
 <img src="photo_p10.jpg">
 <h3>Eau Potable</h3>
@@ -99,6 +214,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
 <a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
+
 <div class="card project">
 <img src="photo_p11.jpg">
 <h3>Étude de marché</h3>
@@ -108,6 +224,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
 <a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
 </div>
+
 <div class="card project">
 <img src="photo_p12.jpg">
 <h3>Faux Billets</h3>
@@ -117,6 +234,18 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
 <a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
+
+<div class="card project">
+<img src="gant.jpg" class="gantt-preview">
+<h3>Projet AeroWorld</h3>
+<p><strong>Résultat :</strong> Diagramme de Gantt & suivi projets</p>
+<button onclick="toggleDetails(this)">Voir détails</button>
+<div class="details">
+Visualisation de l'avancement des projets AeroWorld : thèmes, temps passé, statut et progression.
+</div>
+<a class="btn" href="PHASES DU PROJET AEROWORLD .xlsx" download>Diagramme Gantt</a>
+</div>
+
 </div>
 </section>
 
@@ -132,9 +261,9 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <section id="formations">
 <h2>Formations</h2>
 <div class="timeline">
-<div class="timeline-item"><strong>2023-2025</strong> : Data Analyst - OpenClassrooms</div>
-<div class="timeline-item"><strong>2023</strong> : Data Analyst - DataBird</div>
-<div class="timeline-item"><strong>2022-2023</strong> : Développeur Back-End - O’clock</div>
+<div class="timeline-item"><strong>2023-2025</strong> : Data Analyst - OpenClassrooms (Paris)</div>
+<div class="timeline-item"><strong>2023</strong> : Data Analyst - DataBird (Paris)</div>
+<div class="timeline-item"><strong>2022-2023</strong> : Développeur Back-End - O’clock (Paris)</div>
 <div class="timeline-item"><strong>2016</strong> : Baccalauréat STL</div>
 </div>
 </section>
@@ -158,15 +287,27 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 
 <script>
 function toggleDetails(btn){
-const d = btn.nextElementSibling;
-d.style.display = d.style.display === 'block' ? 'none' : 'block';
+  const d = btn.nextElementSibling;
+  d.style.display = d.style.display === 'block' ? 'none' : 'block';
 }
 function changeExp(dir){
-const el = document.getElementById("expText");
-if(dir===1){el.innerHTML="<strong>Expérience Data : 3 ans</strong>"}
-else{el.innerHTML="<strong>Spécialisation : Data & Actuariat</strong>"}
+  const el = document.getElementById("expText");
+  if(dir===1){el.innerHTML="<strong>Expérience Data : 3 ans</strong>"}
+  else{el.innerHTML="<strong>Spécialisation : Data & Actuariat</strong>"}
 }
-new Chart(document.getElementById("skillsChart"),{type:"radar",data:{labels:["SQL","Python","Stats","ML","Power BI","Viz"],datasets:[{data:[80,80,80,75,80,80]}]}});
+new Chart(document.getElementById("skillsChart"),{
+  type:"radar",
+  data:{
+    labels:["SQL","Python","Stats","ML","Power BI","Viz"],
+    datasets:[{data:[80,80,80,75,80,80]}]
+  },
+  options:{
+    scales:{
+      r:{angleLines:{color:'#D4AF37'}, grid:{color:'#e2e8f0'}, pointLabels:{color:'#334155'}}
+    },
+    plugins:{legend:{display:false}}
+  }
+});
 </script>
 
 </body>
