@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Projet AeroWorld - Danielle</title>
+<style>
+body{font-family:'Segoe UI',sans-serif;background:#f8f8f8;color:#2f3e46;margin:0;padding:0;}
+header{padding:50px 20px;text-align:center;background:#e0e6e9;}
+header h1{margin:0;color:#2f3e46;}
+header p{color:#2f3e46;}
+section{max-width:900px;margin:auto;padding:40px;}
+.cards{display:grid;grid-template-columns:1fr;gap:20px;}
+.card, .project{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+.btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2f3e46;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
+.btn:hover{background:#d4af37;color:#2f3e46;}
+.chart-container{position:relative;width:100%;height:400px;margin-top:15px;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+<h1>Projet AeroWorld</h1>
+<p>Diagramme de Gantt et suivi des projets</p>
+</header>
+<section>
+<h2>Description</h2>
+<p>Visualisation de l’avancement des projets AeroWorld : thèmes, temps, statut et progression. Diagramme de Gantt interactif et dashboard décisionnel.</p>
+<h2>Documents</h2>
+<a class="btn" href="PHASES DU PROJET AEROWORLD .xlsx" download>Diagramme de Gantt</a>
+<a class="btn" href="README.md" download>README</a>
+<h2>Visualisation Gantt</h2>
+<div class="chart-container">
+<canvas id="ganttChart"></canvas>
+</div>
+<h2>Navigation</h2>
+<a class="btn" href="index.html">Retour au portfolio</a>
+</section>
+<script>
+const ctx = document.getElementById('ganttChart').getContext('2d');
+new Chart(ctx,{
+  type:'bar',
+  data:{
+    labels:['Analyse','Dév','Test','Livraison'],
+    datasets:[{
+      label:'Temps passé (jours)',
+      data:[5,10,7,3],
+      backgroundColor:'#d4af37'
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{legend:{display:false}}
+  }
+});
+</script>
+</body>
+</html>
