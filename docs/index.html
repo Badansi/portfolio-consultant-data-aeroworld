@@ -8,148 +8,144 @@
 <style>
 /* BODY */
 body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f8fafc;
-    color: #334155;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f5f6f8;
+  color: #2c3e50;
 }
 
 /* NAV */
 nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #f8fafc;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #f8fafc;
+  padding: 12px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  z-index: 1000;
 }
 nav a {
-    margin: 0 12px;
-    text-decoration: none;
-    color: #334155;
-    font-weight: 500;
+  margin: 0 14px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  transition: 0.3s;
 }
 nav a:hover { color: #D4AF37; }
 
 /* HEADER */
 header {
-    text-align: center;
-    padding: 120px 20px 60px;
-    background: linear-gradient(to right, #e0f2fe, #f8fafc);
+  text-align: center;
+  padding: 140px 20px 80px;
+  background: linear-gradient(to right, #e0f0f8, #f5f6f8);
 }
-header h1 { font-size: 42px; margin: 0; color: #334155; }
-header p { color: #64748b; }
+header h1 { font-size: 44px; margin: 0; color: #2c3e50; }
+header p { color: #7f8c8d; font-size: 18px; margin-top: 10px; }
 
 /* SECTIONS */
 section { max-width: 1100px; margin: auto; padding: 60px 20px; }
 h2 {
-    border-left: 4px solid #D4AF37;
-    padding-left: 10px;
-    color: #334155;
+  border-left: 5px solid #D4AF37;
+  padding-left: 12px;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 28px;
 }
 
 /* PROFIL */
 .profil {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    align-items: center;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .profil img {
-    width: 180px;
-    border-radius: 50%;
-    border: 3px solid #D4AF37;
+  width: 180px;
+  border-radius: 50%;
+  border: 3px solid #D4AF37;
+  transition: 0.3s;
 }
+.profil img:hover { transform: scale(1.05); }
 
 /* CARDS / PROJETS */
 .cards { display: grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap: 25px; }
 .card, .project {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
-    transition: 0.3s;
-    color: #334155;
-    text-decoration: none;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: 0.3s;
 }
-.card:hover, .project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-.project img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
+.card:hover, .project:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,0.12); }
+.project img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; }
 
-/* BOUTONS OR */
+/* BUTTONS */
 .btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
-    background: #D4AF37;
-    color: #fff;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 13px;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: #D4AF37;
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.3s;
 }
 .btn:hover { background: #b8952e; }
 
-/* DETAILS */
+/* DETAILS MODAL */
 .details {
-    display: none;
-    margin-top: 10px;
-    background: #fdf6e3;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    border-left: 4px solid #D4AF37;
+  display: none;
+  margin-top: 12px;
+  background: #fcf8f0;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  border-left: 5px solid #D4AF37;
 }
 
 /* TIMELINE */
 .timeline {
-    position: relative;
-    max-width: 900px;
-    margin: auto;
+  position: relative;
+  max-width: 900px;
+  margin: auto;
 }
 .timeline::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background: #D4AF37;
-    top: 0;
-    bottom: 0;
-    left: 50%;
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #D4AF37;
+  top: 0;
+  bottom: 0;
+  left: 50%;
 }
 .timeline-item {
-    padding: 20px 40px;
-    position: relative;
-    width: 50%;
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+  transition: all 0.5s;
 }
 .timeline-item:nth-child(odd){ left: 0; }
 .timeline-item:nth-child(even){ left: 50%; }
 .timeline-content {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* SKILLS GRID */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap: 20px; }
-.skill-box { background: #ffffff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 10px rgba(0,0,0,0.05); }
+.skill-box { background: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
 /* CONTACT */
-.contact { text-align: center; padding: 40px; background: #f8fafc; color: #334155; }
+.contact { text-align: center; padding: 50px 20px; background: #f5f6f8; color: #2c3e50; }
 
 /* GANTT IMAGE */
-.gantt-preview {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-    border-radius: 10px;
-    border: 2px solid #D4AF37;
-    margin-top: 20px;
-}
+.gantt-preview { width: 100%; max-height: 320px; object-fit: contain; border-radius: 12px; border: 2px solid #D4AF37; margin-top: 20px; }
 
-/* ANIMATIONS */
+/* ANIMATION */
 @keyframes fadeIn { from{opacity:0;transform:translateY(10px);} to{opacity:1;transform:translateY(0);} }
 </style>
 </head>
@@ -204,7 +200,7 @@ h2 {
 <section id="projets">
 <h2>Projets</h2>
 <div class="cards">
-
+<!-- Eau Potable -->
 <div class="card project">
 <img src="photo_p10.jpg">
 <h3>Eau Potable</h3>
@@ -214,38 +210,35 @@ h2 {
 <a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
 <a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
-
+<!-- Étude de marché -->
 <div class="card project">
 <img src="photo_p11.jpg">
 <h3>Étude de marché</h3>
 <p><strong>Résultat :</strong> Segmentation data</p>
 <button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">Utilisation de PCA et clustering pour identifier des segments stratégiques et opportunités business.</div>
+<div class="details">PCA et clustering pour identifier segments stratégiques et opportunités business.</div>
 <a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
 <a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
 </div>
-
+<!-- Faux Billets -->
 <div class="card project">
 <img src="photo_p12.jpg">
 <h3>Faux Billets</h3>
 <p><strong>Résultat :</strong> Modèle ML performant</p>
 <button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">Développement d’un modèle de machine learning pour détecter les faux billets avec précision.</div>
+<div class="details">Développement d’un modèle ML pour détecter les faux billets.</div>
 <a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
 <a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
-
+<!-- AeroWorld -->
 <div class="card project">
 <img src="gant.jpg" class="gantt-preview">
 <h3>Projet AeroWorld</h3>
 <p><strong>Résultat :</strong> Diagramme de Gantt & suivi projets</p>
 <button onclick="toggleDetails(this)">Voir détails</button>
-<div class="details">
-Visualisation de l'avancement des projets AeroWorld : thèmes, temps passé, statut et progression.
-</div>
+<div class="details">Visualisation de l'avancement des projets AeroWorld : thèmes, temps, statut et progression.</div>
 <a class="btn" href="PHASES DU PROJET AEROWORLD .xlsx" download>Diagramme Gantt</a>
 </div>
-
 </div>
 </section>
 
@@ -271,12 +264,12 @@ Visualisation de l'avancement des projets AeroWorld : thèmes, temps passé, sta
 <section id="documents">
 <h2>Documents</h2>
 <div class="cards">
-<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard de suivi des projets data du portfolio</p></div>
-<div class="card"><a href="My First Board miro.pdf" download>Miro</a><p>Présentation visuelle du portfolio et organisation</p></div>
-<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Aeroworld</a><p>Diagramme de Gantt et suivi des projets</p></div>
-<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée des données</p></div>
-<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Analyse des thèmes, temps, statut et avancement</p></div>
-<div class="card"><a href="README.md" download>README</a><p>Mission AeroWorld : vision stratégique, gestion projet et data</p></div>
+<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard suivi projets data</p></div>
+<div class="card"><a href="My First Board miro.pdf" download>Miro</a><p>Présentation visuelle portfolio</p></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Aeroworld</a><p>Diagramme de Gantt et suivi projets</p></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée</p></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Thèmes, temps, statut, avancement</p></div>
+<div class="card"><a href="README.md" download>README</a><p>Mission AeroWorld : vision stratégique & gestion projet</p></div>
 </div>
 </section>
 
@@ -288,23 +281,20 @@ Visualisation de l'avancement des projets AeroWorld : thèmes, temps passé, sta
 <script>
 function toggleDetails(btn){
   const d = btn.nextElementSibling;
-  d.style.display = d.style.display === 'block' ? 'none' : 'block';
+  d.style.display = d.style.display==='block'?'none':'block';
 }
 function changeExp(dir){
   const el = document.getElementById("expText");
-  if(dir===1){el.innerHTML="<strong>Expérience Data : 3 ans</strong>"}
-  else{el.innerHTML="<strong>Spécialisation : Data & Actuariat</strong>"}
+  el.innerHTML = dir===1 ? "<strong>Expérience Data : 3 ans</strong>" : "<strong>Spécialisation : Data & Actuariat</strong>";
 }
 new Chart(document.getElementById("skillsChart"),{
   type:"radar",
   data:{
     labels:["SQL","Python","Stats","ML","Power BI","Viz"],
-    datasets:[{data:[80,80,80,75,80,80]}]
+    datasets:[{data:[80,80,80,75,80,80],backgroundColor:"rgba(212,175,55,0.2)",borderColor:"#D4AF37",pointBackgroundColor:"#D4AF37"}]
   },
   options:{
-    scales:{
-      r:{angleLines:{color:'#D4AF37'}, grid:{color:'#e2e8f0'}, pointLabels:{color:'#334155'}}
-    },
+    scales:{r:{angleLines:{color:'#D4AF37'},grid:{color:'#e2e8f0'},pointLabels:{color:'#2c3e50'}}},
     plugins:{legend:{display:false}}
   }
 });
