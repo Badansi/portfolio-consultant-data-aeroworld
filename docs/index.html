@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 
 <head>
@@ -19,15 +18,6 @@ color:white;
 overflow-x:hidden;
 }
 
-/* FOND DATA */
-
-canvas#network{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
-
 /* NAVIGATION */
 
 nav{
@@ -38,14 +28,14 @@ background:#1e293b;
 padding:15px;
 text-align:center;
 z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 nav a{
-color:white;
+color:#e2e8f0;
 margin:0 15px;
 text-decoration:none;
-font-weight:bold;
-transition:0.3s;
+font-weight:500;
 }
 
 nav a:hover{
@@ -62,11 +52,12 @@ padding:120px 20px 60px;
 header h1{
 font-size:42px;
 margin:0;
+font-weight:600;
 }
 
 header p{
 font-size:18px;
-color:#cbd5e1;
+color:#94a3b8;
 }
 
 /* SECTIONS */
@@ -78,8 +69,9 @@ padding:60px 20px;
 }
 
 h2{
-border-left:6px solid #38bdf8;
+border-left:4px solid #38bdf8;
 padding-left:10px;
+font-weight:600;
 }
 
 /* PROFIL */
@@ -94,7 +86,7 @@ align-items:center;
 .profil img{
 width:180px;
 border-radius:50%;
-border:4px solid #38bdf8;
+border:3px solid #38bdf8;
 }
 
 /* CARDS */
@@ -105,35 +97,23 @@ grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
 }
 
-/* CARTE CUIVRE */
+/* CARDS & PROJECTS */
 
-.card{
-background:#b87333;
+.card, .project{
+background:#1e293b;
 padding:20px;
-border-radius:12px;
-transition:0.35s;
-box-shadow:0 8px 25px rgba(184,115,51,0.3);
+border-radius:14px;
+transition:0.25s ease;
+box-shadow:0 6px 20px rgba(0,0,0,0.3);
+border:1px solid rgba(255,255,255,0.05);
+text-decoration:none;
+color:white;
 }
 
-.card:hover{
-transform:translateY(-8px);
-background:#cd7f32;
-box-shadow:0 12px 35px rgba(184,115,51,0.6);
-}
-
-/* PROJETS */
-
-.project{
-background:#b87333;
-padding:20px;
-border-radius:12px;
-cursor:pointer;
-transition:0.3s;
-}
-
-.project:hover{
-transform:translateY(-8px);
-background:#cd7f32;
+.card:hover, .project:hover{
+transform:translateY(-5px);
+border:1px solid #38bdf8;
+box-shadow:0 10px 30px rgba(56,189,248,0.2);
 }
 
 /* TIMELINE */
@@ -147,7 +127,7 @@ margin:auto;
 .timeline::after{
 content:'';
 position:absolute;
-width:4px;
+width:3px;
 background:#38bdf8;
 top:0;
 bottom:0;
@@ -199,8 +179,6 @@ text-decoration:none;
 
 <body>
 
-<canvas id="network"></canvas>
-
 <nav>
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
@@ -212,13 +190,8 @@ text-decoration:none;
 </nav>
 
 <header>
-
 <h1>Portfolio Data de Danielle</h1>
-
-<p>
-Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation
-</p>
-
+<p>Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation</p>
 </header>
 
 <section id="profil">
@@ -230,7 +203,6 @@ Data Analyst | SQL • Python • Statistiques • Power BI • Visualisation
 <img src="photo_profil.jpg">
 
 <div>
-
 <p>
 Data Analyst spécialisée dans l'analyse statistique et la valorisation de données pour soutenir la prise de décision.
 </p>
@@ -242,7 +214,6 @@ Expérience en analyse métier, dashboards et études actuarielles.
 <a href="https://www.linkedin.com" target="_blank">
 Voir LinkedIn
 </a>
-
 </div>
 
 </div>
@@ -268,17 +239,11 @@ Voir LinkedIn
 <h3>CAVOM – Chargé d'études actuarielles</h3>
 
 <ul>
-
 <li>Analyse de données statistiques</li>
-
 <li>Extraction SQL / Excel / Python</li>
-
 <li>Dashboards Power BI</li>
-
 <li>Études actuarielles</li>
-
 <li>Analyse métier</li>
-
 </ul>
 
 </div>
@@ -292,27 +257,18 @@ Voir LinkedIn
 <div class="cards">
 
 <div class="card">
-
 <h4>OpenClassrooms</h4>
-
 <p>Data Processing – SQL, Python, Visualisation</p>
-
 </div>
 
 <div class="card">
-
 <h4>DataBird</h4>
-
 <p>Formation Data Analyst</p>
-
 </div>
 
 <div class="card">
-
 <h4>École O'clock</h4>
-
 <p>Développeur Web</p>
-
 </div>
 
 </div>
@@ -326,39 +282,24 @@ Voir LinkedIn
 <div class="timeline">
 
 <div class="timeline-item">
-
 <div class="timeline-content">
-
 <h3>Data Analyst</h3>
-
 <p>CAVOM</p>
-
 </div>
-
 </div>
 
 <div class="timeline-item">
-
 <div class="timeline-content">
-
 <h3>Formation Data Analyst</h3>
-
 <p>OpenClassrooms</p>
-
 </div>
-
 </div>
 
 <div class="timeline-item">
-
 <div class="timeline-content">
-
 <h3>Développeur Web</h3>
-
 <p>École O'clock</p>
-
 </div>
-
 </div>
 
 </div>
@@ -371,29 +312,20 @@ Voir LinkedIn
 
 <div class="cards">
 
-<div class="project">
-
+<a href="docs/dashboard-eau.pdf" target="_blank" class="project">
 <h3>Dashboard Eau Potable</h3>
-
 <p>Analyse et priorisation des actions eau potable.</p>
+</a>
 
-</div>
-
-<div class="project">
-
+<a href="docs/etude-marche.pdf" target="_blank" class="project">
 <h3>Étude de Marché</h3>
-
 <p>Analyse statistique d'un marché cible.</p>
+</a>
 
-</div>
-
-<div class="project">
-
+<a href="https://github.com/" target="_blank" class="project">
 <h3>Détection Faux Billets</h3>
-
 <p>Machine Learning pour détecter les faux billets.</p>
-
-</div>
+</a>
 
 </div>
 
@@ -422,90 +354,20 @@ new Chart(document.getElementById("skillsChart"),{
 type:"radar",
 
 data:{
-
 labels:["SQL","Python","Statistiques","Machine Learning","Power BI","Visualisation"],
-
 datasets:[{
-
 label:"Compétences",
-
 data:[85,80,75,70,85,90],
-
 backgroundColor:"rgba(56,189,248,0.2)",
-
 borderColor:"#38bdf8"
-
 }]
-
 },
 
 options:{
-
 scales:{r:{beginAtZero:true}}
-
 }
 
 });
-
-/* FOND DATA */
-
-const canvas=document.getElementById("network");
-
-const ctx=canvas.getContext("2d");
-
-canvas.width=window.innerWidth;
-
-canvas.height=window.innerHeight;
-
-let particles=[];
-
-const tech=["SQL","Python","PowerBI","ML","AI","Cloud","Data","Excel","R"];
-
-for(let i=0;i<120;i++){
-
-particles.push({
-
-x:Math.random()*canvas.width,
-
-y:Math.random()*canvas.height,
-
-vx:(Math.random()-0.5),
-
-vy:(Math.random()-0.5),
-
-text:tech[Math.floor(Math.random()*tech.length)]
-
-});
-
-}
-
-function animate(){
-
-ctx.clearRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#38bdf8";
-
-ctx.font="14px Arial";
-
-particles.forEach(p=>{
-
-p.x+=p.vx;
-
-p.y+=p.vy;
-
-if(p.x<0||p.x>canvas.width)p.vx*=-1;
-
-if(p.y<0||p.y>canvas.height)p.vy*=-1;
-
-ctx.fillText(p.text,p.x,p.y);
-
-});
-
-requestAnimationFrame(animate);
-
-}
-
-animate();
 
 </script>
 
