@@ -25,10 +25,16 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 .btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2563eb;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
 .tag{display:inline-block;background:#e0f2fe;color:#0369a1;padding:4px 8px;border-radius:5px;font-size:12px;margin:3px;}
 
-.timeline{border-left:3px solid #2563eb;padding-left:20px;}
-.timeline-item{margin-bottom:20px;}
+.timeline{border-left:3px solid #2563eb;padding-left:20px;animation:fadeIn 1s ease-in;}
+.timeline-item{margin-bottom:20px;position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-10px;top:5px;width:10px;height:10px;background:#2563eb;border-radius:50%;}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);}
 
 .contact{text-align:center;padding:40px;background:#f1f5f9;}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 </style>
 </head>
 
@@ -40,13 +46,14 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <a href="#projets">Projets</a>
 <a href="#experience">Expérience</a>
 <a href="#formations">Formations</a>
+<a href="#skills">Skills</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
 </nav>
 
 <header>
 <h1>Portfolio Data de Danielle</h1>
-<p>Data Analyst | SQL • Python • Statistiques • Power BI</p>
+<p>Chargée de missions actuarielles | Data Analyst</p>
 </header>
 
 <section id="profil">
@@ -54,15 +61,24 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="profil">
 <img src="photo_profil.jpg">
 <div>
-<p>Data Analyst spécialisée en analyse statistique et visualisation.</p>
-<p>Création de dashboards, modèles ML et outils d’aide à la décision.</p>
+<p>Chargée de missions actuarielles à Paris 8 avec une spécialisation en data analyse.</p>
+<p>Analyse statistique, machine learning et visualisation pour la prise de décision.</p>
 </div>
 </div>
 </section>
 
 <section id="competences">
-<h2>Compétences</h2>
+<h2>Compétences techniques</h2>
 <canvas id="skillsChart"></canvas>
+</section>
+
+<section id="skills">
+<h2>Soft & Hard Skills</h2>
+<div class="skills-grid">
+<div class="skill-box"><h3>Hard Skills</h3><p>SQL, Python, Power BI, Machine Learning, DataViz</p></div>
+<div class="skill-box"><h3>Soft Skills</h3><p>Autonomie, rigueur, analyse, adaptabilité</p></div>
+<div class="skill-box"><h3>Langues</h3><p>Anglais B2<br>Roumain B2<br>Espagnol A1</p></div>
+</div>
 </section>
 
 <section id="projets">
@@ -72,11 +88,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="card project">
 <img src="photo_p10.jpg">
 <h3>Eau Potable (2024)</h3>
-<p><strong>Contexte :</strong> ONG souhaitant améliorer l’accès à l’eau.</p>
-<p><strong>Objectif :</strong> Prioriser les investissements.</p>
-<p><strong>Méthodologie :</strong> Analyse + Dashboard.</p>
-<p><strong>Résultat :</strong> Aide à la décision stratégique.</p>
-<div><span class="tag">SQL</span><span class="tag">Tableau</span></div>
+<p><strong>Résultat :</strong> Dashboard stratégique.</p>
 <a class="btn" href="P10_1302OK.twbx" download>Dashboard</a>
 <a class="btn" href="P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>PPT</a>
 </div>
@@ -84,11 +96,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="card project">
 <img src="photo_p11.jpg">
 <h3>Étude de marché (2024)</h3>
-<p><strong>Contexte :</strong> Analyse stratégique.</p>
-<p><strong>Objectif :</strong> Segmenter marché.</p>
-<p><strong>Méthodologie :</strong> PCA + clustering.</p>
-<p><strong>Résultat :</strong> Segments exploitables.</p>
-<div><span class="tag">Python</span><span class="tag">ML</span></div>
+<p><strong>Résultat :</strong> Segmentation data.</p>
 <a class="btn" href="CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook</a>
 <a class="btn" href="Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>PPT</a>
 </div>
@@ -96,11 +104,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="card project">
 <img src="photo_p12.jpg">
 <h3>Faux Billets (2025)</h3>
-<p><strong>Contexte :</strong> Détection fraude.</p>
-<p><strong>Objectif :</strong> Classification ML.</p>
-<p><strong>Méthodologie :</strong> Modèles supervisés.</p>
-<p><strong>Résultat :</strong> Modèle fiable.</p>
-<div><span class="tag">ML</span><span class="tag">Python</span></div>
+<p><strong>Résultat :</strong> Modèle ML performant.</p>
 <a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
 <a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
 </div>
@@ -111,9 +115,9 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <section id="experience">
 <h2>Expériences</h2>
 <div class="timeline">
-<div class="timeline-item"><strong>2023 - Aujourd’hui</strong> : Data Analyst (en formation / projets)</div>
-<div class="timeline-item"><strong>2020-2022</strong> : Freelance Aide à domicile</div>
-<div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco</div>
+<div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : Chargée de missions actuarielles - Paris 8</div>
+<div class="timeline-item"><strong>2020-2022</strong> : Freelance - Paris</div>
+<div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco - Paris</div>
 </div>
 </section>
 
@@ -132,7 +136,10 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <div class="cards">
 <div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a></div>
 <div class="card"><a href="My First Board miro.pdf" download>Miro</a></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>Projet Aeroworld</a></div>
 <div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a></div>
+<div class="card"><a href="README.md" download>README</a></div>
 </div>
 </section>
 
@@ -144,10 +151,7 @@ h2{border-left:4px solid #2563eb;padding-left:10px;}
 <script>
 new Chart(document.getElementById("skillsChart"),{
 type:"radar",
-data:{
-labels:["SQL","Python","Stats","ML","Power BI","Viz"],
-datasets:[{data:[80,80,80,65,80,80]}]
-}
+data:{labels:["SQL","Python","Stats","ML","Power BI","Viz"],datasets:[{data:[80,80,80,65,80,80]}]}
 });
 </script>
 
