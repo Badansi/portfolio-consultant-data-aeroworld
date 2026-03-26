@@ -13,12 +13,28 @@
   --text-dark: #0f172a;
 }
 body {margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg-light);color:var(--text-dark);}
-nav {position:fixed;top:0;width:100%;background:var(--primary-slate);padding:15px;text-align:center;z-index:1000;}
-nav a {margin:0 12px;text-decoration:none;color:white;font-weight:500;transition:0.3s;}
-nav a:hover {color:var(--accent-gold);}
+a{text-decoration:none;}
+/* === NAVIGATION === */
+nav {position:fixed;top:0;width:100%;background:var(--primary-slate);padding:10px 20px;z-index:1000;display:flex;align-items:center;justify-content:space-between;}
+nav .logo{color:white;font-weight:600;font-size:18px;}
+nav .menu{display:flex;gap:12px;}
+nav .menu a{color:white;font-weight:500;padding:6px 8px;transition:0.3s;}
+nav .menu a:hover{color:var(--accent-gold);}
+nav .hamburger{display:none;flex-direction:column;cursor:pointer;}
+nav .hamburger div{width:25px;height:3px;background:white;margin:4px 0;transition:0.3s;}
+@media(max-width:900px){
+nav .menu{display:none;flex-direction:column;background:white;position:absolute;top:50px;right:20px;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+nav .menu.show{display:flex;}
+nav .menu a{color:var(--primary-slate);}
+nav .hamburger{display:flex;}
+}
+
+/* HEADER */
 header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,var(--bg-light),#e0e6e9);}
 header h1{font-size:42px;margin:0;color:var(--primary-slate);}
 header p{color:var(--primary-slate);font-size:18px;}
+
+/* SECTIONS */
 section{max-width:1100px;margin:auto;padding:60px 20px;}
 h2{border-left:6px solid var(--accent-gold);padding-left:12px;margin-bottom:25px;color:var(--primary-slate);font-size:28px;}
 .profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
@@ -59,23 +75,19 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 <body>
 
 <nav>
+<div class="logo">Danielle Chancerelle</div>
+<div class="hamburger" onclick="toggleHamburger()"><div></div><div></div><div></div></div>
+<div class="menu">
 <a href="#profil">Profil</a>
 <a href="#competences">Compétences</a>
 <a href="#skills">Soft & Hard Skills</a>
-<div class="dropdown">
-<a href="#">Projets ▼</a>
-<div class="dropdown-content">
-<a href="#" onclick="filterProjects('all')">Tous</a>
-<a href="#" onclick="filterProjects('public')">Public</a>
-<a href="#" onclick="filterProjects('assurance')">Assurance</a>
-<a href="#" onclick="filterProjects('industrie')">Industrie</a>
-</div>
-</div>
+<a href="#projets" onclick="showAllProjects()">Projets ▼</a>
 <a href="#experience">Expérience</a>
 <a href="#formations">Formations</a>
 <a href="#diplomes">Diplômes</a>
 <a href="#documents">Documents</a>
 <a href="#contact">Contact</a>
+</div>
 </nav>
 
 <header>
@@ -121,35 +133,29 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 <button onclick="filterProjects('industrie')">Industrie</button>
 </div>
 <div class="cards" id="projectsContainer">
-
 <div class="card project" data-type="public" onclick="openModal('projet_eau_potable.html')">
 <img src="photo_p10.jpg" alt="Eau Potable">
 <h3>Eau Potable</h3>
 <p>Dashboard interactif réduisant 20% du temps d’analyse anomalies</p>
 </div>
-
 <div class="card project" data-type="assurance" onclick="openModal('projet_etude_marche.html')">
 <img src="photo_p11.jpg" alt="Étude de marché">
 <h3>Étude de marché</h3>
 <p>Segmentation clients facilitant prise décision marketing</p>
 </div>
-
 <div class="card project" data-type="industrie" onclick="openModal('projet_faux_billets.html')">
 <img src="photo_p12.jpg" alt="Faux Billets">
 <h3>Faux Billets</h3>
 <p>Modèle ML avec 98% d’accuracy</p>
 </div>
-
 <div class="card project" data-type="industrie" onclick="openModal('projet_aeroworld.html')">
 <img src="gant.jpg" alt="AeroWorld">
 <h3>AeroWorld</h3>
 <p>Planning complet + suivi des risques</p>
 </div>
-
 </div>
 </section>
 
-<!-- Modal documents/projects -->
 <div id="modal" class="modal">
 <div class="modal-content">
 <span class="close" onclick="closeModal()">&times;</span>
@@ -207,6 +213,7 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 </footer>
 
 <script>
+function toggleHamburger(){document.querySelector('nav .menu').classList.toggle('show');}
 function toggleDetails(btn){ const d=btn.nextElementSibling; d.style.display=d.style.display==='block'?'none':'block'; }
 function changeExp(dir){ document.getElementById("expText").innerHTML = dir===1?"<strong>Expérience Data : 3 ans</strong>":"<strong>Spécialisation : Data & Actuariat</strong>"; }
 new Chart(document.getElementById("skillsChart"),{
@@ -219,6 +226,9 @@ function filterProjects(type){
 const cards=document.querySelectorAll('#projectsContainer .project');
 cards.forEach(c=>{c.style.display=(type==='all'||c.dataset.type===type)?'block':'none';});
 }
+
+// Scroll to projects & show all
+function showAllProjects(){document.getElementById('projets').scrollIntoView({behavior:'smooth'}); filterProjects('all');}
 
 // Modal open/close
 function openModal(url){document.getElementById('modal').style.display='block';document.getElementById('modalFrame').src=url;}
