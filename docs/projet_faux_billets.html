@@ -2,38 +2,50 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Projet Faux Billets - Danielle</title>
+<title>Faux Billets - Portfolio Danielle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-body{font-family:'Segoe UI',sans-serif;background:#f8f8f8;color:#2f3e46;margin:0;padding:0;}
-header{padding:50px 20px;text-align:center;background:#e0e6e9;}
-header h1{margin:0;color:#2f3e46;}
-header p{color:#2f3e46;}
-section{max-width:900px;margin:auto;padding:40px;}
-.cards{display:grid;grid-template-columns:1fr;gap:20px;}
-.card, .project{background:white;padding:20px;border-radius:12px;box-shadow:0 5px 15px rgba(0,0,0,0.1);}
-.btn{display:inline-block;margin-top:8px;padding:6px 10px;background:#2f3e46;color:white;border-radius:5px;text-decoration:none;font-size:13px;}
-.btn:hover{background:#d4af37;color:#2f3e46;}
+body{font-family:'Segoe UI',sans-serif;background:#f8f8f8;color:#0f172a;margin:0;scroll-behavior:smooth;}
+header{padding:60px 20px;text-align:center;background:#e0e6e9;}
+header h1{font-size:36px;margin:0;color:#2f3e46;}
+section{max-width:900px;margin:auto;padding:40px 20px;}
+h2{border-bottom:2px solid #d4af37;padding-bottom:10px;margin-bottom:20px;color:#2f3e46;}
+.btn{display:inline-block;margin:8px 5px;padding:6px 10px;background:#2f3e46;color:white;border-radius:5px;text-decoration:none;}
+.btn:hover{background:#d4af37;color:#2f172a;}
 </style>
 </head>
-  <!-- Footer -->
-<footer style="text-align:center;padding:20px;background:#2f3e46;color:#d4af37;font-size:13px;">
-  &copy; Badansi 2026 | Data
-</footer>
 <body>
+
 <header>
-<h1>Projet Faux Billets</h1>
-<p>Détection automatisée via Machine Learning</p>
+<h1>Projet Détection Faux Billets</h1>
+<p>Modèle ML supervisé</p>
 </header>
+
 <section>
-<h2>Description</h2>
-<p>Développement d’un modèle de machine learning pour détecter les faux billets avec précision, améliorant la fiabilité des systèmes de contrôle.</p>
-<h2>Documents</h2>
-<a class="btn" href="faux_billets (1).ipynb" download>Notebook</a>
-<a class="btn" href="Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>PPT</a>
-<h2>Images & Visualisations</h2>
-<img src="photo_p12.jpg" style="width:100%;border-radius:12px;margin-top:15px;">
-<h2>Navigation</h2>
-<a class="btn" href="index.html">Retour au portfolio</a>
+<h2>Objectif</h2>
+<p>Détecter automatiquement les faux billets en utilisant des modèles de Machine Learning supervisés.</p>
+
+<h2>Méthodologie</h2>
+<ul>
+<li>Collecte et nettoyage des données sur billets réels et faux</li>
+<li>Entraînement d’un modèle Random Forest</li>
+<li>Validation du modèle et évaluation performance</li>
+</ul>
+
+<h2>Résultats</h2>
+<ul>
+<li>Modèle avec 98% d’accuracy</li>
+<li>Notebook reproductible et rapport explicatif pour le client</li>
+</ul>
+
+<h2>Stack Technique</h2>
+<p>Python, R, Machine Learning, DataViz</p>
+
+<h2>Documents téléchargeables</h2>
+<a class="btn" href="docs/Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>Présentation</a>
+<a class="btn" href="docs/faux_billets (1).ipynb" download>Notebook</a>
+
+<a class="btn" href="index.html">← Retour au Portfolio</a>
 </section>
 </body>
 </html>
