@@ -11,11 +11,12 @@
   --accent-gold: #d4af37;
   --bg-light: #f8f8f8;
   --text-dark: #0f172a;
+  --nav-height: 60px;
 }
-body {margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg-light);color:var(--text-dark);}
-a{text-decoration:none;}
-/* === NAVIGATION === */
-nav {position:fixed;top:0;width:100%;background:var(--primary-slate);padding:10px 20px;z-index:1000;display:flex;align-items:center;justify-content:space-between;}
+body {margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg-light);color:var(--text-dark);scroll-behavior:smooth;}
+a{text-decoration:none;cursor:pointer;}
+/* NAVIGATION */
+nav {position:fixed;top:0;width:100%;background:var(--primary-slate);height:var(--nav-height);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:1000;}
 nav .logo{color:white;font-weight:600;font-size:18px;}
 nav .menu{display:flex;gap:12px;}
 nav .menu a{color:white;font-weight:500;padding:6px 8px;transition:0.3s;}
@@ -23,17 +24,17 @@ nav .menu a:hover{color:var(--accent-gold);}
 nav .hamburger{display:none;flex-direction:column;cursor:pointer;}
 nav .hamburger div{width:25px;height:3px;background:white;margin:4px 0;transition:0.3s;}
 @media(max-width:900px){
-nav .menu{display:none;flex-direction:column;background:white;position:absolute;top:50px;right:20px;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+nav .menu{display:none;flex-direction:column;background:white;position:absolute;top:var(--nav-height);right:20px;padding:20px;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
 nav .menu.show{display:flex;}
 nav .menu a{color:var(--primary-slate);}
 nav .hamburger{display:flex;}
 }
 /* HEADER */
-header{text-align:center;padding:120px 20px 60px;background:linear-gradient(to right,var(--bg-light),#e0e6e9);}
+header{text-align:center;padding:100px 20px 60px;background:linear-gradient(to right,var(--bg-light),#e0e6e9);}
 header h1{font-size:42px;margin:0;color:var(--primary-slate);}
 header p{color:var(--primary-slate);font-size:18px;}
 /* SECTIONS */
-section{max-width:1100px;margin:auto;padding:60px 20px;}
+section{max-width:1100px;margin:auto;padding:80px 20px 60px;}
 h2{border-left:6px solid var(--accent-gold);padding-left:12px;margin-bottom:25px;color:var(--primary-slate);font-size:28px;}
 .profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;}
 .profil img{width:180px;border-radius:50%;border:4px solid var(--accent-gold);}
@@ -53,7 +54,6 @@ h2{border-left:6px solid var(--accent-gold);padding-left:12px;margin-bottom:25px
 .timeline-item:hover{transform:scale(1.05);}
 .timeline-item:nth-child(odd){left:0;}
 .timeline-item:nth-child(even){left:50%;}
-.timeline-content{background:white;padding:20px;border-radius:10px;}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
 .skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);color:var(--primary-slate);font-weight:500;text-align:center;transition:0.3s;}
 .skill-box:hover{transform:scale(1.05);}
@@ -68,6 +68,8 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 .modal-content {background:white;margin:auto;padding:20px;border-radius:10px;max-width:800px;}
 .close {color:#aaa;float:right;font-size:28px;font-weight:bold;cursor:pointer;}
 .close:hover{color:black;}
+.modal a{display:block;margin:5px 0;color:var(--primary-slate);}
+.modal a:hover{color:var(--accent-gold);}
 </style>
 </head>
 <body>
@@ -131,26 +133,22 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 <button onclick="filterProjects('industrie')">Industrie</button>
 </div>
 <div class="cards" id="projectsContainer">
-<!-- Project cards with modal data -->
-<div class="card project" data-type="public" onclick="openProjectModal('Eau Potable','Analyser qualité & disponibilité eau sur 200+ communes','Nettoyage dataset (Pandas), consolidation SQL, KPIs Power BI','Dashboard interactif, réduction 20% temps analyse anomalies','Python, SQL, Power BI')">
+<div class="card project" data-type="public" onclick="openProjectModal('Eau Potable','Analyser qualité & disponibilité eau sur 200+ communes','Nettoyage dataset (Pandas), consolidation SQL, KPIs Power BI','Dashboard interactif, réduction 20% temps analyse anomalies','Python, SQL, Power BI',['projet_eau_potable.html'])">
 <img src="photo_p10.jpg" alt="Eau Potable">
 <h3>Eau Potable</h3>
 <p>Dashboard interactif réduisant 20% du temps d’analyse anomalies</p>
 </div>
-
-<div class="card project" data-type="assurance" onclick="openProjectModal('Étude de marché','Identifier 5 segments clients à partir de données socio-éco','Clustering K-Means, ACP, scoring','Segmentation clients facilitant prise décision marketing','Python (sklearn), DataViz')">
+<div class="card project" data-type="assurance" onclick="openProjectModal('Étude de marché','Identifier 5 segments clients à partir de données socio-éco','Clustering K-Means, ACP, scoring','Segmentation clients facilitant prise décision marketing','Python (sklearn), DataViz',['projet_etude_marche.html'])">
 <img src="photo_p11.jpg" alt="Étude de marché">
 <h3>Étude de marché</h3>
 <p>Segmentation clients facilitant prise décision marketing</p>
 </div>
-
-<div class="card project" data-type="industrie" onclick="openProjectModal('Faux Billets','Détecter automatiquement les faux billets','Modèle ML supervisé','Modèle ML à 98% d’accuracy','Python, RandomForest')">
+<div class="card project" data-type="industrie" onclick="openProjectModal('Faux Billets','Détecter automatiquement les faux billets','Modèle ML supervisé','Modèle ML à 98% d’accuracy','Python, RandomForest',['projet_faux_billets.html'])">
 <img src="photo_p12.jpg" alt="Faux Billets">
 <h3>Faux Billets</h3>
 <p>Modèle ML avec 98% d’accuracy</p>
 </div>
-
-<div class="card project" data-type="industrie" onclick="openProjectModal('AeroWorld','Pilotage projet Data','Gantt complet, suivi dépendances & risques','Planning complet + suivi des risques','Miro, gestion projet')">
+<div class="card project" data-type="industrie" onclick="openProjectModal('AeroWorld','Pilotage projet Data','Gantt complet, suivi dépendances & risques','Planning complet + suivi des risques','Miro, gestion projet',['projet_aeroworld.html'])">
 <img src="gant.jpg" alt="AeroWorld">
 <h3>AeroWorld</h3>
 <p>Planning complet + suivi des risques</p>
@@ -166,11 +164,55 @@ footer{text-align:center;padding:20px;background:var(--primary-slate);color:var(
 <p><strong>Méthodologie :</strong> <span id="modalMethod"></span></p>
 <p><strong>Résultats :</strong> <span id="modalResults"></span></p>
 <p><strong>Stack / Outils :</strong> <span id="modalStack"></span></p>
+<div id="modalFiles"></div>
 </div>
 </div>
 
-<!-- Experience, formations, diplômes, documents, contact sections remain same as previous version -->
-<!-- ... -->
+<section id="experience">
+<h2>Expérience</h2>
+<div class="timeline">
+<div class="timeline-item"><strong>2020-2022</strong> : Freelance Data Analyst - Paris<br>• Analyse & dashboards pour clients privés & publics<br>• Segmentation, visualisation et automatisation<br>• Analyse Bolt sur implantation de services de livraisons</div>
+<div class="timeline-item"><strong>2024-2026</strong> : CAVOM - Chargée de missions actuarielles<br>• Extraction & traitement des données (SQL)<br>• Analyses statistiques & reporting automatisé (Power BI)<br>• Contrôle qualité data & contribution aux travaux actuariels</div>
+</div>
+</section>
+
+<section id="formations">
+<h2>Formations</h2>
+<div class="timeline">
+<div class="timeline-item"><strong>2023-2025</strong> : Data Analyst - OpenClassrooms<br>→ SQL, Python, Modélisation, Machine Learning, Power BI, gestion projet data</div>
+<div class="timeline-item"><strong>2023</strong> : Certification Data Analyst - DataBird<br>→ SQL, Python, segmentation, dashboard</div>
+<div class="timeline-item"><strong>2016</strong> : Baccalauréat STL</div>
+</div>
+</section>
+
+<section id="diplomes">
+<h2>Diplômes</h2>
+<ul>
+<li>Bac STL - 2016</li>
+<li>Certification Data Analyst - DataBird - 2023</li>
+<li>Diplôme niveau 6 (Bac+4) RNCP Data Analyst - 2026</li>
+</ul>
+</section>
+
+<section id="documents">
+<h2>Documents</h2>
+<div class="cards">
+<div class="card"><a href="Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard de suivi des projets data</p></div>
+<div class="card"><a href="My First Board miro.pdf" download>Miro</a><p>Présentation visuelle du portfolio</p></div>
+<div class="card"><a href="PHASES DU PROJET AEROWORLD .xlsx" download>AeroWorld</a><p>Diagramme de Gantt et suivi projets</p></div>
+<div class="card"><a href="PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée des données</p></div>
+<div class="card"><a href="analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Analyse thèmes, temps, statut et avancement</p></div>
+<div class="card"><a href="README.md" download>README</a><p>Mission AeroWorld : vision stratégique, gestion projet et data</p></div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2>Contact</h2>
+<p>Email : dchancerelle@gmail.com</p>
+<p>LinkedIn : <a href="https://www.linkedin.com/in/danielle-chancerelle/" target="_blank">Voir profil</a></p>
+</section>
+
+<footer>&copy; Danielle Chancerelle 2026 | Data Analyst</footer>
 
 <script>
 function toggleHamburger(){document.querySelector('nav .menu').classList.toggle('show');}
@@ -181,14 +223,16 @@ data:{labels:["SQL","Python","Stats","Power BI","DataViz","Machine Learning"],da
 });
 function filterProjects(type){const cards=document.querySelectorAll('#projectsContainer .project');cards.forEach(c=>{c.style.display=(type==='all'||c.dataset.type===type)?'block':'none';});}
 function showAllProjects(){document.getElementById('projets').scrollIntoView({behavior:'smooth'}); filterProjects('all');}
-// Modal for projects
-function openProjectModal(title, goal, method, results, stack){
+function openProjectModal(title, goal, method, results, stack, files){
 document.getElementById('modal').style.display='block';
 document.getElementById('modalTitle').innerText=title;
 document.getElementById('modalGoal').innerText=goal;
 document.getElementById('modalMethod').innerText=method;
 document.getElementById('modalResults').innerText=results;
 document.getElementById('modalStack').innerText=stack;
+let container=document.getElementById('modalFiles');
+container.innerHTML='';
+if(files){files.forEach(f=>{let a=document.createElement('a');a.href=f;a.target='_blank';a.download=f;a.innerText='Télécharger '+f;container.appendChild(a);});}
 }
 function closeModal(){document.getElementById('modal').style.display='none';}
 </script>
