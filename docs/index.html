@@ -1,1 +1,568 @@
-<!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <title>Portfolio Data de Danielle</title> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <style> /* ===== THEME SLATE + OR ===== */ :root { --primary-slate: #2f3e46; --accent-gold: #d4af37; --bg-light: #f8f8f8; --text-dark: #0f172a; --btn-hover: #c49b2d; } /* BODY */ body{margin:0;font-family:'Segoe UI',sans-serif;background:var(--bg-light);color:var(--text-dark);} a{text-decoration:none;color:inherit;} header{text-align:center;padding:100px 20px 60px;background:linear-gradient(to right,var(--bg-light),#e0e6e9);} header h1{font-size:42px;margin:0;color:var(--primary-slate);} header p{color:var(--primary-slate);} /* NAVIGATION */ nav{position:fixed;top:0;width:100%;background:var(--primary-slate);padding:15px;text-align:center;z-index:1000;display:flex;justify-content:space-between;align-items:center;} nav .nav-links{display:flex;gap:12px;} nav .nav-links a{color:white;font-weight:500;padding:5px 8px;} nav .nav-links a:hover{color:var(--accent-gold);} .nav-toggle{display:none;cursor:pointer;font-size:20px;color:white;} @media(max-width:900px){ .nav-links{display:none;flex-direction:column;background:var(--primary-slate);position:absolute;top:55px;left:0;width:100%;text-align:center;} .nav-links.show{display:flex;} .nav-toggle{display:block;} } /* SECTIONS */ section{max-width:1100px;margin:auto;padding:60px 20px;} h2{padding-left:0;margin-bottom:25px;color:var(--primary-slate);font-size:28px;border:none;} /* PROFIL */ .profil{display:flex;gap:40px;flex-wrap:wrap;align-items:center;} .profil img{width:180px;border-radius:50%;border:4px solid var(--accent-gold);} .slider{margin-top:15px;display:flex;align-items:center;gap:10px;} .slider button{padding:4px 8px;background:var(--primary-slate);color:white;border:none;border-radius:4px;cursor:pointer;} .slider button:hover{background:var(--accent-gold);color:var(--primary-slate);} /* CARDS / PROJETS */ .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:25px;} .card, .project{background:white;padding:20px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,0.05);transition:0.3s;color:inherit;} .card:hover, .project:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.1);} .project img{width:100%;height:180px;object-fit:cover;border-radius:10px;} .btn{display:inline-block;margin-top:8px;padding:6px 10px;background:var(--primary-slate);color:white;border-radius:5px;font-size:13px;} .btn:hover{background:var(--accent-gold);color:var(--primary-slate);} .details{display:none;margin-top:10px;background:#f1f5f9;padding:10px;border-radius:8px;font-size:14px;} /* TIMELINE */ .timeline{position:relative;max-width:900px;margin:auto;} .timeline::after{content:'';position:absolute;width:3px;background:var(--accent-gold);top:0;bottom:0;left:50%;} .timeline-item{padding:20px 40px;position:relative;width:50%;} .timeline-item:nth-child(odd){left:0;} .timeline-item:nth-child(even){left:50%;} .timeline-content{background:white;padding:20px;border-radius:10px;} /* SKILLS */ .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;} .skill-box{background:white;padding:20px;border-radius:10px;box-shadow:0 5px 10px rgba(0,0,0,0.05);color:var(--primary-slate);font-weight:500;} /* CONTACT */ .contact{text-align:center;padding:40px;background:#f1f5f9;} .contact a{color:var(--primary-slate);} .contact a:hover{color:var(--accent-gold);} /* PROJECT FILTERS */ .project-filters{margin-bottom:20px;text-align:center;} .project-filters button{margin:0 5px;padding:6px 12px;background:var(--primary-slate);color:white;border:none;border-radius:5px;cursor:pointer;} .project-filters button:hover{background:var(--accent-gold);} .project-filters button.active{background:var(--accent-gold);color:white;} </style> </head> <body> <nav> <div class="nav-logo"><strong>Portfolio Danielle</strong></div> <div class="nav-toggle" onclick="toggleMenu()">☰</div> <div class="nav-links"> <a href="#profil">Profil</a> <a href="#competences">Compétences</a> <a href="#skills">Soft & Hard Skills</a> <a href="#projets">Projets ▼</a> <a href="#experience">Expérience</a> <a href="#formations">Formations</a> <a href="#diplomes">Diplômes</a> <a href="#documents">Documents</a> <a href="#contact">Contact</a> <a href="#centres">Centres d’intérêt</a> </div> </nav> <header> <h1>Data Analyst orientée Décisionnel</h1> <p>Chargée de missions actuarielles | CAVOM</p> </header> <!-- PROFIL --> <section id="profil"> <h2>Profil</h2> <div class="profil"> <img src="photo_profil.jpg" alt="Photo Danielle"> <div> <p>Data Analyst avec 3 ans d’expérience dans l’actuariat et l’exploitation de données pour des organismes publics. Spécialisée en extraction SQL, analyses statistiques, automatisation de reportings et DataViz stratégique. J’interviens sur la fiabilité des données, la création d’indicateurs décisionnels et la production de tableaux de bord à forte valeur métier.</p> <div class="slider"> <p id="expText"><strong>Expérience Data : 3 ans</strong></p> <button onclick="changeExp(1)">◀</button> <button onclick="changeExp(2)">▶</button> </div> </div> </div> </section> <!-- COMPETENCES --> <section id="competences"> <h2>Compétences techniques</h2> <canvas id="skillsChart"></canvas> </section> <section id="skills"> <h2>Soft & Hard Skills</h2> <div class="skills-grid"> <div class="skill-box">Hard Skills : SQL, Python, Machine Learning, Power BI, DataViz</div> <div class="skill-box">Soft Skills : Autonomie, rigueur, analyse, adaptabilité</div> <div class="skill-box">Langues : Anglais B2, Roumain B2, Espagnol A1</div> </div> </section> <!-- PROJETS --> <section id="projets"> <h2>Projets</h2> <div class="project-filters"> <button class="active" onclick="filterProjects('all')">Tous</button> <button onclick="filterProjects('public')">Public</button> <button onclick="filterProjects('assurance')">Assurance</button> <button onclick="filterProjects('industrie')">Industrie</button> </div> <div class="cards"> <div class="card project" data-category="public"> <img src="photo_p10.jpg"> <h3>Eau Potable</h3> <p><strong>Résultat :</strong> Dashboard stratégique</p> <button onclick="toggleDetails(this)">Voir détails</button> <div class="details">Analyse pour ONG visant à prioriser les investissements en accès à l’eau potable. Dashboard décisionnel avec indicateurs clés. Stack : Python, SQL, Power BI.</div> <a class="btn" href="projet_eau_potable.html">Voir projet</a> <a class="btn" href="docs/P10_OPC_Faites_une_étude_sur_l'eau_potable_pres.pptx" download>Télécharger docs</a> </div> <div class="card project" data-category="assurance"> <img src="photo_p11.jpg"> <h3>Étude de marché</h3> <p><strong>Résultat :</strong> Segmentation data</p> <button onclick="toggleDetails(this)">Voir détails</button> <div class="details">Analyse marché pour Bolt, clustering K-Means et PCA. Stack : Python, Power BI. Documents disponibles pour téléchargement.</div> <a class="btn" href="projet_etude_marche.html">Voir projet</a> <a class="btn" href="docs/OPC11_Notebook _2 _PCA _+_clustering_03_01_2026.ipynb" download>Télécharger docs</a> <a class="btn" href="docs/Produisez_une_étude_de_marché_avec_R_ou_P_03_01_2026.pptx" download>Télécharger docs</a> </div> <div class="card project" data-category="industrie"> <img src="photo_p12.jpg"> <h3>Faux Billets</h3> <p><strong>Résultat :</strong> Modèle ML performant</p> <button onclick="toggleDetails(this)">Voir détails</button> <div class="details">Détection des faux billets. Stack : Python, ML supervisé (RandomForest). Documentation et notebook disponibles.</div> <a class="btn" href="projet_faux_billets.html">Voir projet</a> <a class="btn" href="docs/faux_billets (1).ipynb" download>Télécharger docs</a> <a class="btn" href="docs/Détectez_des_faux_billets_avec_R_ou_Python.pptm" download>Télécharger docs</a> </div> <div class="card project" data-category="industrie"> <img src="gant.jpg"> <h3>AeroWorld</h3> <p><strong>Résultat :</strong> Diagramme de Gantt</p> <button onclick="toggleDetails(this)">Voir détails</button> <div class="details">Visualisation de l’avancement des projets AeroWorld : thèmes, temps, statut et progression. Stack : Miro, Excel.</div> <a class="btn" href="projet_aeroworld.html">Voir projet</a> <a class="btn" href="docs/PHASES DU PROJET AEROWORLD .xlsx" download>Télécharger docs</a> </div> </div> </section> <!-- EXPERIENCE --> <section id="experience"> <h2>Expérience</h2> <div class="timeline"> <div class="timeline-item"><strong>2024 - Aujourd’hui</strong> : Chargée de missions actuarielles - CAVOM (Paris)</div> <div class="timeline-item"><strong>2020-2022</strong> : Aide à domicile - Paris</div> <div class="timeline-item"><strong>2019-2020</strong> : Chef de rang - Bacco (Paris)</div> </div> </section> <!-- FORMATIONS --> <section id="formations"> <h2>Formations</h2> <div class="timeline"> <div class="timeline-item"><strong>2023-2025</strong> : Alternance Data Analyste - OpenClassrooms</div> <div class="timeline-item"><strong>2023</strong> : Formation Data Analyste - Databird</div> <div class="timeline-item"><strong>2022-2023</strong> : Développeur Back-End - O’clock</div> <div class="timeline-item"><strong>2016</strong> : Baccalauréat STL</div> </div> </section> <!-- DIPLOMES --> <section id="diplomes"> <h2>Diplômes</h2> <ul> <li>Baccalauréat STL - 2016</li> <li>Certification Data Analyste - Databird - 2023</li> <li>Diplôme RNCP niveau 6 (Bac+4) Data Analyste - 2026</li> </ul> </section> <!-- DOCUMENTS --> <section id="documents"> <h2>Documents</h2> <div class="cards"> <div class="card"><a href="docs/PRODUCTION_PORTFOLIO.pbix" download>Power BI</a><p>Visualisation avancée des données</p></div> <div class="card"><a href="docs/Documentation Outil viz.docx" download>Documentation Viz</a><p>Dashboard de suivi des projets</p></div> <div class="card"><a href="docs/My First Board miro.pdf" download>Miro</a><p>Présentation visuelle du portfolio et organisation</p></div> <div class="card"><a href="docs/analyse_projets_PBI_OPC_13.xlsx" download>Analyse projets</a><p>Analyse des thèmes, temps, statut et avancement</p></div> <div class="card"><a href="docs/README.md" download>README</a><p>Mission AeroWorld : vision stratégique, gestion projet et data</p></div> <div class="card"><a href="docs/CLEAN_ETUDE DE MARCHE_EXPLORATION_ET_PREPARATION_24_11_03_01_2026.ipynb" download>Notebook Étude de marché</a></div> </div> </section> <!-- CENTRES D'INTERET --> <section id="centres"> <h2>Centres d’intérêt</h2> <p>Chant (10 ans), Sport (3 ans)</p> </section> <!-- CONTACT --> <section id="contact" class="contact"> <h2>Contact</h2> <p>Email : dchancerelle@gmail.com</p> <p><a href="https://www.linkedin.com/in/danielle-d-7a4f4175" target="_blank">LinkedIn</a></p> </section> <script> function toggleDetails(btn){ const d = btn.nextElementSibling; d.style.display = d.style.display === 'block' ? 'none' : 'block'; } function changeExp(dir){ const el = document.getElementById("expText"); if(dir===1){el.innerHTML="<strong>Expérience Data : 3 ans</strong>"} else{el.innerHTML="<strong>Spécialisation : Data & Actuariat</strong>"} } new Chart(document.getElementById("skillsChart"),{ type:"radar", data:{ labels:["SQL","Python","Stats","Machine Learning","Power BI","Viz"], datasets:[{data:[80,80,80,75,80,80],backgroundColor:"rgba(212,175,55,0.2)",borderColor:"#d4af37"}] } }); function toggleMenu(){ document.querySelector('.nav-links').classList.toggle('show'); } function filterProjects(cat){ const projects = document.querySelectorAll('.cards .project'); projects.forEach(p=>{ if(cat==='all' || p.dataset.category===cat){p.style.display='block';} else{p.style.display='none';} }); document.querySelectorAll('.project-filters button').forEach(b=>b.classList.remove('active')); event.target.classList.add('active'); } </script> <footer style="text-align:center;padding:20px;background:#2f3e46;color:#d4af37;font-size:13px;"> &copy; Danielle 2026 | Data Portfolio </footer> </body> </html>  
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<title>Portfolio Data de Danielle</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+/* ===== THEME ===== */
+
+:root{
+--primary-slate:#2f3e46;
+--accent-gold:#d4af37;
+--bg-light:#f8f8f8;
+--text-dark:#0f172a;
+--btn-hover:#c49b2d;
+}
+
+/* ===== GLOBAL ===== */
+
+html{
+scroll-behavior:smooth;
+overflow-x:hidden;
+}
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:var(--bg-light);
+color:var(--text-dark);
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* ===== NAVBAR ===== */
+
+nav{
+position:fixed;
+top:0;
+width:100%;
+background:var(--primary-slate);
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:1000;
+box-sizing:border-box;
+}
+
+.nav-logo{
+color:white;
+font-size:18px;
+font-weight:600;
+}
+
+.nav-links{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.nav-links a{
+color:white;
+font-weight:500;
+padding:5px 8px;
+transition:0.3s;
+}
+
+.nav-links a:hover{
+color:var(--accent-gold);
+}
+
+.nav-toggle{
+display:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* ===== HEADER ===== */
+
+header{
+text-align:center;
+padding:120px 20px 60px;
+background:linear-gradient(to right,var(--bg-light),#e0e6e9);
+}
+
+header h1{
+font-size:42px;
+margin:0;
+color:var(--primary-slate);
+}
+
+header p{
+margin-top:10px;
+font-size:18px;
+color:var(--primary-slate);
+}
+
+/* ===== SECTIONS ===== */
+
+section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+h2{
+font-size:28px;
+margin-bottom:25px;
+color:var(--primary-slate);
+}
+
+/* ===== PROFIL ===== */
+
+.profil{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+.profil img{
+width:180px;
+border-radius:50%;
+border:4px solid var(--accent-gold);
+}
+
+.slider{
+margin-top:15px;
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.slider button{
+padding:4px 8px;
+background:var(--primary-slate);
+color:white;
+border:none;
+border-radius:4px;
+cursor:pointer;
+}
+
+.slider button:hover{
+background:var(--accent-gold);
+color:var(--primary-slate);
+}
+
+/* ===== CARDS ===== */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+}
+
+.card,
+.project{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+transition:0.3s;
+}
+
+.card:hover,
+.project:hover{
+transform:translateY(-5px);
+box-shadow:0 12px 30px rgba(0,0,0,0.1);
+}
+
+.project img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:10px;
+}
+
+.btn{
+display:inline-block;
+margin-top:8px;
+padding:8px 12px;
+background:var(--primary-slate);
+color:white;
+border-radius:5px;
+font-size:13px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:var(--accent-gold);
+color:var(--primary-slate);
+}
+
+.details{
+display:none;
+margin-top:10px;
+background:#f1f5f9;
+padding:10px;
+border-radius:8px;
+font-size:14px;
+}
+
+/* ===== FILTERS ===== */
+
+.project-filters{
+margin-bottom:20px;
+text-align:center;
+}
+
+.project-filters button{
+margin:5px;
+padding:8px 14px;
+background:var(--primary-slate);
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.project-filters button:hover,
+.project-filters button.active{
+background:var(--accent-gold);
+}
+
+/* ===== TIMELINE ===== */
+
+.timeline{
+position:relative;
+max-width:900px;
+margin:auto;
+}
+
+.timeline::after{
+content:'';
+position:absolute;
+width:3px;
+background:var(--accent-gold);
+top:0;
+bottom:0;
+left:50%;
+}
+
+.timeline-item{
+padding:20px 40px;
+position:relative;
+width:50%;
+box-sizing:border-box;
+}
+
+.timeline-item:nth-child(odd){
+left:0;
+}
+
+.timeline-item:nth-child(even){
+left:50%;
+}
+
+.timeline-content{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* ===== SKILLS ===== */
+
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.skill-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 5px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== CONTACT ===== */
+
+.contact{
+text-align:center;
+padding:40px;
+background:#f1f5f9;
+}
+
+.contact a:hover{
+color:var(--accent-gold);
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:20px;
+background:#2f3e46;
+color:#d4af37;
+font-size:13px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+nav{
+padding:12px 15px;
+flex-wrap:wrap;
+}
+
+.nav-logo{
+font-size:16px;
+}
+
+.nav-toggle{
+display:block;
+}
+
+.nav-links{
+display:none;
+flex-direction:column;
+position:absolute;
+top:65px;
+left:0;
+width:100%;
+background:var(--primary-slate);
+padding:15px 0;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.nav-links.show{
+display:flex;
+}
+
+.nav-links a{
+padding:14px;
+font-size:16px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+width:100%;
+text-align:center;
+}
+
+header{
+padding:130px 20px 50px;
+}
+
+header h1{
+font-size:30px;
+line-height:1.2;
+}
+
+header p{
+font-size:15px;
+}
+
+.profil{
+flex-direction:column;
+text-align:center;
+}
+
+.profil img{
+width:140px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.btn{
+display:block;
+text-align:center;
+}
+
+.timeline::after{
+left:20px;
+}
+
+.timeline-item{
+width:100%;
+padding-left:55px;
+padding-right:15px;
+left:0 !important;
+}
+
+h2{
+text-align:center;
+font-size:24px;
+}
+
+.project-filters{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+section{
+padding:50px 15px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="nav-logo">
+Portfolio Danielle
+</div>
+
+<div class="nav-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<div class="nav-links">
+
+<a href="#profil">Profil</a>
+<a href="#competences">Compétences</a>
+<a href="#skills">Soft Skills</a>
+<a href="#projets">Projets</a>
+<a href="#experience">Expérience</a>
+<a href="#formations">Formations</a>
+<a href="#diplomes">Diplômes</a>
+<a href="#documents">Documents</a>
+<a href="#centres">Centres d’intérêt</a>
+<a href="#contact">Contact</a>
+
+</div>
+
+</nav>
+
+<!-- HEADER -->
+
+<header>
+
+<h1>DATA ANALYST | SQL • POWER BI • PYTHON</h1>
+
+<p>
+Analyse décisionnelle • KPI • Reporting • DataViz • AMOA
+</p>
+
+</header>
+
+<!-- PROFIL -->
+
+<section id="profil">
+
+<h2>Profil</h2>
+
+<div class="profil">
+
+<img src="photo_profil.jpg" alt="Photo Danielle">
+
+<div>
+
+<p>
+Data Analyst avec près de 3 ans d’expérience dans l’analyse, la visualisation et la valorisation des données.
+Spécialisée en reporting décisionnel, production de KPI, qualité des données et automatisation via SQL, Python et Power BI.
+J’interviens actuellement dans un environnement AMOA orienté analyse statistique et pilotage d’activité.
+</p>
+
+<div class="slider">
+
+<p id="expText">
+<strong>Expérience Data : 3 ans</strong>
+</p>
+
+<button onclick="changeExp(1)">◀</button>
+<button onclick="changeExp(2)">▶</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COMPETENCES -->
+
+<section id="competences">
+
+<h2>Compétences techniques</h2>
+
+<canvas id="skillsChart"></canvas>
+
+</section>
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<h2>Soft & Hard Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-box">
+SQL • Python • Power BI • Machine Learning • DataViz • KPI • Reporting
+</div>
+
+<div class="skill-box">
+Collaboration • Analyse • Adaptabilité • Communication • Organisation
+</div>
+
+<div class="skill-box">
+Anglais B2 • Roumain B2 • Espagnol A2
+</div>
+
+</div>
+
+</section>
+
+<!-- SCRIPTS -->
+
+<script>
+
+function toggleMenu(){
+document.querySelector('.nav-links').classList.toggle('show');
+}
+
+function changeExp(dir){
+
+const el = document.getElementById("expText");
+
+if(dir===1){
+el.innerHTML="<strong>Expérience Data : 3 ans</strong>";
+}else{
+el.innerHTML="<strong>Spécialisation : Data & AMOA</strong>";
+}
+
+}
+
+new Chart(document.getElementById("skillsChart"),{
+type:"radar",
+data:{
+labels:["SQL","Python","Stats","ML","Power BI","Viz"],
+datasets:[{
+data:[80,80,80,75,85,80],
+backgroundColor:"rgba(212,175,55,0.2)",
+borderColor:"#d4af37"
+}]
+}
+});
+
+</script>
+
+<footer>
+© Danielle 2026 | Data Portfolio
+</footer>
+
+</body>
+</html>
